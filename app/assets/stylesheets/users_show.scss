@@ -1,0 +1,55 @@
+
+.container{
+  width:  100vw;
+  height: 100vh;
+  &-main{
+    &__center{
+      .mypage-user-icon{
+        a{
+          img{
+
+          }
+          h2{
+
+          }
+          &__number{
+            .my-review{
+
+            }
+            .my-item-number{
+
+            }
+          }
+        }
+      }
+      .mypage-user-tab{
+        &__header{
+          ul{
+            li{
+
+            }
+          }
+        }
+        &__notification{
+          ul{
+            li{
+            }
+            .last{
+              a{
+
+              }
+            }
+          }
+        }
+        &__todo{
+          ul{
+            li{
+
+            }
+          }
+        }
+      }
+    }
+  }
+}
+

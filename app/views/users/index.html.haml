@@ -1,0 +1,46 @@
+.container
+  / = render 'header'
+  / = render 'nav-bar'
+  .container-main
+    .container-main__center
+      .mypage-user-icon
+        %a{ href: "#"}
+          %img{src: "#"}
+          %h2 中田将洋
+          .maypage-user-icon__number
+            .my-review
+              評価
+              %span 0
+            .my-item-number
+              出品数
+              %span 1
+      .mypage-user-tab
+        .mypage-user-tab__header
+          %ul
+            %li お知らせ
+            %li やることリスト
+        .mypage-user-tab__notification
+          %ul
+            / ここのliはeach文三つ最新の情報取ってきて出すでだす
+            %li news1
+            %li news2
+            %li news3
+            %li.last
+              %a{ href: "#"}一覧を見る
+        .mypage-user-tab__todo
+          %ul
+            %li 発送しよう
+            %li レビューしよう
+
+      .mypage-banner
+        // バナーなので放置
+      .mypage-user-trade
+        .mypage-user-trade__header
+          %ul
+            %li 取引中
+            %li 過去の取引
+        .mypage-user-trade__content
+          %ul
+            %li item
+            %li item
+    .container-main__side
