@@ -4,7 +4,7 @@ class ImageUploader < CarrierWave::Uploader::Base
   # include CarrierWave::MiniMagick
 
   # Choose what kind of storage to use for this uploader:
-  storage :file          //ローカル環境変更のため設定変更
+  storage :file
   # storage :fog
 
   # Override the directory where uploaded files will be stored.
