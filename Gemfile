@@ -45,6 +45,7 @@ group :development, :test do
   gem 'capistrano-bundler'
   gem 'capistrano-rails'
   gem 'capistrano3-unicorn'
+  gem 'pry-rails'
 end
 
 group :development do
@@ -60,4 +61,13 @@ end
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 gem 'carrierwave'
 gem 'fog-aws'
-
+gem 'devise'
+gem 'mini_magick'
+gem 'jquery-rails'
+gem 'haml-rails'
+gem 'erb2haml'
+gem 'sprockets', '3.7.2'
+gem 'rails-i18n','~> 5.1'
+gem 'kaminari'
+gem 'mechanize'
+gem 'nokogiri'
