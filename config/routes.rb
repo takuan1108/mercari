@@ -1,5 +1,12 @@
 Rails.application.routes.draw do
-  resources :users, only: [:index]
-  root 'users#index'
-  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
+  devise_for :users
+  resources :users, only: [:index] do
+    collection do
+      get 'test'
+      get 'logout'
+    end
+  end
+  resources :items
+
+  root 'itemss#index'
 end

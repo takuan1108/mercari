@@ -1,0 +1,157 @@
+.items-header
+  .inner
+    .clearfix
+      %h1.l-left
+        %a{:href => "https://www.mercari.com/jp/"}
+          %img{:alt => "mercari", :height => "36", :src => "//www-mercari-jp.akamaized.net/assets/img/common/common/logo.svg?128691313", :width => "134"}/
+      %form.pc-header-form.l-right{:action => "https://www.mercari.com/jp/search/"}
+        %input.input-default{:name => "keyword", :placeholder => "キーワードから探す", :type => "search", :value => ""}/
+        %i.icon-search
+    .clearfix
+    .pc-header-nav-box
+      %nav.l-left
+        %ul.pc-header-nav
+          %li
+            %h2
+              %a.pc-header-nav-root.switch{:href => "https://www.mercari.com/jp/category/"} カテゴリーから探す
+            -# ここからプルダウンメニュー＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝
+            %ul.large-category-wrap
+              %li.large-category
+                %h3
+                  %a{:href => "https://www.mercari.com/jp/category/1/"} レディース
+                %ul.middle-category-wrap
+                  %li.middle-category
+                    %a{:href => "https://www.mercari.com/jp/category/11/"} トップス
+                    %ul.small-category-wrap
+                      %li.small-category
+                        %a{:href => "https://www.mercari.com/jp/category/119/"} Tシャツ/カットソー(半袖/袖なし)
+                      %li.small-category
+                        %a{:href => "https://www.mercari.com/jp/category/119/"} Tシャツ/カットソー(半袖/袖なし)
+                      %li.small-category
+                        %a{:href => "https://www.mercari.com/jp/category/119/"} Tシャツ/カットソー(半袖/袖なし)
+                      %li.small-category
+                        %a{:href => "https://www.mercari.com/jp/category/119/"} Tシャツ/カットソー(半袖/袖なし)
+                      %li.small-category
+                        %a{:href => "https://www.mercari.com/jp/category/119/"} Tシャツ/カットソー(半袖/袖なし)
+                      %li.small-category
+                        %a{:href => "https://www.mercari.com/jp/category/119/"} Tシャツ/カットソー(半袖/袖なし)
+                      %li.small-category
+                        %a{:href => "https://www.mercari.com/jp/category/119/"} Tシャツ/カットソー(半袖/袖なし)
+                      %li.small-category
+                        %a{:href => "https://www.mercari.com/jp/category/119/"} Tシャツ/カットソー(半袖/袖なし)
+                      %li.small-category
+                        %a{:href => "https://www.mercari.com/jp/category/132/"} パーカー
+                  %li.middle-category
+                    %a{:href => "https://www.mercari.com/jp/category/11/"} トップス
+                    %ul.small-category-wrap
+                  %li.middle-category
+                    %a{:href => "https://www.mercari.com/jp/category/11/"} トップス
+                    %ul.small-category-wrap
+                  %li.middle-category
+                    %a{:href => "https://www.mercari.com/jp/category/11/"} トップス
+                    %ul.small-category-wrap
+                  %li.middle-category
+                    %a{:href => "https://www.mercari.com/jp/category/11/"} トップス
+                    %ul.small-category-wrap
+                  %li.middle-category
+                    %a{:href => "https://www.mercari.com/jp/category/24/"} 時計
+                    %ul.small-category-wrap
+              %li.large-category
+                %h3
+                  %a{:href => "https://www.mercari.com/jp/category/1/"} レディース
+                %ul.middle-category-wrap
+              %li.large-category
+                %h3
+                  %a{:href => "https://www.mercari.com/jp/category/1/"} レディース
+                %ul.middle-category-wrap
+              %li.large-category
+                %h3
+                  %a{:href => "https://www.mercari.com/jp/category/1/"} レディース
+                %ul.middle-category-wrap
+              %li.large-category
+                %h3
+                  %a{:href => "https://www.mercari.com/jp/category/1/"} レディース
+                %ul.middle-category-wrap
+              %li.large-category
+                %h3
+                  %a{:href => "https://www.mercari.com/jp/category/1/"} カテゴリ一覧
+                %ul.middle-category-wrap
+
+            -# -----------------------------------------------------------------------------------
+          %li
+            %h2
+              %a.pc-header-nav-root{:href => "https://www.mercari.com/jp/category/"} ブランドから探す
+              -# --------プルダウンメニュー----------------------------------------------------------------------------
+              %ul.large-category-wrap
+                %li.large-category
+                  %h3
+                    %a{:href => "https://www.mercari.com/jp/brand/658/"} シャネル
+              -# -----------------------------------------------------------------------------------
+      .l-right
+        %ul.pc-header-user-nav
+          %li
+            %a.pc-header-nav-root.mypage{:href => "https://www.mercari.com/jp/mypage/"}
+              %figure
+                %div
+                  %img{:alt => "", :src => "//static-mercari-jp-imgtr2.akamaized.net/images/member_photo_noimage_thumb.png", :width => "32"}/
+              %div マイページ
+            .pc-header-user-box.pc-header-mypage-box.mypage.mypage-detail
+              .pc-header-mypage-state.text-center
+                %figure
+                  %div
+                    %img{:alt => "", :src => "//static-mercari-jp-imgtr2.akamaized.net/images/member_photo_noimage_thumb.png", :width => "60"}/
+                  %figcaption しろ
+                %ul.pc-header-mypage-review-listing
+                  %li
+                    %a{:href => "https://www.mercari.com/jp/mypage/review/history/"} 評価: 0
+                  %li
+                    %a{:href => "https://www.mercari.com/jp/mypage/listings/listing/"} 出品数: 0
+                %ul.pc-header-mypage-sales-point
+                  %li
+                    %a.clearfix{:href => "https://www.mercari.com/jp/mypage/sales/"}
+                      .l-left 売上金
+                      .l-right
+                        ¥ 0
+                        %i.icon-arrow-right
+                  %li
+                    %a.clearfix{:href => "https://www.mercari.com/jp/mypage/point/"}
+                      .l-left ポイント
+                      .l-right
+                        P 0
+                        %i.icon-arrow-right
+              %ul.mypage-nav-list
+                %li
+                  %a.mypage-nav-list-item{:href => "https://www.mercari.com/jp/mypage/like/history/"}
+                    いいね！一覧
+                    %i.icon-arrow-right
+                %li
+                  %a.mypage-nav-list-item{:href => "https://www.mercari.com/jp/mypage/listings/listing/"}
+                    出品した商品 - 出品中
+                    %i.icon-arrow-right
+                %li
+                  %a.mypage-nav-list-item{:href => "https://www.mercari.com/jp/mypage/listings/in_progress/"}
+                    出品した商品 - 取引中
+                    %i.icon-arrow-right
+                %li
+                  %a.mypage-nav-list-item{:href => "https://www.mercari.com/jp/mypage/listings/completed/"}
+                    出品した商品 - 売却済み
+                    %i.icon-arrow-right
+                %li
+                  %a.mypage-nav-list-item{:href => "https://www.mercari.com/jp/mypage/purchase/"}
+                    購入した商品 - 取引中
+                    %i.icon-arrow-right
+                %li
+                  %a.mypage-nav-list-item{:href => "https://www.mercari.com/jp/mypage/purchased/"}
+                    購入した商品 - 過去の取引
+                    %i.icon-arrow-right
+          %li{"data-id" => "pc-header-user-nav", "data-key" => "notification_list", "data-url" => "https://www.mercari.com/jp/mypage/notification_and_todo_json/"}
+            %a.pc-header-nav-root{"data-url" => "https://www.mercari.com/jp/mypage/notification_and_todo_json/", :href => "https://www.mercari.com/jp/mypage/notification/"}
+              %i.icon-bell
+              %span お知らせ
+            %ul.pc-header-user-box.pc-header-notification-box.mypage-item-list{"data-id" => "pc-header-user-items"}
+          %li{"data-id" => "pc-header-user-nav", "data-key" => "todo_list", "data-url" => "https://www.mercari.com/jp/mypage/notification_and_todo_json/"}
+            %a.pc-header-nav-root{"data-url" => "https://www.mercari.com/jp/mypage/notification_and_todo_json/", :href => "https://www.mercari.com/jp/mypage/todo/"}
+              %i.icon-check
+              %span やることリスト
+            %ul.pc-header-user-box.pc-header-todo-box.mypage-item-list{"data-id" => "pc-header-user-items"}
+  .clearfix
