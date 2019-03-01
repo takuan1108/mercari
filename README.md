@@ -70,7 +70,7 @@ Things you may want to cover:
 ## prefectures
 |Column|Type|Options|
 |------|----|-------|
-|prefecture_name|string|
+|prefecture|string|
 ### Association
 - has_one :street_address
 - has_one :item
@@ -179,9 +179,15 @@ Things you may want to cover:
 ## sizes
 |Column|Type|Options|
 |------|----|-------|
-|sml|string|
-|cm|decimal|precision: 3, scale: 1|
-|inch|integer|
+|cloth|string|
+|mens_shoes|string|
+|ladies_shoes|string|
+|kids_shoes|string|
+|kid_cloth_small|string|
+|kid_cloth|string|
+|tv|string|
+|bike|string|
+|tire|string|
 ### Association
 - has_one :item
 
@@ -209,14 +215,14 @@ Things you may want to cover:
 |Column|Type|Options|
 |------|----|-------|
 |user|references|foreign_key: true|
-|bank|string|null: false|
-|bank_account|string|null: false|
-|branch_code|integer|null: false|
-|account_number|integer|null: false|
-|family_name|string|null: false|
-|first_name|string|null: false|
+|bank|string|
+|bank_account|string|
+|branch_code|integer|
+|account_number|integer|
+|family_name|string|
+|first_name|string|
 |post_number|integer|
-|prefectures_id|string|
+|prefectures|references|foreign_key: true|
 |city|string|
 |address|string|
 |building_name|string|
@@ -254,8 +260,7 @@ Things you may want to cover:
 |status|string|null: false|
 |user|references|foreign_key: true|
 |item|references|foreign_key: true|
-|item|references|foreign_key: true|
-|item|references|foreign_key: true|
+|vendor|references|foreign_key: true|
 ### Association
 - belongs_to :user
 - belongs_to :vendor
