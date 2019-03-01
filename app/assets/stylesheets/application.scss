@@ -1,2 +1,9 @@
-
+*{
+  box-sizing:border-box;
+}
+@import 'reset';
+@import 'header';
+@import 'footer';
 @import 'users_show';
+@import 'items_index';
+@import 'item-card';
