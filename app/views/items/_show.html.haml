@@ -15,32 +15,32 @@
             %tr
               %th 出品者
               %td
-                %a{href: "/"} 出品者の評価
+                = link_to "出品者の評価", "/"
                 .rate-container
                   .rate-container-box
                     .good-icon
-                      %i.fa.fa-smile-o
+                      = fa_icon "smile-o"
                     .good.int  151
                   .rate-container-box
                     .normal-icon
-                      %i.fa.fa-meh-o
+                      = fa_icon "meh-o"
                     .normal.int 2
                   .rate-container-box
                     .bad-icon
-                      %i.fa.fa-frown-o
+                      = fa_icon "frown-o"
                     .bad.int 0
             %tr
               %th カテゴリー
               %td
-                %a{href: "/"} メンズ
+                = link_to "メンズ", "/"
                 %br
-                %a{href: "/"} ＞ジャケット/アウター
+                = link_to "＞ジャケット/アウター", "/"
                 %br
-                %a{href: "/"} ＞ナイロンジャケット
+                = link_to "＞ナイロンジャケット", "/"
             %tr
               %th ブランド
               %td
-                %a{href: "/"} ナイキ
+                = link_to "ナイキ", "/"
             %tr
               %th 商品のサイズ
               %td L
@@ -56,7 +56,7 @@
             %tr
               %th 配送元地域
               %td
-                %a{href: "/"} 京都府
+                = link_to "京都府","/"
             %tr
               %th 発送日の目安
               %td 2~3日で発送
@@ -65,7 +65,7 @@
       .tax (税込)
       .shipping-fee 送料込み
     .item-show-main__buy-btn
-      %a 購入画面に進む
+      = link_to "購入画面に進む", "/"
     .item-show-main__description
       %p 両面、ビッグスウォッシュです。
       %br【サイズ】
@@ -74,14 +74,17 @@
       %br 肩幅 62cm
     .item-show-main__other
       .left-btn
-        %a{href: "/"}
-          %i.fa.fa-heart-o いいね！
+        = link_to "/" do
+          = fa_icon "heart-o"
+          いいね
       .center-btn
-        %a{href: "/"}
-          %i.fa.fa-flag-o 不適切な商品の報告
+        = link_to "/" do
+          = fa_icon "flag-o"
+          不適切な商品の報告
       .right-btn
-        %a{href: "/"}
-          %i.fa.fa-lock あんしん・あんぜんへの取り組み
+        = link_to "/" do
+          = fa_icon "lock"
+          あんしん・あんぜんへの取り組み
   .item-show-comment
     %p 相手のことを考え丁寧なコメントを心がけましょう。不快な言葉遣いなどは利用制限や退会処分となることがあります。
     %form
@@ -90,15 +93,15 @@
         %span コメントする
   .item-show-link
     .item-show-link__prev
-      %a{href: "/"} ＜ジャケット
+      = link_to "＜ジャケット" , "/"
     .item-show-link__next
-      %a{href: "/"} 大人気！リップグロス容器＞
+      = link_to "大人気！リップグロス容器＞" , "/"
   .item-show-sns
     .item-show-sns-container
       %ul
         %li
-          %i.fa.fa-facebook-square
+          = fa_icon 'facebook-square'
         %li
-          %i.fa.fa-twitter-square
+          = fa_icon 'twitter-square'
         %li
-          %i.fa.fa-pinterest-square
+          = fa_icon 'pinterest-square'
