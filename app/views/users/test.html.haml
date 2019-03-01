@@ -3,70 +3,18 @@
   / = render 'nav-bar'
   .my-container-main
     .my-container-main__center
-      .mypage-user-icon
-        %a{ href: "#"}
-          %img{ src: "assets/member_photo_noimage.png"}
-          %h2 中田将洋
-          .my-number
-            .my-review
-              評価
-              %span 0
-            .my-item-number
-              出品数
-              %span 1
-      .mypage-user-tab
-        .mypage-user-tab__header
-          %ul
-            %li.note お知らせ
-            %li.todo.action やることリスト
-        .mypage-user-tab__notification
-          %ul
-            / ここのliはeach文三つ最新の情報取ってきて出すでだす
-            %li
-              %span
-                %img{src: "assets/mercari_profile.png"}
-              news1
-            %li
-              %span
-                %img{src: "assets/mercari_profile.png"}
-              news2
-            %li
-              %span
-                %img{src: "assets/mercari_profile.png"}
-              news3
-            %li.last
-              %a{ href: "#"}一覧を見る
-        .mypage-user-tab__todo
-          %ul
-            %li
-              %span
-                %img{src: "assets/mercari_profile.png"}
-              発送しよう
-            %li
-              %span
-                %img{src: "assets/mercari_profile.png"}
-              レビューしよう
+      .my-edit
+        %h2 プロフィール
+        %form.edit-profile
+          .edit-user-name
+            %span
+              =image_tag("member_photo_noimage.png")
+            %span
+              %input.text{type:"text", value: '中田将洋'}
+          .edit-user-content
+            %textarea.user-content{placeholder: "例）こんにちは☆ ご覧いただきありがとうございます！かわいいものやきれいめオフィスカジュアル中心に出品しています。服のサイズは主に9号です。気持ちよくお取引できるよう心がけていますので、商品や発送方法などご質問がありましたらお気軽にどうぞ♪"}
+            %input.submit{type: "submit" ,value: '変更する'}
 
-      .mypage-user-banner
-        // バナーなので放置
-      .mypage-user-trade
-        .mypage-user-trade__header
-          %ul
-            %li.now 取引中
-            %li.past.action 過去の取引
-        .mypage-user-trade__content
-          .trading-now
-            %ul
-              %li
-                %span
-                  %img{src: "assets/mercari_profile.png"}
-                item1
-          .trading-past
-            %ul
-              %li
-                %span
-                  %img{src: "assets/mercari_profile.png"}
-                item2
     .my-container-main__side
       .my-container-main__side-list
         %ul.mypage-lists
@@ -192,3 +140,4 @@
     %a.icon-camera
       .icon-camera__box
         = image_tag ("camera01.png")
+
