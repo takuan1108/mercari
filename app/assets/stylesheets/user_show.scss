@@ -44,14 +44,14 @@ body{
             font-weight: 600;
             margin-top: 8px;
           }
-          .my-number{
+          &-numbers{
             display: inline-block;
             margin-top: 8px;
             font-size:14px;
-            .my-review{
+            &__review{
               float: left;
             }
-            .my-item-number{
+            &__number{
               float: left;
               margin-left:16px;
             }
