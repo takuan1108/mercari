@@ -2,7 +2,7 @@
   .inner
     .clearfix
       %h1.l-left
-        =link_to(image_tag("#"),root_path)
+        =link_to(image_tag("logo.svg"),root_path)
       %form.pc-header-form.l-right{:action => "https://www.mercari.com/jp/search/"}
         %input.input-default{:name => "keyword", :placeholder => "キーワードから探す", :type => "search", :value => ""}
         =link_to(fa_icon("search"),"#",class:'icon-search')
