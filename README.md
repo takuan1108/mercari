@@ -58,11 +58,19 @@ Things you may want to cover:
 |Column|Type|Options|
 |------|----|-------|
 |post_number|integer|
+<<<<<<< HEAD
+|prefecture_id|references|foreign_key: true|
+|city|string|
+|address|string|
+|building_name|string|
+|user_id|references|foreign_key: true|
+=======
 |prefectures|references|foreign_key: true|
 |city|string|
 |address|string|
 |building_name|string|
 |user|references|foreign_key: true|
+>>>>>>> ma-kun92/master
 ### Association
 - belongs_to :user
 - belongs_to :prefecture
@@ -83,14 +91,22 @@ Things you may want to cover:
 |month|integer|null: false|
 |year|integer|null: false|
 |security_code|integer|null: false|
+<<<<<<< HEAD
+|user_id|references|foreign_key: true|
+=======
 |user|references|foreign_key: true|
+>>>>>>> ma-kun92/master
 ### Association
 - belongs_to :user
 
 ## social_profiles
 |Column|Type|Options|
 |------|----|-------|
+<<<<<<< HEAD
+|user_id|references|foreign_key: true|
+=======
 |user|references|foreign_key: true|
+>>>>>>> ma-kun92/master
 |provider|string|null: false|
 |uid|string|null: false|
 |access_token|string|
@@ -106,7 +122,11 @@ Things you may want to cover:
 |------|----|-------|
 |title|string|null: false|
 |info|text|null: false|
+<<<<<<< HEAD
+|user_id|references|foreign_key: true|
+=======
 |user|references|foreign_key: true|
+>>>>>>> ma-kun92/master
 ### Association
 - belongs_to :user
 
@@ -114,8 +134,13 @@ Things you may want to cover:
 |Column|Type|Options|
 |------|----|-------|
 |comment|text|null: false|
+<<<<<<< HEAD
+|user_id|references|foreign_key: true|
+|item_id|references|foreign_key: true|
+=======
 |user|references|foreign_key: true|
 |item|references|foreign_key: true|
+>>>>>>> ma-kun92/master
 ### Association
 - belongs_to :user
 - belongs_to :item
@@ -125,8 +150,13 @@ Things you may want to cover:
 |------|----|-------|
 |point|integer|null: false|
 |reason|string|null: false|
+<<<<<<< HEAD
+|user_id|references|foreign_key: true|
+|vendor_id|references|foreign_key: true|
+=======
 |user|references|foreign_key: true|
 |vendor|references|foreign_key: true|
+>>>>>>> ma-kun92/master
 ### Association
 - belongs_to :user
 - belongs_to :vendor
@@ -141,12 +171,21 @@ Things you may want to cover:
 |shipping_method|string|null: false|
 |shipping_date|string|null: false|
 |shipping_fee|string|null: false|
+<<<<<<< HEAD
+|category_id|references|foreign_key: true|
+|size_id|references|foreign_key: true|
+|prefecture_id|references|foreign_key: true|
+|brand_id|references|foreign_key: true|
+|user_id|references|foreign_key: true|
+|vendor_id|references|foreign_key: true|
+=======
 |category|references|foreign_key: true|
 |size|references|foreign_key: true|
 |prefecture|references|foreign_key: true|
 |brand|references|foreign_key: true|
 |user|references|foreign_key: true|
 |vendor|references|foreign_key: true|
+>>>>>>> ma-kun92/master
 
 ### Association
 - belongs_to :user
@@ -165,7 +204,11 @@ Things you may want to cover:
 |Column|Type|Options|
 |------|----|-------|
 |image|string|null: false|
+<<<<<<< HEAD
+|item_id|references|foreign_key: true|
+=======
 |item|references|foreign_key: true|
+>>>>>>> ma-kun92/master
 ### Association
 - belongs_to :item
 
@@ -204,8 +247,13 @@ Things you may want to cover:
 |Column|Type|Options|
 |------|----|-------|
 |comment|text|null: false|
+<<<<<<< HEAD
+|user_id|references|foreign_key: true|
+|item_id|references|foreign_key: true|
+=======
 |user|references|foreign_key: true|
 |item|references|foreign_key: true|
+>>>>>>> ma-kun92/master
 
 ### Association
 - belongs_to :user
@@ -214,7 +262,11 @@ Things you may want to cover:
 ## vendors
 |Column|Type|Options|
 |------|----|-------|
+<<<<<<< HEAD
+|user_id|references|foreign_key: true|
+=======
 |user|references|foreign_key: true|
+>>>>>>> ma-kun92/master
 |bank|string|
 |bank_account|string|
 |branch_code|integer|
@@ -222,7 +274,11 @@ Things you may want to cover:
 |family_name|string|
 |first_name|string|
 |post_number|integer|
+<<<<<<< HEAD
+|prefecture_id|references|foreign_key: true|
+=======
 |prefectures|references|foreign_key: true|
+>>>>>>> ma-kun92/master
 |city|string|
 |address|string|
 |building_name|string|
@@ -239,8 +295,13 @@ Things you may want to cover:
 |------|----|-------|
 |satisfaction_level|string|null: false|
 |comment|text|null: false|
+<<<<<<< HEAD
+|user_id|references|foreign_key: true|
+|vendor_id|references|foreign_key: true|
+=======
 |user|references|foreign_key: true|
 |vendor|references|foreign_key: true|
+>>>>>>> ma-kun92/master
 ### Association
 - belongs_to :user
 - belongs_to :vendor
@@ -248,8 +309,13 @@ Things you may want to cover:
 ## likes
 |Column|Type|Options|
 |------|----|-------|
+<<<<<<< HEAD
+|user_id|references|foreign_key: true|
+|item_id|references|foreign_key: true|
+=======
 |user|references|foreign_key: true|
 |item|references|foreign_key: true|
+>>>>>>> ma-kun92/master
 ### Association
 - belongs_to :user
 - belongs_to :item
@@ -258,9 +324,15 @@ Things you may want to cover:
 |Column|Type|Options|
 |------|----|-------|
 |status|string|null: false|
+<<<<<<< HEAD
+|user_id|references|foreign_key: true|
+|item_id|references|foreign_key: true|
+|vendor_id|references|foreign_key: true|
+=======
 |user|references|foreign_key: true|
 |item|references|foreign_key: true|
 |vendor|references|foreign_key: true|
+>>>>>>> ma-kun92/master
 ### Association
 - belongs_to :user
 - belongs_to :vendor
