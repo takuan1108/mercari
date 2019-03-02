@@ -1,5 +1,8 @@
 .items-index{
   // ------共通部分を定義----------
+  *{
+    box-sizing: border-box;
+  }
   h1{
     text-align:center;
     font-size: 28px;
@@ -25,11 +28,31 @@
       background-repeat: repeat-x;
       background-image:url(https://www.mercari.com/jp/assets/img/common/jp/top/banner-new-life.jpg);
       background-position: center;
-      &__switch{
-
+      &__angle{
+        height:90%;
+        padding:0 100px;
+        .fa{
+          color:white;
+          font-size: 100px;
+          width:50%;
+          line-height: 360px;
+          transform:translateY(15px);
+        }
+        .fa-angle-left{
+          float:left;
+        }
+        .fa-angle-right{
+          text-align:right;
+        }
       }
       &__page{
-
+        .circle-box{
+          text-align:center;
+          .fa{
+            margin:0 10px;
+            z-index:1001;
+          }
+        }
       }
     }
   }

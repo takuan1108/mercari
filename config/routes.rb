@@ -8,5 +8,8 @@ Rails.application.routes.draw do
   resources :items
 
   root 'items#index'
+<<<<<<< HEAD
 
+=======
+>>>>>>> ma-kun92/master
 end

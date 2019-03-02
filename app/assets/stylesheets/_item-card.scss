@@ -1,7 +1,6 @@
 .item-card{
   background:#ffffff;
   width:213px;
-  margin:0 0 0 20px;
   float:left;
   &__image{
     height:220px;
@@ -29,6 +28,8 @@
       }
       .likes{
         float:right;
+        .fa{
+        }
       }
       .tax{
         font-size:10px;

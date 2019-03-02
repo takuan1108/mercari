@@ -12,7 +12,6 @@
     font-size:14px;
     color:#333;
   }
-
   img{
     vertical-align: middle;
   }
@@ -31,6 +30,11 @@
     .clearfix{
       .l-left{
         float:left;
+        a{
+          width: 134px;
+          height:36px;
+          display:block;
+        }
       }
       .pc-header-form.l-right{
         position:relative;
@@ -41,6 +45,7 @@
           height:36px;
           padding:9px 32px 9px 8px;
           background: #fafafa;
+          border-radius:4px;
           transition:all;           // コレ何？？
         }
         .icon-search{
@@ -73,47 +78,49 @@
             }
             .large-category-wrap{   //カテゴリ大
               position:absolute;
+              height:calc(44px * 10); //カテゴリ数をRubyからcountする
               top:38px;
               z-index:1000;
               background:#fff;
+              display:none;
               .large-category{
-                display:none;                //javascriptはコチラ
                 width:224px;
                 padding:0;
-                h3{
+                a{
                   font-weight: 400;
                   font-size:14px;
-                  a{
-                    margin:0 16px;
-                    line-height:44px;
-                  }
+                  margin:0 16px;
+                  line-height:44px;
                 }
                 .middle-category-wrap{  //カテゴリ中
                   position:absolute;
+                  height:calc(44px * 10); //カテゴリ数をRubyからcountする
                   top:0;
                   left:224px;
                   bottom: 0;
                   background:#fff;
                   box-shadow:1px 0 0 0 #eee;
+                  display:none;
                   .middle-category{
-                    display:none;                //javascriptはコチラ
                     width:224px;
+                    padding:8px 16px 8px 16px;
                     a{
-                      padding:8px 16px;
+                      margin:0 0;
+                      line-height: 0px;
+
                     }
                     .small-category-wrap{    //カテゴリ小
                       position:absolute;
+                      height:calc(44px * 10); //カテゴリ数をRubyからcountする
                       top:0;
                       left:224px;
                       bottom:0;
                       background: #fff;
                       box-shadow: 1px 0 0 0 #eee;
+                      display:none;
                       .small-category{
-                        display:none;             //javascript
                         width: 320px;
-                        a{
-                          padding:8px 16px;
-                        }
+                        padding:8px 16px;
                       }
                     }
                   }
@@ -131,42 +138,48 @@
             font-size: 14px;
             color:#333;
           }
-          font-size:0;
           li{
             position:relative;
             display:inline-block;
-            .pc-header-user-nav-root{            //マイページ
+            line-height: 32px;
+            .pc-header-nav-root{            //マイページ
+              float:left;
               position:relative;
               height:38px;
-              line-height: 32px;
-              figure{
-                line-height:0;
+              .user-icon{
+                width:32px;
+                border-radius:16px;
               }
-              // div:not([class]){
-              //   display:inline-block;
-              //   margin: 0 0 0 8px;
-              //   font-size:14px;
-              //   vertical-align:middle;
-              // }                     //表現不明(上でdiv:not([class[)で適用させたがおかしい)
+            }
+            .mypage-title{
+              float:right;
+              padding:0 0 0 10px;
             }
             .pc-header-user-box.pc-header-mypage-box{
               position:absolute;
               left:0;
               top:38px;
               z-index: 1;
-              display:none;            //javascript
+              display:none;
               width:320px;
               background:#fff;
               box-shadow: 0 1px 1px 0 rgba(0,0,0,0.24);
               font-size:14px;
               .pc-header-mypage-state.text-center{
-                figure{
+                .user-background{
                   padding:28px 0 0;
+                  margin:0 0 0px;
                   height:80px;
-                  background:#dddddd;                 //コレは仮多分ユーザーごとに設定できる
+                  background-image:url(/assets/user-bg.jpg);
                   background-repeat: no-repeat;
                   background-size:320px 80px;
-                                                      //ココのdivは変更する必要あり
+
+                  .user-icon{
+                    img{
+                      border-radius:30px;
+                      width:60px;
+                    }
+                  }
                   figcaption{
                     margin:8px 0 0;
                     padding:0 8px;
@@ -174,7 +187,6 @@
                   }
                 }
                 .pc-header-mypage-review-listing{
-                  margin:40px 0 0;
                   padding:8px 8px 0;
                   font-size:0;
                   text-align:center;
@@ -193,34 +205,30 @@
                   margin:16px auto;
                   background: #fafafa;
                   border:1px solid #eee;
-                  li:first-child{
-                    a{
-                      padding:0 8px;
-                      line-height: 40px
-                    }
-                  }
                   li{
                     border-top:1px solid #eee;
                   }
                 }
               }
               .mypage-nav-list{
-                li:first-child{
-                  border:0;
-                  .mypage-nav-list-item{
-                    position:relative;
-                    min-height:48px;
-                    padding:16px;
-                    background: #fff;
-                  }
+                a{
+                  margin:0;
+                }
+                .fa{
+                  float:right;
+                  line-height: 48px;
+                  width: 30px;
                 }
                 li{
                   border-top:1px solid #eee;
+                  padding:0px;
+                  width:100%;
                   .mypage-nav-list-item{
-                    position:relative;
+                    line-height: 48px;
                     min-height:48px;
-                    padding:16px;
                     background: #fff;
+                    margin:0 0 0 16px;
+                    width:300px;
                   }
                 }
               }
@@ -241,7 +249,7 @@
             }
             .pc-header-user-box.pc-header-notification-box.mypage-item-list{
               left:50%;
-              transform: translate(-50%,0);                                //これの後ろ作り込み必要
+              transform: translate(-50%,0);                               //これの後ろ,お知らせ機能の実装に合わせて作り込み必要
 
               li{
                 border-bottom:1px solid #eee;

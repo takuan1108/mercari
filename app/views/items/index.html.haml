@@ -1,8 +1,16 @@
+= render partial:'shared/header'
 .items-index
   .top-banner
     .top-banner__img-area
-      .top-banner__img-area__switch
+      .top-banner__img-area__angle
+        =fa_icon("angle-left")
+        =fa_icon("angle-right")
+      .clearfix
       .top-banner__img-area__page
+        .circle-box
+          =fa_icon("circle")
+          =fa_icon("circle")
+          =fa_icon("circle")
   .pickup-container
     %h1 ピックアップカテゴリー
     .pickup-container__category-box
@@ -16,21 +24,21 @@
           = render partial:'items/item-card'
         .card
           = render partial:'items/item-card'
-      .clearfix
+        .clearfix
       .pickup-container__category-box__view-all
         =link_to('全ての商品を見る',"")
     .clearfix
     .pickup-container__category-box
       =link_to('メンズ新着アイテム',"")
       .pickup-container__category-box__item-box
-      .card
-        = render partial:'items/item-card'
-      .card
-        = render partial:'items/item-card'
-      .card
-        = render partial:'items/item-card'
-      .card
-        = render partial:'items/item-card'
+        .card
+          = render partial:'items/item-card'
+        .card
+          = render partial:'items/item-card'
+        .card
+          = render partial:'items/item-card'
+        .card
+          = render partial:'items/item-card'
       .clearfix
       .pickup-container__category-box__view-all
         =link_to('全ての商品を見る',"")
@@ -38,29 +46,37 @@
     .pickup-container__category-box
       =link_to('ベビー・キッズ新着アイテム',"")
       .pickup-container__category-box__item-box
-      .card
-        = render partial:'items/item-card'
-      .card
-        = render partial:'items/item-card'
-      .card
-        = render partial:'items/item-card'
-      .card
-        = render partial:'items/item-card'
+        .card
+          = render partial:'items/item-card'
+        .card
+          = render partial:'items/item-card'
+        .card
+          = render partial:'items/item-card'
+        .card
+          = render partial:'items/item-card'
     .clearfix
     .pickup-container__category-box
       =link_to('コスメ・香水・美容新着アイテム',"")
       .pickup-container__category-box__item-box
-      .card
-        = render partial:'items/item-card'
-      .card
-        = render partial:'items/item-card'
-      .card
-        = render partial:'items/item-card'
-      .card
-        = render partial:'items/item-card'
+        .card
+          = render partial:'items/item-card'
+        .card
+          = render partial:'items/item-card'
+        .card
+          = render partial:'items/item-card'
+        .card
+          = render partial:'items/item-card'
     .clearfix
   .pickup-container
     %h1 ピックアップブランド
+    .pickup-container__category-box
+      =link_to('シャネル新着アイテム',"")
+    .pickup-container__category-box
+      =link_to('ルイヴィトン新着アイテム',"")
+    .pickup-container__category-box
+      =link_to('シュプリーム新着アイテム',"")
+    .pickup-container__category-box
+      =link_to('ナイキ新着アイテム',"")
   .app-banner
     .app-banner__area
       .app-banner__area__inner
@@ -79,3 +95,4 @@
                 %img{src:"//www-mercari-jp.akamaized.net/assets/img/common/common/google-play.svg?128691313"}
       .figure-right
         %img{src:"//www-mercari-jp.akamaized.net/assets/img/common/jp/download_content_pc.png?128691313"}
+= render partial:'shared/footer'
