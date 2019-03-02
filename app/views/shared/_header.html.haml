@@ -2,10 +2,10 @@
   .inner
     .clearfix
       %h1.l-left
-        =link_to(image_tag("#"),root_path)
+        =link_to(image_tag("logo.svg"),root_path)
       %form.pc-header-form.l-right{:action => "https://www.mercari.com/jp/search/"}
         %input.input-default{:name => "keyword", :placeholder => "キーワードから探す", :type => "search", :value => ""}
-        / =link_to(fa_icon("search"),"#",class:'icon-search')
+        =link_to(fa_icon("search"),"#",class:'icon-search')
     .clearfix
     .pc-header-nav-box
       %nav.l-left
@@ -108,47 +108,47 @@
                       .l-left 売上金
                       .l-right
                         ¥ 0
-                        ////=fa_icon('angle-right')
+                        =fa_icon('angle-right')
                   .clearfix
                   %li
                     %a{href: "https://www.mercari.com/jp/mypage/point/"}
                       .l-left ポイント
                       .l-right
                         P 0
-                        //=fa_icon('angle-right')
+                        =fa_icon('angle-right')
               %ul.mypage-nav-list
                 %li
                   %a.mypage-nav-list-item{href: "https://www.mercari.com/jp/mypage/like/history/"}
                     いいね！一覧
-                    //=fa_icon('angle-right')
+                    =fa_icon('angle-right')
                 %li
                   %a.mypage-nav-list-item{href: "https://www.mercari.com/jp/mypage/listings/listing/"}
                     出品した商品 - 出品中
-                    //=fa_icon('angle-right')
+                    =fa_icon('angle-right')
                 %li
                   %a.mypage-nav-list-item{href: "https://www.mercari.com/jp/mypage/listings/in_progress/"}
                     出品した商品 - 取引中
-                    //=fa_icon('angle-right')
+                    =fa_icon('angle-right')
                 %li
                   %a.mypage-nav-list-item{href: "https://www.mercari.com/jp/mypage/listings/completed/"}
                     出品した商品 - 売却済み
-                    //=fa_icon('angle-right')
+                    =fa_icon('angle-right')
                 %li
                   %a.mypage-nav-list-item{href: "https://www.mercari.com/jp/mypage/purchase/"}
                     購入した商品 - 取引中
-                    //=fa_icon('angle-right')
+                    =fa_icon('angle-right')
                 %li
                   %a.mypage-nav-list-item{href: "https://www.mercari.com/jp/mypage/purchased/"}
                     購入した商品 - 過去の取引
-                    //=fa_icon('angle-right')
+                    =fa_icon('angle-right')
           %li{"data-id" => "pc-header-user-nav", "data-key" => "notification_list", "data-url" => "https://www.mercari.com/jp/mypage/notification_and_todo_json/"}
             %a.pc-header-nav-root{"data-url" => "https://www.mercari.com/jp/mypage/notification_and_todo_json/", href: "https://www.mercari.com/jp/mypage/notification/"}
-              //=fa_icon("bell",class:'icon-bell')
+              =fa_icon("bell",class:'icon-bell')
               %span お知らせ
             %ul.pc-header-user-box.pc-header-notification-box.mypage-item-list{"data-id" => "pc-header-user-items"}
           %li{"data-id" => "pc-header-user-nav", "data-key" => "todo_list", "data-url" => "https://www.mercari.com/jp/mypage/notification_and_todo_json/"}
             %a.pc-header-nav-root{"data-url" => "https://www.mercari.com/jp/mypage/notification_and_todo_json/", href: "https://www.mercari.com/jp/mypage/todo/"}
-              //=fa_icon("check",class:'icon-check')
+              =fa_icon("check",class:'icon-check')
               %span やることリスト
             %ul.pc-header-user-box.pc-header-todo-box.mypage-item-list{"data-id" => "pc-header-user-items"}
       .clearfix
