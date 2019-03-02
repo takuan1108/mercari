@@ -32,6 +32,7 @@ $(function(){
     $(this).css('background','#fff');
     $(this).children().css('color','black');
   });
+});
 
 
 
