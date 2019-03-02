@@ -3,14 +3,14 @@
   .my-container-main
     .my-container-main__center
       .mypage-user-icon
-        =link_to '#' do
+        =link_to '#' ,{class: 'mypage-user-icon-link'} do
           %img{ src: "assets/member_photo_noimage.png"}
           %h2 中田将洋
-          .mypage-user-icon-numbers
-            .mypage-user-icon-number__review
+          .mypage-user-icon-link-numbers
+            .mypage-user-icon-link-numbers__review
               評価
               %span 0
-            .mypage-user-icon-number__number
+            .mypage-user-icon-link-numbers__number
               出品数
               %span 1
       .mypage-user-tab
