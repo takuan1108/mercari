@@ -71,3 +71,4 @@ gem 'rails-i18n','~> 5.1'
 gem 'kaminari'
 gem 'mechanize'
 gem 'nokogiri'
+gem "font-awesome-rails"
