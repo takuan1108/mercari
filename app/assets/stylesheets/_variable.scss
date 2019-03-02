@@ -1,0 +1,38 @@
+@mixin select-box{
+  width:65%;
+  height:100%;
+  float:right;
+}
+@mixin new-body{
+  width:90%;
+  height:100%;
+  margin: 0 auto;
+}
+@mixin buy-body{
+  width:50%;
+  height:100%;
+  margin-top:20px;
+  margin:0 auto;
+}
+@mixin body-show{
+  width:35%;
+  height:100%;
+  float:left;
+}
+@mixin body-show-font{
+  color:rgb(139,139,139);
+  font-weight:700;
+  font-size:0.9em;
+  float:left;
+}
+@mixin buy-h3{
+  font-size:0.9em;
+  font-weight:700;
+  margin-bottom:10px;
+}
+$input-box: 1px solid rgb(204,204,204);
+$border: 1px solid rgb(245,245,245);
+$offwhite:rgb(245,245,245);
+$linkblue:rgb(64,153,226);
+$lightgray:rgb(204,204,204);
+$darkgray:rgb(136,136,136)
