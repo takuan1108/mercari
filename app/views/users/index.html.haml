@@ -1,7 +1,5 @@
 
 .my-container
-  / = render 'header'
-  / = render 'nav-bar'
   .my-container-main
     .my-container-main__center
       .mypage-user-icon
@@ -22,7 +20,6 @@
             %li.todo.action やることリスト
         .mypage-user-tab__notification
           %ul
-            / ここのliはeach文三つ最新の情報取ってきて出すでだす
             %li
               %span
                 =image_tag("mercari_profile.png")
@@ -38,15 +35,14 @@
           %ul
             %li
               %span
-                %img{src: "assets/mercari_profile.png"}
+                =image_tag('mercari_profile.png')
               発送しよう
             %li
               %span
-                %img{src: "assets/mercari_profile.png"}
+                =image_tag('mercari_profile.png')
               レビューしよう
 
       .mypage-user-banner
-        // バナーなので放置
       .mypage-user-trade
         .mypage-user-trade__header
           %ul
@@ -57,13 +53,13 @@
             %ul
               %li
                 %span
-                  %img{src: "assets/mercari_profile.png"}
+                  =image_tag('mercari_profile.png')
                 item1
           .trading-past
             %ul
               %li
                 %span
-                  %img{src: "assets/mercari_profile.png"}
+                  =image_tag('mercari_profile.png')
                 item2
     .my-container-main__side
       .my-container-main__side-list
