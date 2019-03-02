@@ -1,15 +1,4 @@
-<<<<<<< HEAD
-.container
-  / = render 'header'
-  / = render 'nav-bar'
-  .container-main
-    .container-main__center
-      .mypage-user-icon
-        %a{ href: "#"}
-          %img{src: "#"}
-          %h2 中田将洋
-          .maypage-user-icon__number
-=======
+
 .my-container
   / = render 'header'
   / = render 'nav-bar'
@@ -20,7 +9,6 @@
           %img{ src: "assets/member_photo_noimage.png"}
           %h2 中田将洋
           .my-number
->>>>>>> ma-kun92/master
             .my-review
               評価
               %span 0
@@ -30,16 +18,6 @@
       .mypage-user-tab
         .mypage-user-tab__header
           %ul
-<<<<<<< HEAD
-            %li お知らせ
-            %li やることリスト
-        .mypage-user-tab__notification
-          %ul
-            / ここのliはeach文三つ最新の情報取ってきて出すでだす
-            %li news1
-            %li news2
-            %li news3
-=======
             %li.note お知らせ
             %li.todo.action やることリスト
         .mypage-user-tab__notification
@@ -47,27 +25,17 @@
             / ここのliはeach文三つ最新の情報取ってきて出すでだす
             %li
               %span
-                %img{src: "assets/mercari_profile.png"}
-              news1
+                =image_tag("mercari_profile.png")
             %li
               %span
-                %img{src: "assets/mercari_profile.png"}
-              news2
+                =image_tag("mercari_profile.png")
             %li
               %span
-                %img{src: "assets/mercari_profile.png"}
-              news3
->>>>>>> ma-kun92/master
+                =image_tag("mercari_profile.png")
             %li.last
               %a{ href: "#"}一覧を見る
         .mypage-user-tab__todo
           %ul
-<<<<<<< HEAD
-            %li 発送しよう
-            %li レビューしよう
-
-      .mypage-banner
-=======
             %li
               %span
                 %img{src: "assets/mercari_profile.png"}
@@ -78,20 +46,10 @@
               レビューしよう
 
       .mypage-user-banner
->>>>>>> ma-kun92/master
         // バナーなので放置
       .mypage-user-trade
         .mypage-user-trade__header
           %ul
-<<<<<<< HEAD
-            %li 取引中
-            %li 過去の取引
-        .mypage-user-trade__content
-          %ul
-            %li item
-            %li item
-    .container-main__side
-=======
             %li.now 取引中
             %li.past.action 過去の取引
         .mypage-user-trade__content
@@ -232,4 +190,4 @@
     %a.icon-camera
       .icon-camera__box
         = image_tag ("camera01.png")
->>>>>>> ma-kun92/master
+
