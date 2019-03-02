@@ -1,20 +1,67 @@
+
 .my-container
-  / = render 'header'
-  / = render 'nav-bar'
   .my-container-main
     .my-container-main__center
-      .my-edit
-        %h2 プロフィール
-        %form.my-edit-profile
-          .my-edit-profile__name
-            %span
-              =image_tag("member_photo_noimage.png")
-            %span
-              %input.text{type:"text", value: '中田将洋'}
-          .my-edit-profile__content
-            %textarea{placeholder: "例）こんにちは☆ ご覧いただきありがとうございます！かわいいものやきれいめオフィスカジュアル中心に出品しています。服のサイズは主に9号です。気持ちよくお取引できるよう心がけていますので、商品や発送方法などご質問がありましたらお気軽にどうぞ♪"}
-            %input.submit{type: "submit" ,value: '変更する'}
+      .mypage-user-icon
+        =link_to '#' ,{class: 'mypage-user-icon-link'} do
+          %img{ src: "assets/member_photo_noimage.png"}
+          %h2 中田将洋
+          .mypage-user-icon-link-numbers
+            .mypage-user-icon-link-numbers__review
+              評価
+              %span 0
+            .mypage-user-icon-link-numbers__number
+              出品数
+              %span 1
+      .mypage-user-tab
+        .mypage-user-tab__header
+          %ul
+            %li.note お知らせ
+            %li.todo.action やることリスト
+        .mypage-user-tab__notification
+          %ul
+            %li
+              %span
+                =image_tag("mercari_profile.png")
+            %li
+              %span
+                =image_tag("mercari_profile.png")
+            %li
+              %span
+                =image_tag("mercari_profile.png")
+            %li.last
+              =link_to '#' do
+                一覧を見る
+        .mypage-user-tab__todo
+          %ul
+            %li
+              %span
+                =image_tag('mercari_profile.png')
+              発送しよう
+            %li
+              %span
+                =image_tag('mercari_profile.png')
+              レビューしよう
 
+      .mypage-user-banner
+      .mypage-user-trade
+        .mypage-user-trade__header
+          %ul
+            %li.now 取引中
+            %li.past.action 過去の取引
+        .mypage-user-trade__content
+          .trading-now
+            %ul
+              %li
+                %span
+                  =image_tag('mercari_profile.png')
+                item1
+          .trading-past
+            %ul
+              %li
+                %span
+                  =image_tag('mercari_profile.png')
+                item2
     .my-container-main__side
       .my-container-main__side-list
         %ul.mypage-lists
@@ -24,116 +71,116 @@
               %span
                 <
           %li
-            =link_to "#" do
+            =link_to '#' do
               お知らせ
               %span
                 <
           %li
-            =link_to "#" do
+            =link_to '#' do
               やることリスト
               %span
                 <
           %li
-            =link_to "#" do
+            =link_to '#' do
               いいね！一覧
               %span
                 <
           %li
-            =link_to "#" do
+            =link_to '#' do
               出品する
               %span
                 <
           %li
-            =link_to "#" do
+            =link_to '#' do
               出品した商品-出品中
               %span
                 <
           %li
-            =link_to "#" do
+            =link_to '#' do
               出品した商品-取引中
               %span
                 <
           %li
-            =link_to "#" do
+            =link_to '#' do
               出品した商品-売却済み
               %span
                 <
           %li
-            =link_to "#" do
+            =link_to '#' do
               購入した商品-取引中
               %span
                 <
           %li
-            =link_to "#" do
+            =link_to '#' do
               購入した商品-過去の取引
               %span
                 <
           %li
-            =link_to "#" do
+            =link_to '#' do
               ニュース一覧
               %span
                 <
           %li
-            =link_to "#" do
+            =link_to '#' do
               評価一覧
               %span
                 <
           %li
-            =link_to "#" do
+            =link_to '#' do
               ガイド
               %span
                 <
           %li
-            =link_to "#" do
+            =link_to '#' do
               お問い合わせ
               %span
                 <
         %h3 メルペイ
         %ul.merpay-lists
           %li
-            =link_to "#" do
+            =link_to '#' do
               売上・振込申請
               %span
                 <
           %li
-            =link_to "#" do
+            =link_to '#' do
               ポイント
               %span
                 <
         %h3 設定
         %ul.mypage-setting-lists
           %li
-            =link_to "#" do
+            =link_to '#' do
               プロフィール
               %span
                 <
           %li
-            =link_to "#" do
+            =link_to '#' do
               発送元・お届け先住所変更
               %span
                 <
           %li
-            =link_to "#" do
+            =link_to '#' do
               支払い方法
               %span
                 <
           %li
-            =link_to "#" do
+            =link_to '#' do
               メール/パスワード
               %span
                 <
           %li
-            =link_to "#" do
+            =link_to '#' do
               本人情報
               %span
                 <
           %li
-            =link_to "#" do
+            =link_to '#' do
               電話番号の確認
               %span
                 <
           %li
-            =link_to "#" do
+            =link_to '#' do
               ログアウト
               %span
                 <
