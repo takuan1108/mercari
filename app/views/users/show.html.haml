@@ -3,14 +3,14 @@
   .my-container-main
     .my-container-main__center
       .mypage-user-icon
-        %a{ href: "#"}
+        =link_to '#' do
           %img{ src: "assets/member_photo_noimage.png"}
           %h2 中田将洋
-          .my-number
-            .my-review
+          .mypage-user-number
+            .mypage-user-number__review
               評価
               %span 0
-            .my-item-number
+            .mypage-user-number__number
               出品数
               %span 1
       .mypage-user-tab
@@ -30,7 +30,8 @@
               %span
                 =image_tag("mercari_profile.png")
             %li.last
-              %a{ href: "#"}一覧を見る
+              =link_to '#' do
+                一覧を見る
         .mypage-user-tab__todo
           %ul
             %li
@@ -65,121 +66,121 @@
       .my-container-main__side-list
         %ul.mypage-lists
           %li.action
-            %a{ href: "#"}
+            =link_to "#" do
               マイページ
               %span
                 <
           %li
-            %a{ href: "#"}
+            =link_to '#' do
               お知らせ
               %span
                 <
           %li
-            %a{ href: "#"}
+            =link_to '#' do
               やることリスト
               %span
                 <
           %li
-            %a{ href: "#"}
+            =link_to '#' do
               いいね！一覧
               %span
                 <
           %li
-            %a{ href: "#"}
+            =link_to '#' do
               出品する
               %span
                 <
           %li
-            %a{ href: "#"}
+            =link_to '#' do
               出品した商品-出品中
               %span
                 <
           %li
-            %a{ href: "#"}
+            =link_to '#' do
               出品した商品-取引中
               %span
                 <
           %li
-            %a{ href: "#"}
+            =link_to '#' do
               出品した商品-売却済み
               %span
                 <
           %li
-            %a{ href: "#"}
+            =link_to '#' do
               購入した商品-取引中
               %span
                 <
           %li
-            %a{ href: "#"}
+            =link_to '#' do
               購入した商品-過去の取引
               %span
                 <
           %li
-            %a{ href: "#"}
+            =link_to '#' do
               ニュース一覧
               %span
                 <
           %li
-            %a{ href: "#"}
+            =link_to '#' do
               評価一覧
               %span
                 <
           %li
-            %a{ href: "#"}
+            =link_to '#' do
               ガイド
               %span
                 <
           %li
-            %a{ href: "#"}
+            =link_to '#' do
               お問い合わせ
               %span
                 <
         %h3 メルペイ
         %ul.merpay-lists
           %li
-            %a{ href: "#"}
+            =link_to '#' do
               売上・振込申請
               %span
                 <
           %li
-            %a{ href: "#"}
+            =link_to '#' do
               ポイント
               %span
                 <
         %h3 設定
         %ul.mypage-setting-lists
           %li
-            %a{ href: "#"}
+            =link_to '#' do
               プロフィール
               %span
                 <
           %li
-            %a{ href: "#"}
+            =link_to '#' do
               発送元・お届け先住所変更
               %span
                 <
           %li
-            %a{ href: "#"}
+            =link_to '#' do
               支払い方法
               %span
                 <
           %li
-            %a{ href: "#"}
+            =link_to '#' do
               メール/パスワード
               %span
                 <
           %li
-            %a{ href: "#"}
+            =link_to '#' do
               本人情報
               %span
                 <
           %li
-            %a{ href: "#"}
+            =link_to '#' do
               電話番号の確認
               %span
                 <
           %li
-            %a{ href: "#"}
+            =link_to '#' do
               ログアウト
               %span
                 <
