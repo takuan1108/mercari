@@ -1,0 +1,105 @@
+= render partial:'shared/subHeader'
+.item-new
+  .item-new-container
+    %h2 商品の情報を入力
+    %form
+      .post-image
+        .post-image-body
+          %h3 出品画像
+          %span 必須
+          %p 最大10枚までアップロードできます
+          .post-image-body-field
+            %pre
+              ドラッグアンドドロップ
+              またはクリックしてファイルをアップロード
+      .post-item
+        .post-item-body
+          .post-item-body-title
+            %h3 商品名
+            %span 必須
+          %input{placeholder: "商品名（必須 40文字まで)"}
+          .post-item-body-description
+            %h3 商品名の説明
+            %span 必須
+          %textarea{rows: "5",placeholder: "商品の説明（必須 1,000文字以内）（色、素材、重さ、定価、注意点など）例）2010年頃に1万円で購入したジャケットです。ライトグレーで傷はありません。あわせやすいのでおすすめです。"}
+      .post-category
+        .post-category-body
+          .post-category-body__show
+            %p 商品の詳細
+          .post-category-body__select
+            .select
+              %h3 カテゴリー
+              %span 必須
+            %select
+            %select
+            %select
+            .select
+              %h3 サイズ
+              %span 必須
+            %select
+            .select
+              %h3 ブランド
+              %span.optional 任意
+            %input{placeholder: "例）シャネル"}
+            .select
+              %h3 商品の状態
+              %span 必須
+              %select
+      .post-delivery
+        .post-delivery-body
+          .post-delivery-body__show
+            %p 配送について
+            = link_to "/" do
+              = fa_icon "question-circle"
+          .post-delivery-body__select
+            .select
+              %h3 配送料の負担
+              %span 必須
+            %select
+            .select
+              %h3 発送元の地域
+              %span 必須
+            %select
+            .select
+              %h3 発送までの日数
+              %span 必須
+            %select
+      .post-price
+        .post-price-body
+          .post-price-body__show
+            %p 販売価格
+            %p.integer (300〜9,999,999)
+            = link_to "/" do
+              = fa_icon "question-circle"
+          .post-price-body__select
+            %ul
+              %li.input
+                %h3 価格
+                %span 必須
+                .price-box
+                  .en ¥
+                  %input{placeholder: "例）３００" }
+              %li.commission
+                %p.left 販売手数料 (10%)
+                %p.right -
+              %li.profits
+                %h3 販売利益
+                %p -
+      .post-submit
+        .post-submit-text
+          %p
+            = link_to "禁止されている出品","/"
+            、
+            = link_to "行為","/"
+            を必ずご確認ください。
+          %p
+            またブランド品でシリアルナンバー等がある場合はご記載ください。
+            = link_to "偽ブランドの販売", "/"
+            は犯罪であり処罰される可能性があります。
+          %p
+            また、出品をもちまして
+            = link_to "加盟店規約","/"
+            に同意したことになります。
+        %button.sell-btn{type: "submit"} 出品する
+        %button.back-btn{type: "submit"} もどる
+= render partial:'shared/subFooter'
