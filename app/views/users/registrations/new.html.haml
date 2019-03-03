@@ -1,24 +1,39 @@
-.sign-in
-  .sign-in-main
-    .sign-in-main__header
-    .sign-in-main__content
-      .h2 新規会員登録
-      .type
-        .type__email
-          =image_tag('#')
-          %span
-            メールアドレスで登録
-        .type__facebook
-          =image_tag('#')
-          %span
-            Facebookで登録
-        .type__google
-          =image_tag('#')
-          %span
-            Googleで登録
-    .sign-in-main__footer
-      %a
-      %a
-      %a
+
+.sign-up
+  .sign-up-main
+    .sign-up-main__header
       =image_tag('mercari-logo.png')
-      %small
+    .sign-up-main__content
+      %h2 新規会員登録
+      .type
+        .type-box
+          =link_to '#' do
+            .email
+              =fa_icon('envelope')
+              %span
+                メールアドレスで登録
+          =link_to '#' do
+            .facebook
+              =fa_icon('facebook')
+              %span
+                Facebookで登録
+          =link_to '#' do
+            .google
+              =fa_icon('google')
+              %span
+                Googleで登録
+    .sign-up-main__footer
+      %ul
+        %li
+          =link_to '#' do
+            プライバシーポリシー
+        %li
+          =link_to '#' do
+            メルカリ利用規約
+        %li
+          =link_to '#' do
+            特定商取引に関する表記
+      =image_tag('bottom-logo.png')
+      %p
+        %small
+          © 2019 Mercari
