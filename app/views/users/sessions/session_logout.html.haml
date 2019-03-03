@@ -1,20 +1,10 @@
+=render partial: 'shared/header'
 .my-container
-  / = render 'header'
-  / = render 'nav-bar'
   .my-container-main
     .my-container-main__center
-      .my-edit
-        %h2 プロフィール
-        %form.my-edit-profile
-          .my-edit-profile__name
-            %span
-              =image_tag("member_photo_noimage.png")
-            %span
-              %input.text{type:"text", value: '中田将洋'}
-          .my-edit-profile__content
-            %textarea{placeholder: "例）こんにちは☆ ご覧いただきありがとうございます！かわいいものやきれいめオフィスカジュアル中心に出品しています。服のサイズは主に9号です。気持ちよくお取引できるよう心がけていますので、商品や発送方法などご質問がありましたらお気軽にどうぞ♪"}
-            %input.submit{type: "submit" ,value: '変更する'}
-
+      .logout
+        %a.logout-button
+          %input.button{type: 'button',value: 'ログアウト'}
     .my-container-main__side
       .my-container-main__side-list
         %ul.mypage-lists
@@ -140,4 +130,6 @@
     %a.icon-camera
       .icon-camera__box
         = image_tag ("camera01.png")
+
+
 
