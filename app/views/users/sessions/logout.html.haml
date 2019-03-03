@@ -3,7 +3,7 @@
   .my-container-main
     .my-container-main__center
       .logout
-        %a.logout-button
+        =link_to "#" ,{class: 'logout-button'} do
           %input.button{type: 'button',value: 'ログアウト'}
     .my-container-main__side
       .my-container-main__side-list
@@ -127,6 +127,6 @@
               ログアウト
               %span
                 <
-    %a.icon-camera
+    =link_to "#" ,{class: 'icon-camera'} do
       .icon-camera__box
         = image_tag ("camera01.png")
