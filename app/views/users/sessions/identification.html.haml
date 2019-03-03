@@ -1,0 +1,46 @@
+
+.session
+  .session-main
+    .session-main__header
+      =image_tag('mercari-logo.png')
+    .session-main__api
+      %h2
+        あなたの情報を守るために
+        %br
+        再度ログインを行なってください。
+      =link_to '#' do
+        .facebook
+          =fa_icon('facebook')
+          %span
+            Facebookでログイン
+      =link_to '#' do
+        .google
+          =fa_icon('google')
+          %span
+            Googleでログイン
+    .session-main__form
+      =form_tag("#") do
+        =text_field :user, :email,placeholder: 'メールアドレス'
+        =password_field :user,:password,placeholder: 'パスワード'
+        #checkmark
+          =fa_icon('square')
+          私はロボットではありません
+
+        =submit_tag 'ログイン '
+        =link_to 'パスワードをお忘れの方', '#'
+    .session-main__footer
+      %ul
+        %li
+          =link_to '#' do
+            プライバシーポリシー
+        %li
+          =link_to '#' do
+            メルカリ利用規約
+        %li
+          =link_to '#' do
+            特定商取引に関する表記
+      =image_tag('bottom-logo.png')
+      %p
+        %small
+          © 2019 Mercari
+
