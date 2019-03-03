@@ -11,8 +11,5 @@ class ItemsController < ApplicationController
 
   def buy
   end
-<<<<<<< HEAD
-=======
 
->>>>>>> origin/master
 end
