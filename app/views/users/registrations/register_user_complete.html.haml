@@ -1,0 +1,32 @@
+=render partial: 'users/shared/users_register'
+.complete
+  .complete-main
+    .complete-main__header
+      %h2
+        会員登録完了
+    .complete-main__content
+      %p
+        ありがとうございまいした。
+        %br
+        会員登録が完了しました。
+      =button_tag 'メルカリを始める'
+    .complete-main__bottom
+      .app-banner
+        .app-banner-area
+          .app-banner-area__inner
+            %h2 スマホでかんたんフリマアプリ
+            %p 今すぐ無料ダウンロード
+            .clearfix
+            .app-banner-area__inner-icon
+              .figure
+                %img{src:"//www-mercari-jp.akamaized.net/assets/img/common/common/mercari_icon.png?128691313"}
+              %ul
+                %li
+                  %a
+                    %img{src:"//www-mercari-jp.akamaized.net/assets/img/common/common/app-store.svg?128691313"}
+                %li
+                  %a
+                    %img{src:"//www-mercari-jp.akamaized.net/assets/img/common/common/google-play.svg?128691313"}
+          .figure-right
+            %img{src:"//www-mercari-jp.akamaized.net/assets/img/common/jp/download_content_pc.png?128691313"}
+=render partial: 'users/shared/footer'
