@@ -1,0 +1,39 @@
+.register-header
+  =image_tag('mercari-logo.png')
+  .register-header__nav
+    %ul.progressbar
+      %li.active
+        会員情報
+      %li
+        電話番号認証
+      %li
+        お届け先住所入力
+      %li
+        支払い方法
+      %li
+        完了
+  .register-main
+    %h2
+    .register-main__content
+      = form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f|
+        = render partial:"users/shared/error_messages", resource: resource
+        .field
+          = f.label :email
+          %br/
+          = f.email_field :email, autofocus: true, autocomplete: "email"
+        .field
+          = f.label :password
+          - if @minimum_password_length
+            %em
+              (#{@minimum_password_length} characters minimum)
+          %br/
+          = f.password_field :password, autocomplete: "new-password"
+        .field
+          = f.label :password_confirmation
+          %br/
+          = f.password_field :password_confirmation, autocomplete: "new-password"
+        .actions
+          = f.submit "Sign up"
+      = render "users/shared/links"
+
+=render partial: 'users/shared/footer'
