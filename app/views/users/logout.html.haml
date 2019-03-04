@@ -1,8 +1,135 @@
 
 .my-container
-  / = render 'header'
-  / = render 'nav-bar'
   .my-container-main
     .my-container-main__center
-      .my-user-logout
+      .logout
+        %a.logout-button
+          %input.button{type: 'button',value: 'ログアウト'}
+    .my-container-main__side
+      .my-container-main__side-list
+        %ul.mypage-lists
+          %li.action
+            %a{ href: "#"}
+              マイページ
+              %span
+                <
+          %li
+            %a{ href: "#"}
+              お知らせ
+              %span
+                <
+          %li
+            %a{ href: "#"}
+              やることリスト
+              %span
+                <
+          %li
+            %a{ href: "#"}
+              いいね！一覧
+              %span
+                <
+          %li
+            %a{ href: "#"}
+              出品する
+              %span
+                <
+          %li
+            %a{ href: "#"}
+              出品した商品-出品中
+              %span
+                <
+          %li
+            %a{ href: "#"}
+              出品した商品-取引中
+              %span
+                <
+          %li
+            %a{ href: "#"}
+              出品した商品-売却済み
+              %span
+                <
+          %li
+            %a{ href: "#"}
+              購入した商品-取引中
+              %span
+                <
+          %li
+            %a{ href: "#"}
+              購入した商品-過去の取引
+              %span
+                <
+          %li
+            %a{ href: "#"}
+              ニュース一覧
+              %span
+                <
+          %li
+            %a{ href: "#"}
+              評価一覧
+              %span
+                <
+          %li
+            %a{ href: "#"}
+              ガイド
+              %span
+                <
+          %li
+            %a{ href: "#"}
+              お問い合わせ
+              %span
+                <
+        %h3 メルペイ
+        %ul.merpay-lists
+          %li
+            %a{ href: "#"}
+              売上・振込申請
+              %span
+                <
+          %li
+            %a{ href: "#"}
+              ポイント
+              %span
+                <
+        %h3 設定
+        %ul.mypage-setting-lists
+          %li
+            %a{ href: "#"}
+              プロフィール
+              %span
+                <
+          %li
+            %a{ href: "#"}
+              発送元・お届け先住所変更
+              %span
+                <
+          %li
+            %a{ href: "#"}
+              支払い方法
+              %span
+                <
+          %li
+            %a{ href: "#"}
+              メール/パスワード
+              %span
+                <
+          %li
+            %a{ href: "#"}
+              本人情報
+              %span
+                <
+          %li
+            %a{ href: "#"}
+              電話番号の確認
+              %span
+                <
+          %li
+            %a{ href: "#"}
+              ログアウト
+              %span
+                <
+    %a.icon-camera
+      .icon-camera__box
+        = image_tag ("camera01.png")
+
+
 

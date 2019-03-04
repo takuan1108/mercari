@@ -1,12 +1,17 @@
-
-
+@import 'variable';
+@import 'font-awesome';
+@import 'config/reset';
 @import 'users_show';
 @import 'header';
 @import 'footer';
+@import 'subHeader';
+@import 'subFooter';
 @import 'users_show';
 @import 'items_index';
 @import 'item-card';
-@import 'config/reset';
-@import 'users_show';
+@import 'item_buy';
+@import 'item_show';
+@import 'item_new';
 @import 'users_edit';
-@import 'font-awesome';
+@import 'users-sign_up';
+@import 'users_indentification'
