@@ -25,9 +25,8 @@
           display: inline-block;
         }
         span{
-          margin-top: 40px;
           background: #ea352d;
-          margin: 0 0 0 8px;
+          margin:40px 0 0 8px;
           padding: 2px 4px;
           border-radius: 2px;
           color: #fff;
@@ -47,13 +46,15 @@
         }
         .card-kinds{
           margin-top: 5px;
-          li{
-            float: left;
-            list-style: none;;
-            img{
-              background-color: white;
-              height: 20px;
-              width: 50px;
+          ul{
+            li{
+              float: left;
+              list-style: none;;
+              img{
+                background-color: white;
+                height: 20px;
+                width: 50px;
+              }
             }
           }
         }
