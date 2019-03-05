@@ -9,7 +9,7 @@ class CreateVendors < ActiveRecord::Migration[5.0]
       t.string :family_name
       t.string :first_name
       t.integer :post_number
-      t.references :prefectures,foreign_key: true
+      t.integer :prefecture_id
       t.string :city
       t.string :address
       t.string :building_name
