@@ -9,7 +9,7 @@
         = f.label :nickname, "ニックネーム"
         %span 必須
         %br
-        = f.email_field :nickname, autofocus: true, autocomplete: "nickname",placeholder: '例)メルカリ太郎'
+        = f.text_field :nickname, autofocus: true, autocomplete: "nickname",placeholder: '例)メルカリ太郎'
       .field
         = f.label :email, "メールアドレス"
         %span 必須
@@ -36,35 +36,35 @@
         = f.label :family_name, "姓（全角）"
         %span 必須
         %br/
-        = f.email_field :family_name, autofocus: true, autocomplete: "family_name",placeholder:'例）山田'
+        = f.text_field :family_name, autofocus: true, autocomplete: "family_name",placeholder:'例）山田'
       .field
         = f.label :first_name, "名（全角）"
         %span 必須
         %br/
-        = f.email_field :first_name, autofocus: true, autocomplete: "first_name",placeholder:'例）彩'
+        = f.text_field :first_name, autofocus: true, autocomplete: "first_name",placeholder:'例）彩'
       .field
         = f.label :family_name_phonetic, "姓カナ（全角）"
         %span 必須
         %br/
-        = f.email_field :family_name_phonetic, autofocus: true, autocomplete: "family_name_phonetic",placeholder:'ヤマダ'
+        = f.text_field :family_name_phonetic, autofocus: true, autocomplete: "family_name_phonetic",placeholder:'ヤマダ'
       .field
         = f.label :first_name_phonetic, "名カナ（全角）"
         %span 必須
         %br/
-        = f.email_field :first_name_phonetic, autofocus: true, autocomplete: "first_name_phonetic",placeholder:'アヤ'
+        = f.text_field :first_name_phonetic, autofocus: true, autocomplete: "first_name_phonetic",placeholder:'アヤ'
       .field.last
         = f.label '生年月日'
         %span 必須
         %br/
-        = f.select :birth_year, [["1992年", "1"], ["1993年", "2"]], include_blank: '--'
+        = f.select :birth_year, [["1992", "1"], ["1993", "2"]], include_blank: '--'
         / 本番でオブジェクトを使用するときは下記を使用
         / = f.select :birth_year, Prefecture.all.map{|i|, [i.name, i.id], include_blank: '--'
         = f.label :birth_year, "年"
         %br/
-        = f.select :birth_year, [["1月", "1"], ["2月", "2"]], include_blank: '--', autofocus: true, autocomplete: "birth_month"
+        = f.select :birth_month, [["1", "1"], ["2", "2"]], include_blank: '--', autofocus: true, autocomplete: "birth_month"
         = f.label :birth_month,"月"
         %br/
-        = f.select :birth_year, [["1日", "1"], ["2日", "2"]], include_blank: '--', autofocus: true, autocomplete: "birth_day"
+        = f.select :birth_day, [["1", "1"], ["2", "2"]], include_blank: '--', autofocus: true, autocomplete: "birth_day"
         = f.label :birth_day,"日"
       %p.confirm
         ※ 本人情報は正しく入力してください。
