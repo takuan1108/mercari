@@ -73,3 +73,4 @@ gem 'mechanize'
 gem 'nokogiri'
 gem "font-awesome-rails"
 gem 'rb-readline'
+gem 'payjp'
