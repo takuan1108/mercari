@@ -29,7 +29,7 @@ Things you may want to cover:
 |nickname|string|null: false, unique: true|
 |email|string|null: false, unique: true|
 |password|string|null: false,unique: true|
-|tellphone|integer|null: false,unique: true|
+|tellphone|string|null: false,unique: true|
 |family_name|string|null: false|
 |first_name|string|null: false|
 |family_name_phonetic|string|null: false|
@@ -67,21 +67,12 @@ Things you may want to cover:
 
 ### Association
 - belongs_to :user
-- belongs_to :prefecture
-
-## prefectures
-|Column|Type|Options|
-|------|----|-------|
-|prefecture|string|
-### Association
-- has_one :street_address
-- has_one :item
-- has_one :vendor
+- belongs_to_active_hash :prefecture
 
 ## credit_cards
 |Column|Type|Options|
 |------|----|-------|
-|card_number|integer|null: false|
+|card_number|string|null: false|
 |month|integer|null: false|
 |year|integer|null: false|
 |security_code|integer|null: false|
@@ -150,16 +141,15 @@ Things you may want to cover:
 |category_id|references|foreign_key: true|
 |size_id|references|foreign_key: true|
 |prefecture_id|references|foreign_key: true|
-|brand_id|references|foreign_key: true|
+|brand|string|
 |user_id|references|foreign_key: true|
 |vendor_id|references|foreign_key: true|
 
 ### Association
 - belongs_to :user
 - belongs_to :vendor
-- belongs_to :prefecture
+- belongs_to_active_hash :prefecture
 - belongs_to :barnd
-- belongs_to :size
 - belongs_to :category
 - has_many :item_images,dependent: :destroy
 - has_many :item_comments,dependent: :destroy
@@ -181,22 +171,7 @@ Things you may want to cover:
 |------|----|-------|
 |brand|string|
 ### Association
-- has_one :item
-
-## sizes
-|Column|Type|Options|
-|------|----|-------|
-|cloth|string|
-|mens_shoes|string|
-|ladies_shoes|string|
-|kids_shoes|string|
-|kid_cloth_small|string|
-|kid_cloth|string|
-|tv|string|
-|bike|string|
-|tire|string|
-### Association
-- has_one :item
+- has_many :items
 
 ## categories
 |Column|Type|Options|
@@ -205,7 +180,7 @@ Things you may want to cover:
 |middle|string|
 |small|string|
 ### Association
-- has_one :item
+- has_many :item
 
 ## item_comments
 |Column|Type|Options|
@@ -235,7 +210,7 @@ Things you may want to cover:
 |building_name|string|
 ### Association
 - belongs_to :user
-- belongs_to :prefecture
+- belongs_to_active_hash :prefecture
 - has_many :items
 - has_many :valuations
 - has_many :points

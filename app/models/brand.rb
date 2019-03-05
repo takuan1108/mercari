@@ -1,3 +1,3 @@
 class Brand < ApplicationRecord
-  has_one :item
+  has_many :item
 end
