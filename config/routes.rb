@@ -4,6 +4,7 @@ Rails.application.routes.draw do
     collection do
       get 'logout'
       get 'add_card_info'
+      get 'add_card'
     end
   end
   resources :items
