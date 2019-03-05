@@ -1,39 +1,80 @@
-
-.sign-up
-  .sign-up-main
-    .sign-up-main__header
-      =image_tag('mercari-logo.png')
-    .sign-up-main__content
-      %h2 新規会員登録
-      .type
-        .type-box
-          =link_to '#' do
-            .email
-              =fa_icon('envelope')
-              %span
-                メールアドレスで登録
-          =link_to '#' do
-            .facebook
-              =fa_icon('facebook')
-              %span
-                Facebookで登録
-          =link_to '#' do
-            .google
-              =fa_icon('google')
-              %span
-                Googleで登録
-    .sign-up-main__footer
-      %ul
-        %li
-          =link_to '#' do
-            プライバシーポリシー
-        %li
-          =link_to '#' do
-            メルカリ利用規約
-        %li
-          =link_to '#' do
-            特定商取引に関する表記
-      =image_tag('bottom-logo.png')
+=render partial: '/users/shared/users_register'
+.register-main
+  %h2
+    会員情報入力
+  .register-main__content
+    = form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f|
+      = render partial:"users/shared/error_messages", resource: resource
+      .field
+        = f.label :nickname, "ニックネーム"
+        %span 必須
+        %br
+        = f.email_field :nickname, autofocus: true, autocomplete: "nickname",placeholder: '例)メルカリ太郎'
+      .field
+        = f.label :email, "メールアドレス"
+        %span 必須
+        %br/
+        = f.email_field :email, autofocus: true, autocomplete: "email", placeholder:'PC・携帯どちらでも可'
+      .field
+        = f.label :password, "パスワード"
+        %span 必須
+        / あとで使うかもしれない
+        / - if @minimum_password_length
+        /   %em
+        /     (#{@minimum_password_length}文字以上)
+        %br/
+        = f.password_field :password, autocomplete: "new-password",placeholder:'６文字以上'
+      .field
+        = f.label :password_confirmation, "パスワード（確認）"
+        %span 必須
+        %br/
+        = f.password_field :password_confirmation, autocomplete: "new-password",placeholder:'6文字以上'
+      %h3 本人確認
       %p
-        %small
-          © 2019 Mercari
+        安心・安全にご利用いただくために、お客さまの本人情報の登録にご協力ください。他のお客さまに公開されることはありません。
+      .field
+        = f.label :family_name, "姓（全角）"
+        %span 必須
+        %br/
+        = f.email_field :family_name, autofocus: true, autocomplete: "family_name",placeholder:'例）山田'
+      .field
+        = f.label :first_name, "名（全角）"
+        %span 必須
+        %br/
+        = f.email_field :first_name, autofocus: true, autocomplete: "first_name",placeholder:'例）彩'
+      .field
+        = f.label :family_name_phonetic, "姓カナ（全角）"
+        %span 必須
+        %br/
+        = f.email_field :family_name_phonetic, autofocus: true, autocomplete: "family_name_phonetic",placeholder:'ヤマダ'
+      .field
+        = f.label :first_name_phonetic, "名カナ（全角）"
+        %span 必須
+        %br/
+        = f.email_field :first_name_phonetic, autofocus: true, autocomplete: "first_name_phonetic",placeholder:'アヤ'
+      .field.last
+        = f.label '生年月日'
+        %span 必須
+        %br/
+        = f.select :birth_year, [["1992年", "1"], ["1993年", "2"]], include_blank: '--'
+        / 本番でオブジェクトを使用するときは下記を使用
+        / = f.select :birth_year, Prefecture.all.map{|i|, [i.name, i.id], include_blank: '--'
+        = f.label :birth_year, "年"
+        %br/
+        = f.select :birth_year, [["1月", "1"], ["2月", "2"]], include_blank: '--', autofocus: true, autocomplete: "birth_month"
+        = f.label :birth_month,"月"
+        %br/
+        = f.select :birth_year, [["1日", "1"], ["2日", "2"]], include_blank: '--', autofocus: true, autocomplete: "birth_day"
+        = f.label :birth_day,"日"
+      %p.confirm
+        ※ 本人情報は正しく入力してください。
+        %br/
+        会員登録後、修正するにはお時間を頂く場合があります
+      #checkmark
+        =fa_icon('square')
+        私はロボットではありません
+      %p.next-text
+        「次へ進む」のボタンを押すことにより、利用規約に同意したものとみなします
+      .actions
+        = f.submit "次へ進む"
+=render partial: 'users/shared/footer'

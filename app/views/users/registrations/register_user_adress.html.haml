@@ -1,0 +1,55 @@
+=render partial: 'users/shared/users_register'
+.shipping
+  .shipping-main
+    .shipping-main__header
+      %h2
+        発送元・お届け住所入力
+    .shipping-main__content
+      %form
+        %br
+        =label :family_name, 'お名前'
+        %span 必須
+        %br
+        =text_field :user, :family_name,placeholder: '山田'
+        %br
+        =text_field :user, :first_name,placeholder: '彩'
+        %br
+        =label :family_name, 'お名前（カナ）'
+        %span 必須
+        %br
+        =text_field :user, :family_name_phoneitc,placeholder: 'ヤマダ'
+        %br
+        =text_field :user, :first_name_phoneitc,placeholder: 'アヤ'
+        %br
+        =label :family_name, '郵便番号'
+        %span 必須
+        %br
+        =text_field :user, :family_name,placeholder: ''
+        %br
+        =label :family_name, '都道府県'
+        %span 必須
+        %br
+        =select_tag :user, :family_name
+        %br
+        =label :family_name, '市町村'
+        %span 必須
+        %br
+        =text_field :user, :family_name,placeholder: ''
+        %br
+        =label :family_name, '番地'
+        %span 必須
+        %br
+        =text_field :user, :family_name,placeholder: ''
+        %br
+        =label :family_name, '建物'
+        %span 必須
+        %br
+        =text_field :user, :family_name,placeholder: ''
+        %br
+        =label :family_name, '電話番号'
+        %span 必須
+        %br
+        =telephone_field :user, :family_name,placeholder: ''
+        %br
+        =submit_tag '次へ進む'
+=render partial: 'users/shared/footer'
