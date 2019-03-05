@@ -1,7 +1,6 @@
 .card{
   background-color: white;
   margin: 0 auto;
-  width: 700px;
   &-main{
     &__header{
       h2{
@@ -13,7 +12,7 @@
       }
     }
     &__content{
-      padding: 40px 170px;
+      padding: 40px 100px;
       margin-top: 40px;
       form{
 
