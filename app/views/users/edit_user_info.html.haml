@@ -1,0 +1,51 @@
+= render partial:'shared/header'
+.my-container
+  .my-container-main
+    .my-container-main__center
+      .edit
+        .edit-info
+          .edit-info__header
+            %h3 本人情報の登録
+          .edit-info__content
+            %p.up
+              お客さまの本人情報をご登録ください。
+              %br
+              登録されたお名前・生年月日を変更する場合、本人確認書類の提出が必要になります。
+            = link_to '本人確認書類のアップロードについて＞','#'
+            %form
+              = label :family_name, 'お名前'
+              %p 中田将洋
+              = label :family_name, 'お名前（カナ）'
+              %p ナカタ マサヒロ
+              = label :family_name, '生年月日'
+              %p 1542/3/22
+              = label :family_name, '郵便番号'
+              %span 任意
+              %br
+              = text_field :user, :family_name,placeholder: ''
+              %br
+              = label :family_name, '都道府県'
+              %span 任意
+              %br
+              = select_tag :user, :family_name
+              %br
+              = label :family_name, '市町村'
+              %span 任意
+              %br
+              = text_field :user, :family_name,placeholder: ''
+              %br
+              = label :family_name, '番地'
+              %span 任意
+              %br
+              = text_field :user, :family_name,placeholder: ''
+              %br
+              = label :family_name, '建物'
+              %span 任意
+              %br
+              = text_field :user, :family_name,placeholder: ''
+              %br
+              = submit_tag '次へ進む'
+        = link_to '本人情報の登録について>','#'
+    = render partial: 'users/shared/users_sidebar'
+= render partial: 'users/shared/users_bottom_banner'
+= render partial: 'shared/footer'
