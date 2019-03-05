@@ -3,6 +3,7 @@ Rails.application.routes.draw do
   resources :users, only: [:index] do
     collection do
       get 'logout'
+      get 'add_card_info'
     end
   end
   resources :items
