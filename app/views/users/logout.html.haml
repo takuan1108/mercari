@@ -3,6 +3,6 @@
   .my-container-main
     .my-container-main__center
       .logout
-        %a.logout-button
+        =link_to destroy_user_session_path , method: :delete, class: 'logout-button' do
           %input.button{type: 'button',value: 'ログアウト'}
     =render partial: 'users/shared/users_sidebar'
