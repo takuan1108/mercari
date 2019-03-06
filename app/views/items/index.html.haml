@@ -16,14 +16,7 @@
     .pickup-container__category-box
       =link_to('レディース新着アイテム',"")
       .pickup-container__category-box__item-box
-        .card
-          = render partial:'items/item-card'
-        .card
-          = render partial:'items/item-card'
-        .card
-          = render partial:'items/item-card'
-        .card
-          = render partial:'items/item-card'
+        = render partial: "items/item-card", collection: @items_ladys,as: :item
         .clearfix
       .pickup-container__category-box__view-all
         =link_to('全ての商品を見る',"")
@@ -31,14 +24,7 @@
     .pickup-container__category-box
       =link_to('メンズ新着アイテム',"")
       .pickup-container__category-box__item-box
-        .card
-          = render partial:'items/item-card'
-        .card
-          = render partial:'items/item-card'
-        .card
-          = render partial:'items/item-card'
-        .card
-          = render partial:'items/item-card'
+        = render partial: "items/item-card", collection: @items_mens,as: :item
       .clearfix
       .pickup-container__category-box__view-all
         =link_to('全ての商品を見る',"")
@@ -46,26 +32,12 @@
     .pickup-container__category-box
       =link_to('ベビー・キッズ新着アイテム',"")
       .pickup-container__category-box__item-box
-        .card
-          = render partial:'items/item-card'
-        .card
-          = render partial:'items/item-card'
-        .card
-          = render partial:'items/item-card'
-        .card
-          = render partial:'items/item-card'
+        = render partial: "items/item-card", collection: @items_babys,as: :item
     .clearfix
     .pickup-container__category-box
       =link_to('コスメ・香水・美容新着アイテム',"")
       .pickup-container__category-box__item-box
-        .card
-          = render partial:'items/item-card'
-        .card
-          = render partial:'items/item-card'
-        .card
-          = render partial:'items/item-card'
-        .card
-          = render partial:'items/item-card'
+        = render partial: "items/item-card", collection: @items_cosmes,as: :item
     .clearfix
   .pickup-container
     %h1 ピックアップブランド
