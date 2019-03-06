@@ -14,7 +14,6 @@ body{
   &-main{
     width: 1020px;
     margin: 40px auto 0;
-
     &__center{
       float: right;
       width:  700px;
@@ -29,6 +28,7 @@ body{
         background-image: image-url("user-bg");
         background-size: cover;
         a{
+          line-height: 20px;
           text-decoration: none;
           color: black;
           display: block;
