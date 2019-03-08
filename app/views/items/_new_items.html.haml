@@ -1,0 +1,13 @@
+.pickup-container__category-box
+  .pickup-container__category-box__items-name
+    =link_to("#{name}新着アイテム","",class:'a_hover')
+  .pickup-container__category-box__item-box
+    -if @new_items_categories.include?(name)
+      - @items = Item.includes(:category).where(categories:{large:name}).limit(4)
+    -else
+      - @items = Item.includes(:brand).where(brands:{brand:name}).limit(4)
+    = render partial: "items/item-card", collection: @items,as: :item
+    .clearfix
+  .pickup-container__category-box__view-all
+    =link_to('すべての商品を見る',"",class:'a_hover')
+.clearfix

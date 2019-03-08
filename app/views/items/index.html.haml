@@ -13,42 +13,10 @@
           =fa_icon("circle")
   .pickup-container
     %h1 ピックアップカテゴリー
-    .pickup-container__category-box
-      =link_to('レディース新着アイテム',"")
-      .pickup-container__category-box__item-box
-        = render partial: "items/item-card", collection: @items_ladys,as: :item
-        .clearfix
-      .pickup-container__category-box__view-all
-        =link_to('全ての商品を見る',"")
-    .clearfix
-    .pickup-container__category-box
-      =link_to('メンズ新着アイテム',"")
-      .pickup-container__category-box__item-box
-        = render partial: "items/item-card", collection: @items_mens,as: :item
-      .clearfix
-      .pickup-container__category-box__view-all
-        =link_to('全ての商品を見る',"")
-    .clearfix
-    .pickup-container__category-box
-      =link_to('ベビー・キッズ新着アイテム',"")
-      .pickup-container__category-box__item-box
-        = render partial: "items/item-card", collection: @items_babys,as: :item
-    .clearfix
-    .pickup-container__category-box
-      =link_to('コスメ・香水・美容新着アイテム',"")
-      .pickup-container__category-box__item-box
-        = render partial: "items/item-card", collection: @items_cosmes,as: :item
-    .clearfix
+    =render partial:"items/new_items",collection: @new_items_categories,as: :name
   .pickup-container
     %h1 ピックアップブランド
-    .pickup-container__category-box
-      =link_to('シャネル新着アイテム',"")
-    .pickup-container__category-box
-      =link_to('ルイヴィトン新着アイテム',"")
-    .pickup-container__category-box
-      =link_to('シュプリーム新着アイテム',"")
-    .pickup-container__category-box
-      =link_to('ナイキ新着アイテム',"")
+    =render partial:"items/new_items",collection: @new_items_blands,as: :name
   .app-banner
     .app-banner__area
       .app-banner__area__inner
