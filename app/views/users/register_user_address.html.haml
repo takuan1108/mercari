@@ -21,7 +21,7 @@
         / %br
         / =f.text_field :first_name_phonetic,placeholder: 'アヤ'
         / %br
-        =f.label :post_number, '郵便番号'
+        =f.label :post_number, '郵便番号( \' - \'は不要です )'
         %span 必須
         %br
         =f.text_field :post_number,placeholder: ''
@@ -29,7 +29,7 @@
         =f.label :prefecture_id, '都道府県'
         %span 必須
         %br
-        = f.collection_select :prefecture, Prefecture.all, :id, :name, include_blank: '--'
+        = f.collection_select :prefecture_id, Prefecture.all, :id, :name, include_blank: '--'
         %br
         =f.label :city, '市町村'
         %span 必須
