@@ -1,8 +1,8 @@
 class ItemsController < ApplicationController
 
   def index
-    @new_items_categories = ["レディース","メンズ","ベビー・キッズ","コスメ・香水・美容"]
-    @new_items_blands = ["シャネル","ルイ ヴィトン","シュプリーム","ナイキ"]
+    @pick_up_categories = Category.where(pick_up:1)
+    @pick_up_blands = Brand.where(pick_up:1)
   end
 
   def new

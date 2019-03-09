@@ -13,10 +13,10 @@
           =fa_icon("circle")
   .pickup-container
     %h1 ピックアップカテゴリー
-    =render partial:"items/new_items",collection: @new_items_categories,as: :name
+    =render partial:"items/new_items",collection: @pick_up_categories,as: :pick_up
   .pickup-container
     %h1 ピックアップブランド
-    =render partial:"items/new_items",collection: @new_items_blands,as: :name
+    =render partial:"items/new_items",collection: @pick_up_blands,as: :pick_up
   .app-banner
     .app-banner__area
       .app-banner__area__inner

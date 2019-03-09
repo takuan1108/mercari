@@ -10,20 +10,22 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20190301021300) do
+ActiveRecord::Schema.define(version: 20190309102233) do
 
   create_table "brands", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
-    t.string   "brand"
+    t.string   "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.boolean  "pick_up"
   end
 
   create_table "categories", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
-    t.string   "large"
+    t.string   "name"
     t.string   "middle"
     t.string   "small"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.boolean  "pick_up"
   end
 
   create_table "credit_cards", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
@@ -113,14 +115,14 @@ ActiveRecord::Schema.define(version: 20190301021300) do
 
   create_table "street_addresses", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.integer  "post_number"
-    t.integer  "prefectures_id"
+    t.integer  "prefecture_id"
     t.string   "city"
     t.string   "address"
     t.string   "building_name"
     t.integer  "user_id"
-    t.datetime "created_at",     null: false
-    t.datetime "updated_at",     null: false
-    t.index ["prefectures_id"], name: "index_street_addresses_on_prefectures_id", using: :btree
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
+    t.index ["prefecture_id"], name: "index_street_addresses_on_prefecture_id", using: :btree
     t.index ["user_id"], name: "index_street_addresses_on_user_id", using: :btree
   end
 
@@ -191,7 +193,7 @@ ActiveRecord::Schema.define(version: 20190301021300) do
   add_foreign_key "items", "sizes"
   add_foreign_key "items", "users"
   add_foreign_key "items", "vendors"
-  add_foreign_key "street_addresses", "prefectures", column: "prefectures_id"
+  add_foreign_key "street_addresses", "prefectures"
   add_foreign_key "street_addresses", "users"
   add_foreign_key "valuations", "users"
   add_foreign_key "valuations", "vendors"
