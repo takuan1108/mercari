@@ -3,7 +3,6 @@
     &__center{
       box-sizing: border-box;
       width: 700px;
-      background-color: white;
       padding: 64px;
       line-height: 52px;
       vertical-align: middle;
@@ -23,6 +22,7 @@
             }
           }
           &__content{
+            background-color: white;
             padding: 40px 80px;
             h4{
               margin-top: 40px;
