@@ -72,3 +72,6 @@ gem 'kaminari'
 gem 'mechanize'
 gem 'nokogiri'
 gem "font-awesome-rails"
+gem 'active_hash'
+gem 'ancestry'
+gem 'gon'
