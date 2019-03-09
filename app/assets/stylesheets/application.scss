@@ -1,7 +1,6 @@
 @import 'variable';
 @import 'font-awesome';
 @import 'config/reset';
-@import 'users_show';
 @import 'header';
 @import 'footer';
 @import 'subHeader';
@@ -17,7 +16,7 @@
 @import 'users_indentification';
 @import 'users_footer';
 @import 'registration_info';
-@import 'confirm_tel';
+// @import 'confirm_tel';
 @import 'register_user_shipping';
 @import 'users_card';
 @import 'register_complete';
@@ -25,3 +24,4 @@
 @import 'edit_user_info';
 @import 'app_banner';
 @import 'users_logout'
+
