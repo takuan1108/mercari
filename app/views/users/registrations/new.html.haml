@@ -1,71 +1,72 @@
 =render partial: '/users/shared/users_register'
 .register-main
-  %h2
+  %h2.register-header
     会員情報入力
   .register-main__content
-    = form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f|
+    = form_for(resource, as: resource_name, url: user_registration_path) do |f|
       = render partial:"users/shared/error_messages", resource: resource
-      .field
-        = f.label :nickname, "ニックネーム"
-        %span 必須
-        %br
-        = f.text_field :nickname, autofocus: true, autocomplete: "nickname",placeholder: '例)メルカリ太郎'
-      .field
-        = f.label :email, "メールアドレス"
-        %span 必須
-        %br/
-        = f.email_field :email, autofocus: true, autocomplete: "email", placeholder:'PC・携帯どちらでも可'
-      .field
-        = f.label :password, "パスワード"
-        %span 必須
-        / あとで使うかもしれない
-        / - if @minimum_password_length
-        /   %em
-        /     (#{@minimum_password_length}文字以上)
-        %br/
-        = f.password_field :password, autocomplete: "new-password",placeholder:'６文字以上'
-      .field
-        = f.label :password_confirmation, "パスワード（確認）"
-        %span 必須
-        %br/
-        = f.password_field :password_confirmation, autocomplete: "new-password",placeholder:'6文字以上'
-      %h3 本人確認
-      %p
-        安心・安全にご利用いただくために、お客さまの本人情報の登録にご協力ください。他のお客さまに公開されることはありません。
-      .field
-        = f.label :family_name, "姓（全角）"
-        %span 必須
-        %br/
-        = f.text_field :family_name, autofocus: true, autocomplete: "family_name",placeholder:'例）山田'
-      .field
-        = f.label :first_name, "名（全角）"
-        %span 必須
-        %br/
-        = f.text_field :first_name, autofocus: true, autocomplete: "first_name",placeholder:'例）彩'
-      .field
-        = f.label :family_name_phonetic, "姓カナ（全角）"
-        %span 必須
-        %br/
-        = f.text_field :family_name_phonetic, autofocus: true, autocomplete: "family_name_phonetic",placeholder:'ヤマダ'
-      .field
-        = f.label :first_name_phonetic, "名カナ（全角）"
-        %span 必須
-        %br/
-        = f.text_field :first_name_phonetic, autofocus: true, autocomplete: "first_name_phonetic",placeholder:'アヤ'
-      .field.last
-        = f.label '生年月日'
-        %span 必須
-        %br/
-        = f.select :birth_year, [["1992", "1"], ["1993", "2"]], include_blank: '--'
-        / 本番でオブジェクトを使用するときは下記を使用
-        / = f.select :birth_year, Prefecture.all.map{|i|, [i.name, i.id], include_blank: '--'
-        = f.label :birth_year, "年"
-        %br/
-        = f.select :birth_month, [["1", "1"], ["2", "2"]], include_blank: '--', autofocus: true, autocomplete: "birth_month"
-        = f.label :birth_month,"月"
-        %br/
-        = f.select :birth_day, [["1", "1"], ["2", "2"]], include_blank: '--', autofocus: true, autocomplete: "birth_day"
-        = f.label :birth_day,"日"
+      .on-display
+        .field
+          = f.label :nickname, "ニックネーム"
+          %span 必須
+          %br
+          = f.text_field :nickname, autofocus: true, autocomplete: "nickname",placeholder: '例)メルカリ太郎'
+        .field
+          = f.label :email, "メールアドレス"
+          %span 必須
+          %br/
+          = f.email_field :email, autofocus: true, autocomplete: "email", placeholder:'PC・携帯どちらでも可'
+        .field
+          = f.label :password, "パスワード"
+          %span 必須
+          / あとで使うかもしれない
+          / - if @minimum_password_length
+          /   %em
+          /     (#{@minimum_password_length}文字以上)
+          %br/
+          = f.password_field :password, autocomplete: "new-password",placeholder:'６文字以上'
+        .field
+          = f.label :password_confirmation, "パスワード（確認）"
+          %span 必須
+          %br/
+          = f.password_field :password_confirmation, autocomplete: "new-password",placeholder:'6文字以上'
+        %h3 本人確認
+        %p
+          安心・安全にご利用いただくために、お客さまの本人情報の登録にご協力ください。他のお客さまに公開されることはありません。
+        .field
+          = f.label :family_name, "姓（全角）"
+          %span 必須
+          %br/
+          = f.text_field :family_name, autofocus: true, autocomplete: "family_name",placeholder:'例）山田'
+        .field
+          = f.label :first_name, "名（全角）"
+          %span 必須
+          %br/
+          = f.text_field :first_name, autofocus: true, autocomplete: "first_name",placeholder:'例）彩'
+        .field
+          = f.label :family_name_phonetic, "姓カナ（全角）"
+          %span 必須
+          %br/
+          = f.text_field :family_name_phonetic, autofocus: true, autocomplete: "family_name_phonetic",placeholder:'ヤマダ'
+        .field
+          = f.label :first_name_phonetic, "名カナ（全角）"
+          %span 必須
+          %br/
+          = f.text_field :first_name_phonetic, autofocus: true, autocomplete: "first_name_phonetic",placeholder:'アヤ'
+        .field.last
+          = f.label '生年月日'
+          %span 必須
+          %br/
+          = f.select :birth_year, [["1992", "1"], ["1993", "2"]], include_blank: '--'
+          / 本番でオブジェクトを使用するときは下記を使用
+          / = f.select :birth_year, Prefecture.all.map{|i|, [i.name, i.id], include_blank: '--'
+          = f.label :birth_year, "年"
+          %br/
+          = f.select :birth_month, [["1", "1"], ["2", "2"]], include_blank: '--', autofocus: true, autocomplete: "birth_month"
+          = f.label :birth_month,"月"
+          %br/
+          = f.select :birth_day, [["1", "1"], ["2", "2"]], include_blank: '--', autofocus: true, autocomplete: "birth_day"
+          = f.label :birth_day,"日"
       %p.confirm
         ※ 本人情報は正しく入力してください。
         %br/
@@ -75,6 +76,25 @@
         私はロボットではありません
       %p.next-text
         「次へ進む」のボタンを押すことにより、利用規約に同意したものとみなします
-      .actions
-        = f.submit "次へ進む"
+      %input.next{type: "button", value: "次へ"}/
+      .confirm-tel.no-display
+        %h3.head 電話番号確認
+        .confirm-tel__content
+          .form__up
+            %h3 認証番号
+            =text_field :tel,placeholder: '認証して完了'
+            %p SMSで届いた番号を入力してください
+            =submit_tag '認証して完了'
+          .form-middle
+            %p.up 30秒たっても番号が届かない方へ
+            %p.down 電話で認証番号を聞くこともできます。
+            =submit_tag '電話で認証番号を聞く（通話無料）'
+          .form-under
+            %p.note
+              ※認証番号を再送することもできます。もう一度電話番号を入力してください。
+            =link_to '電話番号から再入力する','#'
+            %p.last
+              SMSが届かない場合はSMS受信設定を確認してください
+          .actions
+            = f.submit "次へ進む", class: 'first-commit'
 =render partial: 'users/shared/footer'
