@@ -10,9 +10,10 @@
         再度ログインを行なってください。
       =link_to '#' do
         .facebook
-          =fa_icon('facebook')
-          %span
-            Facebookでログイン
+          =link_to '/users/auth/facebook' do
+            =fa_icon('facebook')
+            %span
+              Facebookでログイン
       =link_to '#' do
         .google
           =fa_icon('google')
