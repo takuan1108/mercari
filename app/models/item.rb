@@ -1,6 +1,7 @@
-class Item < ApplicationRecord
+class Item < ActiveRecord::Base
   belongs_to :user
   belongs_to :vendor
+  extend ActiveHash::Associations::ActiveRecordExtensions
   belongs_to_active_hash :prefecture
   belongs_to :brand
   belongs_to :size
