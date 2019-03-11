@@ -115,14 +115,14 @@ $(function(){
     select_size.append(html);
     });
   };
-  var select_large = $('.large-category')
-  var select_middle = $('.middle-category')
-  var select_small = $('.small-category')
-  var select_size = $('.size-select')
-  var middle_box = $('.select-middle')
-  var small_box = $('.select-small')
-  var size_box = $('.select-size')
-  var brand_box = $('.select-brand')
+  var select_large = $('.large-category');
+  var select_middle = $('.middle-category');
+  var select_small = $('.small-category');
+  var select_size = $('.size-select');
+  var middle_box = $('.select-middle');
+  var small_box = $('.select-small');
+  var size_box = $('.select-size');
+  var brand_box = $('.select-brand');
     // largeが変わったら発動
   select_large.change(function() {
     // largeの値を代入
