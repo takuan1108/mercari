@@ -5,9 +5,15 @@ Rails.application.routes.draw do
       get 'logout'
       get 'add_card_info'
       get 'add_card'
+      post 'pay'
+      delete 'delete_card'
     end
   end
-  resources :items
-  get 'items/:id/buy' => 'items#buy'
+  resources :items do
+    member do
+      get 'buy'
+      post 'pay'
+    end
+  end
   root 'items#index'
 end
