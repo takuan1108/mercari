@@ -74,3 +74,5 @@ gem 'nokogiri'
 gem "font-awesome-rails"
 gem 'rb-readline'
 gem 'payjp'
+gem 'dotenv-rails'
+gem 'jquery-validation-rails'
