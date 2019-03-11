@@ -2,7 +2,6 @@
 .item-new
   .item-new-container
     %h2 商品の情報を入力
-    %form
     = form_for @item do |f|
       .post-image
         .post-image-body
@@ -10,15 +9,16 @@
           %span 必須
           %p 最大10枚までアップロードできます
           .post-image-body-field{id: "drop"}
-            = f.fields_for :item_images do |i|
-              %ul.sell-dropbox-items
-              .sell-dropbox-uploader
-                = i.label :image,class: "sell-dropbox-uploader_container" do
-                  - 10.times do |timesCount|
-                    = i.file_field :image,class: "item_images hidden",id:"item_image#{timesCount}",multiple: true,name: "[image][]",type: 'file'
-            %pre
-              ドラッグアンドドロップ
-              またはクリックしてファイルをアップロード
+            .post-image-body-field-zone
+              = f.fields_for :item_images do |i|
+                %ul.sell-dropbox-items
+                .sell-dropbox-uploader
+                  = i.label :image,class: "sell-dropbox-uploader-container" do
+                    - 10.times do |timesCount|
+                      = i.file_field :image,class: "item_images hidden",id:"item_image#{timesCount}",multiple: true,name: "[image][]",type: 'file'
+                %pre
+                  ドラッグアンドドロップ
+                  またはクリックしてファイルをアップロード
       .post-item
         .post-item-body
           .post-item-body-title
@@ -52,7 +52,7 @@
               .select
                 %h3.brand ブランド
                 %span.optional 任意
-              %input{placeholder: "例）シャネル"}
+              = f.text_field :brand ,placehholder: "例）シャネル"
             .select
               %h3 商品の状態
               %span 必須
@@ -101,7 +101,7 @@
                 %p.right -
               %li.profits
                 %h3 販売利益
-                .sell-form-price-gains-num -
+                .profits-form -
       .post-submit
         .post-submit-text
           %p

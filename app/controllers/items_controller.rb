@@ -6,10 +6,10 @@ class ItemsController < ApplicationController
   def new
     @item = Item.new
     @item.item_images.build
+    @brands = Brand.all
     gon.middle = Category.where(id:[15..153])
-    cloth = Category.find(15)
-    gon.cloth = cloth.size_id
     gon.small  = Category.where(id:[154..1212])
+    gon.size = Size.all
   end
 
   def create
@@ -34,7 +34,8 @@ class ItemsController < ApplicationController
 
   private
   def item_params
-    params.require(:item).permit(:name,:description,:price,:condition,:shipping_fee,:shipping_date,:shipping_method,:prefecture_id,:size_id,:category_id,item_images_attributes: [:image])
+    params.require(:item).permit(:name,:description,:price,:condition,:shipping_fee,:shipping_date,:shipping_method,:prefecture_id,:size_id,:category_id,:brand,
+      item_images_attributes: [:image])
 
   end
 end

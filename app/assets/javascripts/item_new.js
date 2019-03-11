@@ -3,7 +3,7 @@ $(function(){
   var upload_image = $(".sell-dropbox-items");
   var i_count = 1;
 
-  function appendImage(image) {
+  function get_image(image) {
     var html = `<li class="sell-upload-item">
                   <img src="${image}" alt="画像">
                   <div class="sell-upload-button">
@@ -12,10 +12,9 @@ $(function(){
                   </div>
                 </li>`
     upload_image.append(html);
-    ImageCount()
   }
-// https://www.softel.co.jp/blogs/tech/archives/5679
 
+  // 忘れたらhttps://www.softel.co.jp/blogs/tech/archives/5679
   // targetにdropzoneを定義する
   var target = document.getElementById('drop');
   if (target) {
@@ -46,24 +45,17 @@ $(function(){
       // 読み込み完了時のイベント
       fileReader.onload = function (e) {
       //e.target.result
-        appendImage(e.target.result);
+        get_image(e.target.result,i_count);
       }
       // 読み込み実行readAsDataURL()は、FileReaderのメソッド
       fileReader.readAsDataURL(this.files[i]);
       i_count += 1;
-      $("label.sell-dropbox-uploader_container").attr('for','item_image'+ i_count);
+      $("label.sell-dropbox-uploader-container").attr('for','item_image'+ i_count);
     }
   });
 
   // ここから連動プルダウン
-  var select_large = $('.large-category')
-  var select_middle = $('.middle-category')
-  var select_small = $('.small-category')
-  var select_size = $('.size-select')
-  var middle_box = $('.select-middle')
-  var small_box = $('.select-small')
-  var size_box = $('.select-size')
-  var brand_box = $('.select-brand')
+
   // var parent_val = null
 
   // 呼び出し元に、選択された値に紐づくカテだけを返す
@@ -79,9 +71,9 @@ $(function(){
 
   function middle_choices(large_results,select_middle){
     large_results.forEach(function(result){
-      var html = `<option value="${result.id}">
-                  ${result.name}
-                </option>`
+      var html = `<option value="${result.id}"size_type_id="${result.size_type_id}" >
+                    ${result.name}
+                  </option>`
     //middleboxに選択肢を入れる
     select_middle.append(html)
     })
@@ -104,14 +96,33 @@ $(function(){
       })
     }
   }
-  // function size_choices(select_middle,middle_val){
-  //   var results = gon.cloth;
-  //   if(results = 1){
-  //     size_box.show();
-  //     }else{
-  //       size_box.hide();
-  //     }
-  //   }
+  function get_size_type(middle_val,middle_category){
+    middle_category.forEach(function(result){
+      if(result.id == middle_val){
+         result_size_type = result.size_type_id;
+      }
+    });
+  }
+
+  function size_choices(result_size_type,select_size,size_all){
+    size_all.forEach(function(result){
+      var size_all_type_id = result.size_type_id
+      if(result_size_type == size_all_type_id)
+        var html = `<option value="${result.id}" >
+                  ${result.name}
+                 </option>`
+    //sizeboxに選択肢を入れる
+    select_size.append(html)
+    });
+  }
+  var select_large = $('.large-category')
+  var select_middle = $('.middle-category')
+  var select_small = $('.small-category')
+  var select_size = $('.size-select')
+  var middle_box = $('.select-middle')
+  var small_box = $('.select-small')
+  var size_box = $('.select-size')
+  var brand_box = $('.select-brand')
     // largeが変わったら発動
   select_large.change(function() {
     // largeの値を代入
@@ -134,6 +145,7 @@ $(function(){
     var large_val = select_large.val();
     //middleのvalueを代入
     var middle_val  = $(this).val();
+
     //middleが空なら隠しとく
     if ($.isEmptyObject(middle_val)){
       small_box.hide();
@@ -142,7 +154,8 @@ $(function(){
       small_box.show();
     }
     small_choices(select_small,large_val, middle_val);
-    // size_choices(select_middle,middle_val);
+    get_size_type(middle_val,gon.middle);
+    size_choices(result_size_type,select_size,gon.size);
   });
   // smallが変わったら発動
   select_small.change(function() {
@@ -160,27 +173,14 @@ $(function(){
   $('#item_shipping_fee').change(function(){
     $('.select_shipping_method').show();
   })
-  // function ReplaceNum(num) {
-  //   var str = new String(num).replace(/,/g, "");
-  //   while(str != (str = str.replace(/^(-?\d+)(\d{3})/, "$1,$2")));
-  //   return str;
-  // }
-
-  // $(".sell-form-text_number").on("keyup", function(e) {
-  //   var input = $(this).val();
-  //   var price = Number(input.replace(/[^0-9]/g, ''));
-
-  //   if( price >= 300 && price <= 9999999 ){
-  //     var fee = Math.floor(price / 10);
-  //     var gains = Math.floor(price - fee);
-  //     var fee_num = ReplaceNum(fee)
-  //     $(".right").text('¥ ' + fee_num);
-  //     var gains_num = ReplaceNum(gains)
-  //     $(".sell-form-price-gains-num").text('¥ ' + gains_num);
-  //     }
-  //   else {
-  //     $(".sell-form-price-fee-num").text('-');
-  //     $(".sell-form-price-gains-num").text('-');
-  //   }
-  // });
+  //利益、手数料計算
+  $(".sell-form-text_number").on("keyup", function(e) {
+    var price = $(this).val();
+    if( price >= 300 && price <= 9999999 ){
+      var fee = Math.floor(price / 10);
+      var profits = Math.floor(price - fee);
+      $(".right").text('¥ ' + fee);
+      $(".profits-form").text('¥ ' + profits);
+    }
+  });
 });
