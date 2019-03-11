@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20190301021300) do
+ActiveRecord::Schema.define(version: 20190311110149) do
 
   create_table "brands", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "brand"
@@ -19,11 +19,11 @@ ActiveRecord::Schema.define(version: 20190301021300) do
   end
 
   create_table "categories", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
-    t.string   "large"
-    t.string   "middle"
-    t.string   "small"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.string   "name"
+    t.string   "ancestry"
+    t.integer  "size_type_id"
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
   end
 
   create_table "credit_cards", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
@@ -60,11 +60,10 @@ ActiveRecord::Schema.define(version: 20190301021300) do
   end
 
   create_table "item_images", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
-    t.string   "image",      null: false
+    t.string   "image"
     t.integer  "item_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["item_id"], name: "index_item_images_on_item_id", using: :btree
   end
 
   create_table "items", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
@@ -78,49 +77,35 @@ ActiveRecord::Schema.define(version: 20190301021300) do
     t.integer  "category_id"
     t.integer  "size_id"
     t.integer  "prefecture_id"
-    t.integer  "brand_id"
-    t.integer  "user_id"
-    t.integer  "vendor_id"
+    t.string   "brand"
     t.datetime "created_at",                    null: false
     t.datetime "updated_at",                    null: false
-    t.index ["brand_id"], name: "index_items_on_brand_id", using: :btree
     t.index ["category_id"], name: "index_items_on_category_id", using: :btree
-    t.index ["prefecture_id"], name: "index_items_on_prefecture_id", using: :btree
     t.index ["size_id"], name: "index_items_on_size_id", using: :btree
-    t.index ["user_id"], name: "index_items_on_user_id", using: :btree
-    t.index ["vendor_id"], name: "index_items_on_vendor_id", using: :btree
   end
 
-  create_table "prefectures", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
-    t.string   "prefecture"
+  create_table "size_types", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.string   "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
   create_table "sizes", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
-    t.string   "cloth"
-    t.string   "mens_shoes"
-    t.string   "ladies_shoes"
-    t.string   "kids_shoes"
-    t.string   "tv"
-    t.string   "bike"
-    t.string   "tire"
-    t.datetime "created_at",       null: false
-    t.datetime "updated_at",       null: false
-    t.string   "kids_cloth_small"
-    t.string   "kids_cloth"
+    t.string   "name"
+    t.integer  "size_type_id"
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
   end
 
   create_table "street_addresses", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.integer  "post_number"
-    t.integer  "prefectures_id"
+    t.integer  "prefecture_id"
     t.string   "city"
     t.string   "address"
     t.string   "building_name"
     t.integer  "user_id"
-    t.datetime "created_at",     null: false
-    t.datetime "updated_at",     null: false
-    t.index ["prefectures_id"], name: "index_street_addresses_on_prefectures_id", using: :btree
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
     t.index ["user_id"], name: "index_street_addresses_on_user_id", using: :btree
   end
 
@@ -174,7 +159,6 @@ ActiveRecord::Schema.define(version: 20190301021300) do
     t.string   "building_name"
     t.datetime "created_at",     null: false
     t.datetime "updated_at",     null: false
-    t.index ["prefecture_id"], name: "index_vendors_on_prefecture_id", using: :btree
     t.index ["user_id"], name: "index_vendors_on_user_id", using: :btree
   end
 
@@ -184,17 +168,10 @@ ActiveRecord::Schema.define(version: 20190301021300) do
   add_foreign_key "deals", "vendors"
   add_foreign_key "item_comments", "items"
   add_foreign_key "item_comments", "users"
-  add_foreign_key "item_images", "items"
-  add_foreign_key "items", "brands"
   add_foreign_key "items", "categories"
-  add_foreign_key "items", "prefectures"
   add_foreign_key "items", "sizes"
-  add_foreign_key "items", "users"
-  add_foreign_key "items", "vendors"
-  add_foreign_key "street_addresses", "prefectures", column: "prefectures_id"
   add_foreign_key "street_addresses", "users"
   add_foreign_key "valuations", "users"
   add_foreign_key "valuations", "vendors"
-  add_foreign_key "vendors", "prefectures"
   add_foreign_key "vendors", "users"
 end

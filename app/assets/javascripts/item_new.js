@@ -100,9 +100,9 @@ $(function(){
     middle_category.forEach(function(result){
       if(result.id == middle_val){
          result_size_type = result.size_type_id;
-      }
+      };
     });
-  }
+  };
 
   function size_choices(result_size_type,select_size,size_all){
     size_all.forEach(function(result){
@@ -112,9 +112,9 @@ $(function(){
                   ${result.name}
                  </option>`
     //sizeboxに選択肢を入れる
-    select_size.append(html)
+    select_size.append(html);
     });
-  }
+  };
   var select_large = $('.large-category')
   var select_middle = $('.middle-category')
   var select_small = $('.small-category')

@@ -1,6 +1,4 @@
 
-<<<<<<< HEAD
-=======
 body{
   font-family: 'Source Sans Pro', Helvetica , Arial, '游ゴシック体', 'YuGothic', 'メイリオ', 'Meiryo', sans-serif;
   width: 100%;
@@ -30,7 +28,7 @@ body{
         padding:40px;
         background-image: image-url("user-bg");
         background-size: cover;
-        &-link{
+        a{
           text-decoration: none;
           color: black;
           display: block;
@@ -46,14 +44,14 @@ body{
             font-weight: 600;
             margin-top: 8px;
           }
-          &-numbers{
+          .my-number{
             margin-top: 8px;
             font-size:14px;
             text-align: center;
             &__review{
               display: inline-block;
             }
-            &__number{
+            &__item{
               display: inline-block;
               margin-left:16px;
             }
@@ -294,7 +292,6 @@ body{
   }
 }
 
->>>>>>> ma-kun92/master
 
 body{
   font-family: 'Source Sans Pro', Helvetica , Arial, '游ゴシック体', 'YuGothic', 'メイリオ', 'Meiryo', sans-serif;
