@@ -56,7 +56,7 @@
             .select
               %h3 商品の状態
               %span 必須
-            = f.select :condition,Item::CONDITION,prompt: "---"
+            = f.select :condition,Item.conditions.keys.map { |k| [Item.conditions_i18n[k], k]},prompt: "---"
       .post-delivery
         .post-delivery-body
           .post-delivery-body__show
@@ -67,12 +67,12 @@
             .select
               %h3 配送料の負担
               %span 必須
-            = f.select :shipping_fee,Item::SHIPPING_FEE,prompt: "---"
+            = f.select :shipping_fee,Item.shipping_fees.keys.map { |k| [Item.shipping_fees_i18n[k], k]},prompt: "---"
             .select_shipping_method
               .select
                 %h3 配送の方法
                 %span 必須
-              = f.select :shipping_method,Item::SHIPPING_METHOD,prompt: "---"
+              = f.select :shipping_method,Item.shipping_methods.keys.map { |k| [Item.shipping_methods_i18n[k], k]},prompt: "---"
             .select
               %h3 発送元の地域
               %span 必須
@@ -80,7 +80,7 @@
             .select
               %h3.shipping-date 発送までの日数
               %span 必須
-            = f.select :shipping_date,Item::SHIPPING_DATE,prompt: "---"
+            = f.select :shipping_date,Item.shipping_dates.keys.map { |k| [Item.shipping_dates_i18n[k], k]},prompt: "---"
       .post-price
         .post-price-body
           .post-price-body__show
