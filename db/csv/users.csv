@@ -1,0 +1,3 @@
+id,"nickname","tellphone","family_name","first_name","family_name_phonetic","first_name_phonetic",birth_year,birth_month,birth_day,"icon","profile","invitation_code","email","encrypted_password","reset_password_token","reset_password_sent_at","remember_created_at","created_at","updated_at"
+1,"ゴジラ","55555555555","松井","秀樹","カトウ","シロウ",1974,6,12,NULL,NULL,NULL,"aaa@aaa","aaaaaaaa","aaaaaaaa","2018-11-11 00:00:00","2018-11-11 00:00:00","2018-11-11 00:00:00","2018-11-11 00:00:00"
+2,"イチロー","51515151515","鈴木","一朗","スズキ","イチロウ",1973,10,22,NULL,NULL,NULL,"bbb@bbb","bbbbbbbb","bbbbbbbb","2018-11-11 00:00:00","2018-11-11 00:00:00","2018-11-11 00:00:00","2018-11-11 00:00:00"
