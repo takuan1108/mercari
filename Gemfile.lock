@@ -102,8 +102,6 @@ GEM
       railties (>= 4.2.0)
     faraday (0.15.4)
       multipart-post (>= 1.2, < 3)
-    faraday (0.15.4)
-      multipart-post (>= 1.2, < 3)
     ffi (1.10.0)
     fog-aws (3.3.0)
       fog-core (~> 2.1)
@@ -350,8 +348,8 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  ancestry
   active_hash (~> 1.5.3)
+  ancestry
   byebug
   capistrano
   capistrano-bundler

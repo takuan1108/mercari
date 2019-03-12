@@ -10,8 +10,8 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
+ActiveRecord::Schema.define(version: 20190311110149) do
 
-ActiveRecord::Schema.define(version: 20190312101421) do
   create_table "brands", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "name"
     t.datetime "created_at",                 null: false
@@ -23,17 +23,16 @@ ActiveRecord::Schema.define(version: 20190312101421) do
     t.string   "name"
     t.string   "ancestry"
     t.integer  "size_type_id"
-    t.datetime "created_at",   null: false
-    t.datetime "updated_at",   null: false
-    t.boolean  "pick_up",    default: false, null: false
-    t.boolean  "pick_up",    default: false, null: false
+    t.datetime "created_at",                   null: false
+    t.datetime "updated_at",                   null: false
+    t.boolean  "pick_up",      default: false, null: false
   end
 
   create_table "credit_cards", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "card_number",   null: false
     t.integer  "month",         null: false
     t.integer  "year",          null: false
-    t.integer  "security_code", null: false
+    t.string   "security_code", null: false
     t.integer  "user_id"
     t.datetime "created_at",    null: false
     t.datetime "updated_at",    null: false
@@ -77,14 +76,13 @@ ActiveRecord::Schema.define(version: 20190312101421) do
     t.integer  "shipping_method",               null: false
     t.integer  "shipping_date",                 null: false
     t.integer  "shipping_fee",                  null: false
-    t.integer  "category_id"
-    t.integer  "size_id"
-    t.integer  "prefecture_id"
+    t.integer  "prefecture_id",                 null: false
     t.string   "brand"
+    t.integer  "size_id"
+    t.integer  "category_id"
     t.datetime "created_at",                    null: false
     t.datetime "updated_at",                    null: false
     t.index ["category_id"], name: "index_items_on_category_id", using: :btree
-    t.index ["size_id"], name: "index_items_on_size_id", using: :btree
   end
 
   create_table "size_types", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
@@ -100,9 +98,8 @@ ActiveRecord::Schema.define(version: 20190312101421) do
     t.datetime "updated_at",   null: false
   end
 
-
   create_table "street_addresses", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
-    t.integer  "post_number"
+    t.string   "post_number"
     t.integer  "prefecture_id"
     t.string   "city"
     t.string   "address"
@@ -115,7 +112,7 @@ ActiveRecord::Schema.define(version: 20190312101421) do
 
   create_table "users", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "nickname",                                          null: false
-    t.string   "tellphone",                                         null: false
+    t.string   "tellphone"
     t.string   "family_name",                                       null: false
     t.string   "first_name",                                        null: false
     t.string   "family_name_phonetic",                              null: false
@@ -152,11 +149,11 @@ ActiveRecord::Schema.define(version: 20190312101421) do
     t.integer  "user_id"
     t.string   "bank"
     t.string   "bank_account"
-    t.integer  "branch_code"
-    t.integer  "account_number"
+    t.string   "branch_code"
+    t.string   "account_number"
     t.string   "family_name"
     t.string   "first_name"
-    t.integer  "post_number"
+    t.string   "post_number"
     t.integer  "prefecture_id"
     t.string   "city"
     t.string   "address"
@@ -173,10 +170,6 @@ ActiveRecord::Schema.define(version: 20190312101421) do
   add_foreign_key "item_comments", "items"
   add_foreign_key "item_comments", "users"
   add_foreign_key "items", "categories"
-  add_foreign_key "items", "sizes"
-  add_foreign_key "item_images", "items"
-  add_foreign_key "items", "users"
-  add_foreign_key "items", "vendors"
   add_foreign_key "street_addresses", "users"
   add_foreign_key "valuations", "users"
   add_foreign_key "valuations", "vendors"
