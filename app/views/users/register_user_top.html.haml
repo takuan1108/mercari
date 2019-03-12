@@ -1,0 +1,23 @@
+
+.sign-in
+  .sign-in-main
+    .sign-in-main__header
+      =image_tag('mercari-logo.png')
+    .sign-in-main__top
+      %h6.api-head
+        新規会員登録
+    .sign-in-main__api
+      =link_to new_user_registration_path do
+        .email.link-registration
+          メールアドレスで登録
+      =link_to '/users/auth/facebook' do
+        .facebook
+          =fa_icon('facebook')
+          %span
+            Facebookでログイン
+      =link_to '#' do
+        .google
+          =fa_icon('google')
+          %span
+            Googleでログイン
+=render partial: 'users/shared/footer'
