@@ -74,3 +74,5 @@ gem 'nokogiri'
 gem "font-awesome-rails"
 gem 'rb-readline'
 gem 'active_hash', '~> 1.5.3'
+gem 'omniauth'
+gem 'omniauth-facebook'
