@@ -11,11 +11,11 @@
 # It's strongly recommended that you check this file into your version control system.
 
 ActiveRecord::Schema.define(version: 20190312101421) do
-
   create_table "brands", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
-    t.string   "brand"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.string   "name"
+    t.datetime "created_at",                 null: false
+    t.datetime "updated_at",                 null: false
+    t.boolean  "pick_up",    default: false, null: false
   end
 
   create_table "categories", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
@@ -24,10 +24,11 @@ ActiveRecord::Schema.define(version: 20190312101421) do
     t.integer  "size_type_id"
     t.datetime "created_at",   null: false
     t.datetime "updated_at",   null: false
+    t.boolean  "pick_up",    default: false, null: false
   end
 
   create_table "credit_cards", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
-    t.integer  "card_number",   null: false
+    t.string   "card_number",   null: false
     t.integer  "month",         null: false
     t.integer  "year",          null: false
     t.integer  "security_code", null: false
@@ -97,6 +98,7 @@ ActiveRecord::Schema.define(version: 20190312101421) do
     t.datetime "updated_at",   null: false
   end
 
+
   create_table "street_addresses", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.integer  "post_number"
     t.integer  "prefecture_id"
@@ -111,7 +113,7 @@ ActiveRecord::Schema.define(version: 20190312101421) do
 
   create_table "users", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "nickname",                                          null: false
-    t.integer  "tellphone",                                         null: false
+    t.string   "tellphone",                                         null: false
     t.string   "family_name",                                       null: false
     t.string   "first_name",                                        null: false
     t.string   "family_name_phonetic",                              null: false
@@ -170,6 +172,9 @@ ActiveRecord::Schema.define(version: 20190312101421) do
   add_foreign_key "item_comments", "users"
   add_foreign_key "items", "categories"
   add_foreign_key "items", "sizes"
+  add_foreign_key "item_images", "items"
+  add_foreign_key "items", "users"
+  add_foreign_key "items", "vendors"
   add_foreign_key "street_addresses", "users"
   add_foreign_key "valuations", "users"
   add_foreign_key "valuations", "vendors"
