@@ -29,7 +29,7 @@ ActiveRecord::Schema.define(version: 20190310071134) do
   end
 
   create_table "credit_cards", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
-    t.integer  "card_number",   null: false
+    t.string   "card_number",   null: false
     t.integer  "month",         null: false
     t.integer  "year",          null: false
     t.integer  "security_code", null: false
@@ -77,40 +77,17 @@ ActiveRecord::Schema.define(version: 20190310071134) do
     t.string   "shipping_method",               null: false
     t.string   "shipping_date",                 null: false
     t.string   "shipping_fee",                  null: false
-    t.integer  "category_id"
+    t.integer  "prefecture_id",                 null: false
+    t.string   "brand"
     t.integer  "size_id"
-    t.integer  "prefecture_id"
-    t.integer  "brand_id"
+    t.integer  "category_id"
     t.integer  "user_id"
     t.integer  "vendor_id"
     t.datetime "created_at",                    null: false
     t.datetime "updated_at",                    null: false
-    t.index ["brand_id"], name: "index_items_on_brand_id", using: :btree
     t.index ["category_id"], name: "index_items_on_category_id", using: :btree
-    t.index ["prefecture_id"], name: "index_items_on_prefecture_id", using: :btree
-    t.index ["size_id"], name: "index_items_on_size_id", using: :btree
     t.index ["user_id"], name: "index_items_on_user_id", using: :btree
     t.index ["vendor_id"], name: "index_items_on_vendor_id", using: :btree
-  end
-
-  create_table "prefectures", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
-    t.string   "prefecture"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
-  create_table "sizes", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
-    t.string   "cloth"
-    t.string   "mens_shoes"
-    t.string   "ladies_shoes"
-    t.string   "kids_shoes"
-    t.string   "tv"
-    t.string   "bike"
-    t.string   "tire"
-    t.datetime "created_at",       null: false
-    t.datetime "updated_at",       null: false
-    t.string   "kids_cloth_small"
-    t.string   "kids_cloth"
   end
 
   create_table "street_addresses", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
@@ -127,12 +104,12 @@ ActiveRecord::Schema.define(version: 20190310071134) do
   end
 
   create_table "users", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
-    t.string   "nickname",                             default: "", null: false
-    t.integer  "tellphone",                                         null: false
-    t.string   "family_name",                          default: "", null: false
-    t.string   "first_name",                           default: "", null: false
-    t.string   "family_name_phonetic",                 default: "", null: false
-    t.string   "first_name_phonetic",                  default: "", null: false
+    t.string   "nickname",                                          null: false
+    t.string   "tellphone",                                         null: false
+    t.string   "family_name",                                       null: false
+    t.string   "first_name",                                        null: false
+    t.string   "family_name_phonetic",                              null: false
+    t.string   "first_name_phonetic",                               null: false
     t.integer  "birth_year",                                        null: false
     t.integer  "birth_month",                                       null: false
     t.integer  "birth_day",                                         null: false
@@ -177,7 +154,6 @@ ActiveRecord::Schema.define(version: 20190310071134) do
     t.string   "building_name"
     t.datetime "created_at",     null: false
     t.datetime "updated_at",     null: false
-    t.index ["prefecture_id"], name: "index_vendors_on_prefecture_id", using: :btree
     t.index ["user_id"], name: "index_vendors_on_user_id", using: :btree
   end
 
@@ -188,16 +164,12 @@ ActiveRecord::Schema.define(version: 20190310071134) do
   add_foreign_key "item_comments", "items"
   add_foreign_key "item_comments", "users"
   add_foreign_key "item_images", "items"
-  add_foreign_key "items", "brands"
   add_foreign_key "items", "categories"
-  add_foreign_key "items", "prefectures"
-  add_foreign_key "items", "sizes"
   add_foreign_key "items", "users"
   add_foreign_key "items", "vendors"
   add_foreign_key "street_addresses", "prefectures"
   add_foreign_key "street_addresses", "users"
   add_foreign_key "valuations", "users"
   add_foreign_key "valuations", "vendors"
-  add_foreign_key "vendors", "prefectures"
   add_foreign_key "vendors", "users"
 end
