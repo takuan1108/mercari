@@ -74,14 +74,10 @@ gem 'kaminari'
 gem 'mechanize'
 gem 'nokogiri'
 gem "font-awesome-rails"
-gem 'active_hash'
 gem 'ancestry'
 gem 'gon'
 gem 'rb-readline'
-<<<<<<< HEAD
 gem 'enum_help'
-=======
 gem 'active_hash', '~> 1.5.3'
 gem 'omniauth'
 gem 'omniauth-facebook'
->>>>>>> master

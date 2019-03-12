@@ -10,16 +10,8 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-<<<<<<< HEAD
-ActiveRecord::Schema.define(version: 20190312101421) do
-=======
-<<<<<<< HEAD
-ActiveRecord::Schema.define(version: 20190305121719) do
-=======
-ActiveRecord::Schema.define(version: 20190310071134) do
->>>>>>> ma-kun92/master
->>>>>>> master
 
+ActiveRecord::Schema.define(version: 20190312101421) do
   create_table "brands", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "name"
     t.datetime "created_at",                 null: false
@@ -29,18 +21,12 @@ ActiveRecord::Schema.define(version: 20190310071134) do
 
   create_table "categories", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "name"
-<<<<<<< HEAD
     t.string   "ancestry"
     t.integer  "size_type_id"
     t.datetime "created_at",   null: false
     t.datetime "updated_at",   null: false
-=======
-    t.string   "middle"
-    t.string   "small"
-    t.datetime "created_at",                 null: false
-    t.datetime "updated_at",                 null: false
     t.boolean  "pick_up",    default: false, null: false
->>>>>>> master
+    t.boolean  "pick_up",    default: false, null: false
   end
 
   create_table "credit_cards", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
@@ -87,7 +73,6 @@ ActiveRecord::Schema.define(version: 20190310071134) do
     t.string   "name",                          null: false
     t.text     "description",     limit: 65535, null: false
     t.integer  "price",                         null: false
-<<<<<<< HEAD
     t.integer  "condition",                     null: false
     t.integer  "shipping_method",               null: false
     t.integer  "shipping_date",                 null: false
@@ -113,43 +98,8 @@ ActiveRecord::Schema.define(version: 20190310071134) do
     t.integer  "size_type_id"
     t.datetime "created_at",   null: false
     t.datetime "updated_at",   null: false
-=======
-    t.string   "condition",                     null: false
-    t.string   "shipping_method",               null: false
-    t.string   "shipping_date",                 null: false
-    t.string   "shipping_fee",                  null: false
-    t.integer  "prefecture_id",                 null: false
-    t.string   "brand"
-    t.integer  "size_id"
-<<<<<<< HEAD
-    t.datetime "created_at",                    null: false
-    t.datetime "updated_at",                    null: false
   end
 
-  create_table "sizes", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
-    t.string   "cloth"
-    t.string   "kids_cloth_small"
-    t.string   "kids_cloth"
-    t.string   "mens_shoes"
-    t.string   "ladies_shoes"
-    t.string   "kids_shoes"
-    t.string   "tv"
-    t.string   "bike"
-    t.string   "tire"
-    t.datetime "created_at",       null: false
-    t.datetime "updated_at",       null: false
-=======
-    t.integer  "category_id"
-    t.integer  "user_id"
-    t.integer  "vendor_id"
-    t.datetime "created_at",                    null: false
-    t.datetime "updated_at",                    null: false
-    t.index ["category_id"], name: "index_items_on_category_id", using: :btree
-    t.index ["user_id"], name: "index_items_on_user_id", using: :btree
-    t.index ["vendor_id"], name: "index_items_on_vendor_id", using: :btree
->>>>>>> ma-kun92/master
->>>>>>> master
-  end
 
   create_table "street_addresses", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.integer  "post_number"
@@ -222,18 +172,11 @@ ActiveRecord::Schema.define(version: 20190310071134) do
   add_foreign_key "deals", "vendors"
   add_foreign_key "item_comments", "items"
   add_foreign_key "item_comments", "users"
-<<<<<<< HEAD
   add_foreign_key "items", "categories"
   add_foreign_key "items", "sizes"
-=======
   add_foreign_key "item_images", "items"
-<<<<<<< HEAD
-=======
-  add_foreign_key "items", "categories"
   add_foreign_key "items", "users"
   add_foreign_key "items", "vendors"
->>>>>>> ma-kun92/master
->>>>>>> master
   add_foreign_key "street_addresses", "users"
   add_foreign_key "valuations", "users"
   add_foreign_key "valuations", "vendors"
