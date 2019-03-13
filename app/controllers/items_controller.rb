@@ -20,6 +20,7 @@ class ItemsController < ApplicationController
         params[:image].each do |image|
           @item.item_images.create(image: image)
         end
+        redirect_to root_path
       else
         render 'new'
       end
