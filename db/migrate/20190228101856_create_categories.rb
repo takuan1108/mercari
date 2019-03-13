@@ -1,9 +1,9 @@
 class CreateCategories < ActiveRecord::Migration[5.0]
   def change
     create_table :categories do |t|
-      t.string    :large
-      t.string    :middle
-      t.string    :small
+      t.string    :name
+      t.string    :ancestry
+      t.integer   :size_type_id
       t.timestamps
     end
   end
