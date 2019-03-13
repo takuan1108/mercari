@@ -13,17 +13,19 @@
 ActiveRecord::Schema.define(version: 20190228142413) do
 
   create_table "brands", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
-    t.string   "brand"
+    t.string   "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.boolean  "pick_up"
   end
 
   create_table "categories", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
-    t.string   "large"
+    t.string   "name"
     t.string   "middle"
     t.string   "small"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.boolean  "pick_up"
   end
 
   create_table "credit_cards", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
