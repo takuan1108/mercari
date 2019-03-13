@@ -7,7 +7,7 @@
           .card-main__header
             %h2 クレジットカード情報入力
           .card-main__content
-            = form_tag "/users/pay", method: :post, class: "card-main__content__add-card add-card" do
+            = form_tag card_path, method: :post, class: "card-main__content__add-card add-card" do
               .card-main__content__add-card--general-error
               .card-main__content__add-card__number
                 = label :number, 'カード番号'

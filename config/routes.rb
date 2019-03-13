@@ -7,15 +7,12 @@ Rails.application.routes.draw do
 
   resources :users, only: [:index] do
     collection do
+      resource :card
       post 'register_user_tel'
       get 'register_user_address'
       post 'register_user_card'
       post 'register_user_complete'
       get 'logout'
-      get 'add_card_info'
-      get 'add_card'
-      post 'pay'
-      delete 'delete_card'
     end
   end
   resources :items do
