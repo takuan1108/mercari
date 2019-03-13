@@ -11,19 +11,16 @@ class Item < ApplicationRecord
   # has_many :item_comments,dependent: :destroy
   # has_one :deal
 
-  with_options presence: true do
-    validates :name, length: { maximum: 40 }
-    validates :description, length: { maximum: 1000 }
-    validates :price,
-    validates :condition,
-    validates :shipping_fee,
-    validates :shipping_date,
-    validates :shipping_method,
-    validates :prefecture_id,
-    validates :size_id,
-    validates :category_id,
-    validates :brand
-  end
+  validates :name, presence: true, length: { maximum: 40 }
+  validates :description, presence: true, length: { maximum: 1000 }
+  validates :price, presence: true
+  validates :condition, presence: true
+  validates :shipping_fee, presence: true
+  validates :shipping_date, presence: true
+  validates :shipping_method, presence: true
+  validates :prefecture_id, presence: true
+  validates :size_id, presence: true
+  validates :category_id, presence: true
 
   enum condition:{
     new_article: 0,
