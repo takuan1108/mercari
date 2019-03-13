@@ -8,6 +8,8 @@
     .commenter-image{
       img{
         width:50px;
+        height:50px;
+        object-fit:cover;
         border-radius:25px;
       }
       .vendor{
@@ -26,15 +28,17 @@
     &__commenter{
     }
     &__comment-area{
+      font-size:15px;
       width:100%;
       background-color: rgb(238,240,244);
       border-radius: 20px;
       &__comment{
         padding:10px 20px 5px 20px;
-        font-size:13px;
+        // font-size:13px;
       }
       &__option{
-        padding:0 20px 10px 20px;
+        color:grey;
+        padding:0 20px 20px 20px;
         .option-left{
           float:left;
         }

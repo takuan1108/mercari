@@ -14,7 +14,9 @@ Rails.application.routes.draw do
       get 'logout'
     end
   end
-  resources :items
+  resources :items do
+    resources :item_comments,only: [:create]
+  end
   get 'items/:id/buy' => 'items#buy'
   root 'items#index'
 end

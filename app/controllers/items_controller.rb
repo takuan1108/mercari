@@ -9,8 +9,9 @@ class ItemsController < ApplicationController
   end
 
   def show
-    @item = Item.find_by(id:params[:id])
+    @item = Item.find(params[:id])
     @images = @item.item_images
+    @comment = ItemComment.new
     @comments = @item.item_comments
   end
 

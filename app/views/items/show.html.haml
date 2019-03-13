@@ -85,11 +85,10 @@
   .item-show-comment
     =render partial:'items/item-negotiation',collection: @comments,as: :comment
     %p 相手のことを考え丁寧なコメントを心がけましょう。不快な言葉遣いなどは利用制限や退会処分となることがあります。
-    %form
-    =form_for()
-      %textarea{cols: "40",rows: "4"}
-      %button{type: "submit"}
-        %span コメントする
+    -# 未ログイン時は非表示.ログイン機能実装後追記
+    =form_for [@item,@comment] do |f|
+      =f.text_area :comment,class:'textarea'
+      =f.submit class:'button',value:'コメントする'
   .item-show-link
     .item-show-link__prev
       = link_to "＜ジャケット" , "/"

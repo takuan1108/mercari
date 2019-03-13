@@ -2,7 +2,7 @@
   .left-box
     =link_to root_path,class:'commenter-image' do
       =image_tag(comment.user.icon)
-      -if comment.user.id = @item.vendor_id
+      -if comment.user.id == @item.vendor_id
         .vendor 出品者
   .right-box
     .right-box__commenter
