@@ -1,5 +1,5 @@
 .card
-  =link_to item_path(item.id),class:'.item-card' do
+  =link_to item_path(item.id),class:'item-card' do
     .item-card__image
       =image_tag(item.item_images[0].image)
     .item-card__information
@@ -8,7 +8,7 @@
         .price="¥#{item.price.to_s(:delimited)}"
         -# like機能実装次第追加する
         .likes
-          =fa_icon("heart")
+          =fa_icon("heart-o")
           15
         .clearfix
         .tax (税込)
