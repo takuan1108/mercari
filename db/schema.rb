@@ -10,20 +10,22 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20190301021300) do
+ActiveRecord::Schema.define(version: 20190311110149) do
 
   create_table "brands", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
-    t.string   "brand"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.string   "name"
+    t.datetime "created_at",                 null: false
+    t.datetime "updated_at",                 null: false
+    t.boolean  "pick_up",    default: false, null: false
   end
 
   create_table "categories", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
-    t.string   "large"
+    t.string   "name"
     t.string   "middle"
     t.string   "small"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",                 null: false
+    t.datetime "updated_at",                 null: false
+    t.boolean  "pick_up",    default: false, null: false
   end
 
   create_table "credit_cards", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
@@ -97,6 +99,12 @@ ActiveRecord::Schema.define(version: 20190301021300) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "size_types", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.string   "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "sizes", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "cloth"
     t.string   "mens_shoes"
@@ -125,16 +133,16 @@ ActiveRecord::Schema.define(version: 20190301021300) do
   end
 
   create_table "users", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
-    t.string   "nickname",                                          null: false
+    t.string   "nickname",                             default: "", null: false
     t.integer  "tellphone",                                         null: false
-    t.string   "family_name",                                       null: false
-    t.string   "first_name",                                        null: false
-    t.string   "family_name_phonetic",                              null: false
-    t.string   "first_name_phonetic",                               null: false
+    t.string   "family_name",                          default: "", null: false
+    t.string   "first_name",                           default: "", null: false
+    t.string   "family_name_phonetic",                 default: "", null: false
+    t.string   "first_name_phonetic",                  default: "", null: false
     t.integer  "birth_year",                                        null: false
     t.integer  "birth_month",                                       null: false
     t.integer  "birth_day",                                         null: false
-    t.string   "icon"
+    t.string   "icon",                                 default: ""
     t.text     "profile",                limit: 65535
     t.string   "invitation_code"
     t.string   "email",                                default: "", null: false
@@ -144,6 +152,7 @@ ActiveRecord::Schema.define(version: 20190301021300) do
     t.datetime "remember_created_at"
     t.datetime "created_at",                                        null: false
     t.datetime "updated_at",                                        null: false
+    t.string   "payjp_id"
     t.index ["email"], name: "index_users_on_email", unique: true, using: :btree
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
   end

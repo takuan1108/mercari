@@ -4,7 +4,7 @@ class DeviseCreateUsers < ActiveRecord::Migration[5.0]
   def change
     create_table :users do |t|
       t.string :nickname,null: false, unique: true
-      t.integer :tellphone,null: false,unique: true
+      t.string :tellphone, unique: true
       t.string :family_name,null: false
       t.string :first_name,null: false
       t.string :family_name_phonetic,null: false

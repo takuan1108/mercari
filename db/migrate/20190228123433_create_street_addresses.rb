@@ -1,8 +1,8 @@
 class CreateStreetAddresses < ActiveRecord::Migration[5.0]
   def change
     create_table :street_addresses do |t|
-      t.integer :post_number
-      t.references :prefecture,foreign_key: true
+      t.string :post_number
+      t.integer :prefecture_id
       t.string :city
       t.string :address
       t.string :building_name

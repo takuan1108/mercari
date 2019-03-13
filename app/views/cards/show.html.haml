@@ -1,0 +1,42 @@
+= render partial:'shared/header'
+.my-container
+  .my-container-main
+    .my-container-main__center
+      .add-card
+        .add-card__header
+          %h3 支払い方法
+        .add-card__main
+          .add-card__main__title
+            クレジットカード一覧
+          .add-card__main__content
+            - if @card
+              .add-card__main__content__info
+                .add-card__main__content__info--brand
+                  - case @card.brand
+                  - when "Visa"
+                    = image_tag('//www-mercari-jp.akamaized.net/assets/img/card/visa.svg?3435714107')
+                  - when "MasterCard"
+                    = image_tag('//www-mercari-jp.akamaized.net/assets/img/card/master-card.svg?3435714107')
+                  - when "JCB"
+                    = image_tag('//www-mercari-jp.akamaized.net/assets/img/card/jcb.svg?3435714107')
+                  - when "American Express"
+                    = image_tag('//www-mercari-jp.akamaized.net/assets/img/card/american_express.svg?3435714107')
+                  - when "Diners Club"
+                    = image_tag('//www-mercari-jp.akamaized.net/assets/img/card/dinersclub.svg?3435714107')
+                  - when "Discover"
+                    = image_tag('//www-mercari-jp.akamaized.net/assets/img/card/discover.svg?3435714107')
+                .add-card__main__content__info--last4
+                  ************#{@card.last4}
+                .add-card__main__content__info--exp
+                  #{@card.exp_month}/#{@card.exp_year}
+                = link_to '削除する', card_path, method: :delete, class: "delete-button"
+            - else
+              = link_to new_card_path, method: :get, class: "add-button" do
+                =fa_icon('credit-card')
+                クレジットカードを追加する
+          .add-card__footer
+            = link_to '#' do
+              支払い方法について
+              %i.icon-arrow-right
+    = render partial: 'users/shared/users_sidebar'
+= render partial: 'shared/footer'
