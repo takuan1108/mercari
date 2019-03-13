@@ -1,21 +1,21 @@
+= render partial:'shared/header'
 .item-show
   .item-show-main
-    %h2.item-show-main-name NIKE 中綿入り ナイロンジャケット 90's
+    %h2.item-show-main-name=@item.name
     .item-show-main__container
       .item-show-main__container--image
-        .top-image
+        =image_tag(@images[0].image,class:'top-image')
         .bottom-image
-          .bottom-image-first
-          .bottom-image-second
-          .bottom-image-third
-          .bottom-image-fourth
+          -# ここヘルパーメソッド使う??
+          -@images.each_with_index do |image,i|
+            =image_tag(image.image,class:'bottom-image-little',value:i)
       .item-show-main__container--table
         %table
           %tbody
             %tr
               %th 出品者
               %td
-                = link_to "出品者の評価", "/"
+                = link_to @item.vendor.user.nickname, "/"
                 .rate-container
                   .rate-container-box
                     .good-icon
@@ -32,46 +32,43 @@
             %tr
               %th カテゴリー
               %td
-                = link_to "メンズ", "/"
+                = link_to @item.category.name, "/"
                 %br
-                = link_to "＞ジャケット/アウター", "/"
+                = link_to ">#{@item.category.middle}", "/"
                 %br
-                = link_to "＞ナイロンジャケット", "/"
+                = link_to ">#{@item.category.small}", "/"
             %tr
               %th ブランド
               %td
-                = link_to "ナイキ", "/"
+                = link_to @item.brand, "/"
             %tr
               %th 商品のサイズ
-              %td L
+              %td=@item.size_id
             %tr
               %th 商品の状態
-              %td 目立った傷や汚れなし
+              %td=@item.condition
             %tr
               %th 配送料の負担
-              %td 着払い(購入者負担)
+              %td=@item.shipping_fee
             %tr
               %th 配送の方法
-              %td らくらくメルカリ便
+              %td=@item.shipping_method
             %tr
               %th 配送元地域
               %td
-                = link_to "京都府","/"
+                = link_to @item.prefecture.name,"/"
             %tr
               %th 発送日の目安
-              %td 2~3日で発送
+              %td=@item.shipping_date
+    .clearfix
     .item-show-main__price
-      .price ¥ 11,800
+      .price="¥#{@item.price.to_s(:delimited)}"
       .tax (税込)
       .shipping-fee 送料込み
     .item-show-main__buy-btn
       = link_to "購入画面に進む", "/"
     .item-show-main__description
-      %p 両面、ビッグスウォッシュです。
-      %br【サイズ】
-      %br 着丈 65cm
-      %br 身幅 63cm
-      %br 肩幅 62cm
+      =@item.description
     .item-show-main__other
       .left-btn
         = link_to "/" do
@@ -86,8 +83,10 @@
           = fa_icon "lock"
           あんしん・あんぜんへの取り組み
   .item-show-comment
+    =render partial:'items/item-negotiation',collection: @comments,as: :comment
     %p 相手のことを考え丁寧なコメントを心がけましょう。不快な言葉遣いなどは利用制限や退会処分となることがあります。
     %form
+    =form_for()
       %textarea{cols: "40",rows: "4"}
       %button{type: "submit"}
         %span コメントする
@@ -105,3 +104,4 @@
           = fa_icon 'twitter-square'
         %li
           = fa_icon 'pinterest-square'
+= render partial:'shared/footer'

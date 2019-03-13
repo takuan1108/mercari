@@ -2,9 +2,14 @@
   padding:30px 0;
   height:90%;
   background-color:rgb(245,245,245);
+  a{
+    text-decoration:none;
+  }
+  .clearfix{
+    clear:both;
+  }
   &-main{
-    width:42.5%;
-    height:880px;
+    width:620px;
     padding:24px 40px 40px;
     margin:0 auto ;
     background-color:white;
@@ -17,47 +22,27 @@
     }
     &__container{
       width:100%;
-      height:375px;
+      height:450px;
       &--image{
+        background-color:rgb(245,245,245);
         width:300px;
         height:375px;
         float:left;
         .top-image{
+          margin:10px 0 10px 0;
           width:100%;
-          height:300px;
-          background-size: cover;
-          background-image:url(m82657873861_1.jpg);
+          height:280px;
+          object-fit:cover;
         }
         .bottom-image{
           width:100%;
           height:75px;
-          &-first{
+          &-little{
+            opacity:0.5;
             width:25%;
             height:100%;
             float:left;
-            background-size: cover;
-            background-image:url(m82657873861_1.jpg);
-          }
-          &-second{
-            width:25%;
-            height:100%;
-            float:left;
-            background-size: cover;
-            background-image:url(m82657873861_2.jpg);
-          }
-          &-third{
-            width:25%;
-            height:100%;
-            float:left;
-            background-size: cover;
-            background-image:url(m82657873861_3.jpg);
-          }
-          &-fourth{
-            width:25%;
-            height:100%;
-            float:left;
-            background-size: cover;
-            background-image:url(m82657873861_4.jpg);
+            object-fit:cover
           }
         }
       }
@@ -214,9 +199,8 @@
     }
   }
   &-comment{
-    width:44.5%;
-    height:220px;
-    padding:24px ;
+    width:620px;
+    padding:24px 40px ;
     margin:10px auto ;
     background-color:white;
     p{
@@ -235,7 +219,7 @@
       }
       button{
         width:100%;
-        height:30%;
+        padding:10px;
         background-color:rgb(170,170,170);
         span{
           color:white;
@@ -245,7 +229,7 @@
     }
   }
   &-link{
-    width:48%;
+    width:620px;
     height:30px;
     margin: 20px auto;
     &__prev{
@@ -265,15 +249,19 @@
     }
   }
   &-sns{
-    width:48%;
+    width:620px;
+    padding:0 40px;
     height:150px;
     margin: 0 auto;
     background-color:white;
+    position:relative;
     &-container{
-      width:23%;
+      position:absolute;
+      left:50%;
+      transform:translateX(-50%);
       height:50px;
       margin:0 auto;
-      padding-top:70px;
+      padding-top:60px;
       li{
         display:inline-block;
         i{
