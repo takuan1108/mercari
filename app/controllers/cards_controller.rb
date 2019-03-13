@@ -22,6 +22,7 @@ class CardsController < ApplicationController
 
   private
   def prepare_payjp
+    gon.payjp_pk_key = ENV["PAYJP_PK_TEST"]
     Payjp.api_key = ENV["PAYJP_SK_TEST"]
     unless current_user.payjp_id
       current_user.payjp_id = Payjp::Customer.create(description: 'test').id

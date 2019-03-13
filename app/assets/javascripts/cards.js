@@ -13,7 +13,7 @@ $(function(){
       exp_month: exp_month,
       exp_year: exp_year
     };
-    var payjp_pk_key = "pk_test_27a9c466b59537fafa72dbf8";
+    var payjp_pk_key = gon.payjp_pk_key;
     Payjp.setPublicKey(payjp_pk_key);
     Payjp.createToken(card, function(status, response) {
       if(status == 200){
