@@ -3,8 +3,8 @@ class Item < ActiveRecord::Base
   belongs_to :vendor
   extend ActiveHash::Associations::ActiveRecordExtensions
   belongs_to_active_hash :prefecture
-  belongs_to :brand
-  belongs_to :size
+  # belongs_to :brand
+  # belongs_to :size
   belongs_to :category
   has_many :item_images,dependent: :destroy
   has_many :item_comments,dependent: :destroy
