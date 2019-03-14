@@ -7,6 +7,7 @@ Rails.application.routes.draw do
 
   resources :users, only: [:index] do
     collection do
+      resource :card
       post 'register_user_tel'
       get 'register_user_address'
       post 'register_user_card'
@@ -14,7 +15,11 @@ Rails.application.routes.draw do
       get 'logout'
     end
   end
-  resources :items
-  get 'items/:id/buy' => 'items#buy'
+  resources :items do
+    member do
+      get 'buy'
+      post 'pay'
+    end
+  end
   root 'items#index'
 end
