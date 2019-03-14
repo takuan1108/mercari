@@ -3,9 +3,10 @@
   width:213px;
   float:left;
   &__image{
-    height:220px;
     img{
+      height:220px;
       width:213px;
+      object-fit: cover;
     }
   }
   &__information{

@@ -29,7 +29,7 @@ Things you may want to cover:
 |nickname|string|null: false, unique: true|
 |email|string|null: false, unique: true|
 |password|string|null: false,unique: true|
-|tellphone|string|null: false,unique: true|
+|tellphone|string|unique: true|
 |family_name|string|null: false|
 |first_name|string|null: false|
 |family_name_phonetic|string|null: false|
@@ -57,9 +57,8 @@ Things you may want to cover:
 ## street_addresses
 |Column|Type|Options|
 |------|----|-------|
-|post_number|integer|
-
-|prefecture_id|references|foreign_key: true|
+|post_number|string|
+|prefecture_id|integer|
 |city|string|
 |address|string|
 |building_name|string|
@@ -75,7 +74,7 @@ Things you may want to cover:
 |card_number|string|null: false|
 |month|integer|null: false|
 |year|integer|null: false|
-|security_code|integer|null: false|
+|security_code|string|null: false|
 |user_id|references|foreign_key: true|
 
 ### Association
@@ -134,13 +133,13 @@ Things you may want to cover:
 |name|string|null: false|
 |description|text|null: false|
 |price|integer|null: false|
-|condition|string|null: false|
-|shipping_method|string|null: false|
-|shipping_date|string|null: false|
-|shipping_fee|string|null: false|
+|condition|integer|null: false|
+|shipping_method|integer|null: false|
+|shipping_date|integer|null: false|
+|shipping_fee|integer|null: false|
 |category_id|references|foreign_key: true|
-|size_id|references|foreign_key: true|
-|prefecture_id|references|foreign_key: true|
+|size_id|integer|
+|prefecture_id|integer|null: false|
 |brand|string|
 |user_id|references|foreign_key: true|
 |vendor_id|references|foreign_key: true|
@@ -150,6 +149,7 @@ Things you may want to cover:
 - belongs_to :vendor
 - belongs_to_active_hash :prefecture
 - belongs_to :barnd
+- belongs_to :size
 - belongs_to :category
 - has_many :item_images,dependent: :destroy
 - has_many :item_comments,dependent: :destroy
@@ -169,18 +169,22 @@ Things you may want to cover:
 ## brands
 |Column|Type|Options|
 |------|----|-------|
-|brand|string|
+|name|string|
+|pick_up|boolean|
 ### Association
 - has_many :items
 
 ## categories
 |Column|Type|Options|
 |------|----|-------|
-|large|string|
-|middle|string|
-|small|string|
+|name|string|
+|ancestry|string|
+|size_type_id|references|foreign_key: true|
+|pick_up|boolean|null: false,default: false|
 ### Association
-- has_many :item
+- has_many :items
+- belongs_to :size_type
+- has_ancestry
 
 ## item_comments
 |Column|Type|Options|
@@ -199,12 +203,12 @@ Things you may want to cover:
 |user_id|references|foreign_key: true|
 |bank|string|
 |bank_account|string|
-|branch_code|integer|
-|account_number|integer|
+|branch_code|string|
+|account_number|string|
 |family_name|string|
 |first_name|string|
-|post_number|integer|
-|prefecture_id|references|foreign_key: true|
+|post_number|string|
+|prefecture_id|integer|
 |city|string|
 |address|string|
 |building_name|string|
@@ -233,7 +237,6 @@ Things you may want to cover:
 |------|----|-------|
 |user_id|references|foreign_key: true|
 |item_id|references|foreign_key: true|
-
 ### Association
 - belongs_to :user
 - belongs_to :item
@@ -245,10 +248,24 @@ Things you may want to cover:
 |user_id|references|foreign_key: true|
 |item_id|references|foreign_key: true|
 |vendor_id|references|foreign_key: true|
-
 ### Association
 - belongs_to :user
 - belongs_to :vendor
 - belongs_to :item
 
+## sizes
+|Column|Type|Options|
+|------|----|-------|
+|name|string|
+|size_type|references|foreign_key: true|
+### Association
+- has_many :items
+- belongs_to :size_type
 
+## size_types
+|Column|Type|Options|
+|------|----|-------|
+|name|string|
+### Association
+- has_many :sizes
+- has_many :categories
