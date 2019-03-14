@@ -103,4 +103,16 @@
           = fa_icon 'twitter-square'
         %li
           = fa_icon 'pinterest-square'
+  .other-items-container
+    .other-items-container__index
+      =link_to("#{@item.vendor.user.nickname}さんのその他の出品",'')
+    .clearfix
+    =render partial:'items/item-card',collection:@vendor_items,as: :item
+  .clearfix
+  .other-items-container
+    .other-items-container__index
+      =link_to("#{@item.brand}のその他の出品",'')
+    .clearfix
+    =render partial:'items/item-card',collection:@brand_items,as: :item
+  .clearfix
 = render partial:'shared/footer'

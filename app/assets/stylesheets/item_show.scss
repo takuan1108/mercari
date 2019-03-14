@@ -4,6 +4,7 @@
   background-color:rgb(245,245,245);
   a{
     text-decoration:none;
+    color: #0099e8;
   }
   .clearfix{
     clear:both;
@@ -68,7 +69,6 @@
             padding:4px;
             border:1px solid #f5f5f5;
             a{
-              color: #0099e8;
               font-size:0.9em;
             }
             .rate-container{
@@ -192,7 +192,6 @@
         a{
           width:100%;
           font-size:0.9em;
-          color: #0099e8;
           line-height:35px;
         }
       }
@@ -278,6 +277,27 @@
         .fa-pinterest-square{
           color:rgb(157,50,47)
         }
+      }
+    }
+  }
+  .other-items-container{
+    width:700px;
+    padding:0 40px;
+    margin:0 auto;
+    font-size:22px;
+    &__index{
+      margin:20px 0 10px 0;
+
+    }
+    .card:nth-child(3n+1){
+      margin: 0 20px 20px 20px;
+    }
+    .card{
+      margin:0 0 20px 0;
+      width:220px;
+      float:left;
+      a{
+        color:black;
       }
     }
   }
