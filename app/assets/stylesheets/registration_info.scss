@@ -83,10 +83,7 @@
     &__content{
       padding: 24px 64px 64px;
       form{
-        // height: 1300px;
         margin: 0 126px;
-
-
           .field{
             box-sizing: border-box;
             margin-top: 40px;
@@ -94,7 +91,6 @@
             width: 320px;
             text-align: left;
             label{
-
               font-size: 14px;
               padding-bottom: 8px;
               font-weight: 600;
@@ -157,7 +153,6 @@
             vertical-align: middle;
             }
           &__content{
-            // padding: 60px 190px;
             .form{
               &__up{
                 margin-bottom: 40px;
@@ -260,12 +255,19 @@
         line-height: 48px;
         width: 100%;
       }
+      #user_social_profiles_attributes_0_provider{
+        display: none;
+      }
+      #user_social_profiles_attributes_0_uid{
+        display: none;
+      }
     }
   }
+  .field_with_errors {
+    display: inline;
+  }
 }
-// .on-display{
-//   display: none;
-// }
 .no-display{
   display: none;
 }
+
