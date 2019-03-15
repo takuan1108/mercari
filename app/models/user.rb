@@ -23,8 +23,11 @@ class User < ApplicationRecord
   accepts_nested_attributes_for :social_profiles
 
   def self.find_for_oauth_about_user(auth)
-    user = User.new( nickname: auth.info.name ,email: auth.info.email, password: Devise.friendly_token[0, 20] )
-    return user
+    where( social_profiles: { provider: auth.provider, uid: auth.uid }).first_or_create do |user|
+      user.nickname = auth.info.name
+      user.email = auth.info.email
+      user.password = Devise.friendly_token[0,20]
+    end
     # userにauth経由で引っ張ってきたfacebookの情報を持たせてnewしている
     # selfが省略されているので、クラスメソッドであることを意識してとらえるように
   end
