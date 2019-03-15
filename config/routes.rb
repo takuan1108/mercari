@@ -9,6 +9,7 @@ Rails.application.routes.draw do
     collection do
       get 'register_user_top'
       get 'register_user_address'
+      post 'register_user_card'
       get 'logout'
     end
   end

@@ -16,29 +16,25 @@
           %span 必須
           %br/
           = f.email_field :email, autofocus: true, autocomplete: "email", placeholder:'PC・携帯どちらでも可'
-        - if @user && @social
+        - if @user.social_profiles
           .field{style:"display: none"}
             = f.label :password, "パスワード"
             %span 必須
-            / あとで使うかもしれない
-            / - if @minimum_password_length
-            /   %em
-            /     (#{@minimum_password_length}文字以上)
             %br/
             = f.password_field :password, autocomplete: "new-password",placeholder:'６文字以上'
           .field{style: "display: none"}
             = f.label :password_confirmation, "パスワード（確認）"
             %span 必須
             %br/
+            - binding.pry
             = f.password_field :password_confirmation, autocomplete: "new-password",placeholder:'6文字以上'
-        -else
-          .field{style: "display: none"}
+            = f.fields_for :social_profiles do |s|
+              =s.text_field :provider
+              =s.text_field :uid
+        - else
+          .field
             = f.label :password, "パスワード"
             %span 必須
-            / あとで使うかもしれない
-            / - if @minimum_password_length
-            /   %em
-            /     (#{@minimum_password_length}文字以上)
             %br/
             = f.password_field :password, autocomplete: "new-password",placeholder:'６文字以上'
           .field{style: "display: none"}
@@ -84,12 +80,6 @@
           .box
             = f.collection_select :birth_day, Day.all, :id, :name, include_blank: '--'
             = f.label :birth_day,"日"
-      = f.fields_for :social_profiles do |s|
-        =s.text_field :provider ,value: @social.provider
-        / @social に対するformであり
-        / hidden_fieldで指定したカラムをvalue値として持ってくれる
-        =s.text_field :uid, value: @social.uid
-
 
       %p.confirm
         ※ 本人情報は正しく入力してください。
