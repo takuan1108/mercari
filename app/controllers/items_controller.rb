@@ -19,7 +19,7 @@ class ItemsController < ApplicationController
       if @item.save
         params[:image].each do |image|
           @item.item_images.create(image: image)
-        end
+      end
         redirect_to root_path
       else
         render 'new'
@@ -27,9 +27,6 @@ class ItemsController < ApplicationController
   end
 
   def show
-  end
-
-  def buy
   end
 
   def image
