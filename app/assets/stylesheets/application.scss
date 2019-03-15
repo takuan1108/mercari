@@ -4,6 +4,7 @@
 
 // modules--共通化処理
 @import 'modules/cards_new';
+@import 'modules/cards_show';
 @import 'header';
 @import 'footer';
 @import 'subHeader';
@@ -24,6 +25,7 @@
 @import 'items_index';
 @import 'item-card';
 @import 'items/deals/new';
+@import 'items/deals/cards/show';
 @import 'item_show';
 @import 'item_new';
 
