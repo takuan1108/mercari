@@ -16,6 +16,7 @@ class UsersController < ApplicationController
     end
   end
 
+
   private
   def street_address_params
     params.require(:street_address).permit(:bank, :bank_account, :branch_code, :account_number, :family_name, :first_name, :post_number, :city,:address, :building_name, :created_at, :updated_at, :prefecture_id ).merge(user_id: current_user.id)
@@ -24,5 +25,6 @@ class UsersController < ApplicationController
   def user_card_info_params
     params.require(:user).permit()
   end
+
 
 end

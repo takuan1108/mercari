@@ -13,15 +13,17 @@ private
 
   def configure_permitted_parameters
     devise_parameter_sanitizer.permit(:sign_up) do |u|
-      u.permit(:nickname, :family_name, :first_name, :family_name_phonetic, :first_name_phonetic, :birth_year, :birth_month, :birth_day,:email, :password, :password_confirmation ,social_profiles_attributes: [:provider, :uid])
+      u.permit(:nickname, :family_name, :first_name, :family_name_phonetic, :first_name_phonetic, :birth_year, :birth_month, :birth_day,:email, :password, :password_confirmation , :payjp_id, social_profiles_attributes: [:provider, :uid])
     end
     devise_parameter_sanitizer.permit(:account_update) do |u|
-      u.permit(:first_name, :last_name, :email, :password, :password_confirmation)
+      u.permit(:first_name, :last_name, :email, :password, :password_confirmation, :payjp_id)
     end
+
   end
 
   def sign_in_required
     redirect_to new_user_session_url unless user_signed_in?
   end
+
 
 end
