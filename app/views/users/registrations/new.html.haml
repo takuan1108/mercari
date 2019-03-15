@@ -16,13 +16,26 @@
           %span 必須
           %br/
           = f.email_field :email, autofocus: true, autocomplete: "email", placeholder:'PC・携帯どちらでも可'
+        / - if @user && @social
+        /   .field{style:"display: none"}
+        /     = f.label :password, "パスワード"
+        /     %span 必須
+        /     / あとで使うかもしれない
+        /     / - if @minimum_password_length
+        /     /   %em
+        /     /     (#{@minimum_password_length}文字以上)
+        /     %br/
+        /     = f.password_field :password, autocomplete: "new-password",placeholder:'６文字以上'
+        /   .field{style: "display: none"}
+        /     = f.label :password_confirmation, "パスワード（確認）"
+        /     %span 必須
+        /     %br/
+        /     = f.password_field :password_confirmation, autocomplete: "new-password",placeholder:'6文字以上'
+
+        / -else
         .field
           = f.label :password, "パスワード"
           %span 必須
-          / あとで使うかもしれない
-          / - if @minimum_password_length
-          /   %em
-          /     (#{@minimum_password_length}文字以上)
           %br/
           = f.password_field :password, autocomplete: "new-password",placeholder:'６文字以上'
         .field
@@ -53,20 +66,24 @@
           %span 必須
           %br/
           = f.text_field :first_name_phonetic, autofocus: true, autocomplete: "first_name_phonetic",placeholder:'アヤ'
+        .field
+
         .field.last
           = f.label '生年月日'
           %span 必須
           %br/
-          = f.select :birth_year, [["1992", "1"], ["1993", "2"]], include_blank: '--'
-          / 本番でオブジェクトを使用するときは下記を使用
-          / = f.select :birth_year, Prefecture.all.map{|i|, [i.name, i.id], include_blank: '--'
+          = f.collection_select :birth_year, Year.all, :id, :name, include_blank: '--'
           = f.label :birth_year, "年"
           %br/
-          = f.select :birth_month, [["1", "1"], ["2", "2"]], include_blank: '--', autofocus: true, autocomplete: "birth_month"
+          = f.collection_select :birth_month, Month.all, :id, :name, include_blank: '--'
           = f.label :birth_month,"月"
           %br/
-          = f.select :birth_day, [["1", "1"], ["2", "2"]], include_blank: '--', autofocus: true, autocomplete: "birth_day"
-          = f.label :birth_day,"日"
+          .box
+            = f.collection_select :birth_day, Day.all, :id, :name, include_blank: '--'
+            = f.label :birth_day,"日"
+
+
+
       %p.confirm
         ※ 本人情報は正しく入力してください。
         %br/
@@ -81,8 +98,8 @@
         %h3.head 電話番号確認
         .confirm-tel__content
           .form__up
-            %h3 認証番号
-            =text_field :tel,placeholder: '認証して完了'
+            %h3 電話番号
+            =f.telephone_field :tellphone
             %p SMSで届いた番号を入力してください
             =submit_tag '認証して完了'
           .form-middle
