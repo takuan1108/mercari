@@ -212,4 +212,3 @@ CSV.foreach('db/csv/valuations.csv') do |row|
     updated_at:row[6]
   )
 end
-
