@@ -10,7 +10,11 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
+<<<<<<< Updated upstream
 ActiveRecord::Schema.define(version: 20190314114308) do
+=======
+ActiveRecord::Schema.define(version: 20190314112909) do
+>>>>>>> Stashed changes
 
   create_table "brands", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "name"
@@ -100,6 +104,16 @@ ActiveRecord::Schema.define(version: 20190314114308) do
     t.integer  "size_type_id"
     t.datetime "created_at",   null: false
     t.datetime "updated_at",   null: false
+<<<<<<< Updated upstream
+=======
+  end
+
+  create_table "social_profiles", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.string  "provider", null: false
+    t.string  "uid",      null: false
+    t.integer "user_id"
+    t.index ["user_id"], name: "index_social_profiles_on_user_id", using: :btree
+>>>>>>> Stashed changes
   end
 
   create_table "street_addresses", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
@@ -181,6 +195,10 @@ ActiveRecord::Schema.define(version: 20190314114308) do
   add_foreign_key "items", "categories"
   add_foreign_key "items", "users"
   add_foreign_key "items", "vendors"
+<<<<<<< Updated upstream
+=======
+  add_foreign_key "social_profiles", "users"
+>>>>>>> Stashed changes
   add_foreign_key "street_addresses", "users"
   add_foreign_key "valuations", "users"
   add_foreign_key "valuations", "vendors"
