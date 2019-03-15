@@ -5,9 +5,9 @@ Rails.application.routes.draw do
     post 'registration' => 'devise/registrations#create', as: :create_registration
   end
 
-  resources :users, only: [:index] do
+  resources :users, only: [:index, :show] do
     collection do
-      resource :card
+      resource :card, except: [:edit, :update], module: "users"
       post 'register_user_tel'
       get 'register_user_address'
       post 'register_user_card'
@@ -16,9 +16,8 @@ Rails.application.routes.draw do
     end
   end
   resources :items do
-    member do
-      get 'buy'
-      post 'pay'
+    resource :deal, only: [:new, :create], module: "items" do
+      resource :card, except: [:edit, :update], module: "deals"
     end
   end
   root 'items#index'

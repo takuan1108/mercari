@@ -1,0 +1,65 @@
+= render partial:'shared/subHeader'
+.deal
+  .deal__container
+    .deal__container__title
+      %h1 購入を確定しますか？
+    .deal__container__main
+      .deal__container__main__item
+        .deal__container__main__item--image
+          %img{src: "https://static-mercari-jp-imgtr2.akamaized.net/thumb/photos/m64038234554_1.jpg?1551520024"}
+        .deal__container__main__item--name
+          = @item.name
+      .deal__container__main__price
+        = "¥#{@item.price}"
+        %span 送料込み
+      .deal__container__main__point
+        ポイントはありません
+      .deal__container__main__total-price
+        %span.left
+          支払い金額
+        %span.right
+          = "¥#{@item.price}"
+      .deal__container__main__error
+        配送先と支払い方法の入力を完了してください。
+      %form
+        %button.buy-btn{type: "submit"} 購入する
+    .deal__container__address
+      .deal__container__address__info
+        %h3 配送先
+        %address
+          %p
+            / = "〒#{@address.post_number}"
+          %p
+            / = "#{@address.prefecture} #{@address.city} #{@address.building_name}"
+          %p
+            = current_user.name
+      .deal__container__address__change
+        = link_to "変更する >","/"
+    .deal__container__card
+      .deal__container__card__info
+        %h3 支払方法
+        - if @card
+          .deal__container__card__info--last4
+            ************#{@card.last4}
+          .deal__container__card__info--exp
+            #{@card.exp_month}/#{@card.exp_year}
+          .deal__container__card__info--brand
+            - case @card.brand
+            - when "Visa"
+              = image_tag('//www-mercari-jp.akamaized.net/assets/img/card/visa.svg?3435714107')
+            - when "MasterCard"
+              = image_tag('//www-mercari-jp.akamaized.net/assets/img/card/master-card.svg?3435714107')
+            - when "JCB"
+              = image_tag('//www-mercari-jp.akamaized.net/assets/img/card/jcb.svg?3435714107')
+            - when "American Express"
+              = image_tag('//www-mercari-jp.akamaized.net/assets/img/card/american_express.svg?3435714107')
+            - when "Diners Club"
+              = image_tag('//www-mercari-jp.akamaized.net/assets/img/card/dinersclub.svg?3435714107')
+            - when "Discover"
+              = image_tag('//www-mercari-jp.akamaized.net/assets/img/card/discover.svg?3435714107')
+        - else
+          .deal__container__card__info--none
+            %span /
+      .deal__container__card__change
+        = link_to "変更する >","/"
+= render partial:'shared/subFooter'
