@@ -1,6 +1,5 @@
 Rails.application.routes.draw do
-  devise_for :users, controllers: {registrations: 'registrations'}
-  # devise_for :users, skip: :all
+  devise_for :users, controllers: { registrations: 'registrations'}
   devise_scope :user  do
     post 'registration' => 'devise/registrations#create', as: :create_registration
   end
@@ -8,10 +7,9 @@ Rails.application.routes.draw do
   resources :users, only: [:index] do
     collection do
       resource :card
+      get 'register_user_top'
       post 'register_user_tel'
       get 'register_user_address'
-      post 'register_user_card'
-      post 'register_user_complete'
       get 'logout'
     end
   end

@@ -8,7 +8,7 @@ class UsersController < ApplicationController
   end
 
   def register_user_address
-    @vendor = Vendor.new
+    @street_address = StreetAddress.new
 
   end
 
