@@ -10,8 +10,7 @@ class User < ApplicationRecord
   validates :birth_month, presence: true
   validates :birth_day, presence: true
 
-  devise :database_authenticatable, :registerable,
-         :recoverable, :rememberable, :validatable
+  devise :database_authenticatable, :registerable, :recoverable, :rememberable, :validatable
   has_one :street_address,dependent: :destroy
   has_one :credit_card,dependent: :destroy
   has_one :vendor, dependent: :destroy

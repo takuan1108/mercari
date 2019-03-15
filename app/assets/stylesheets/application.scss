@@ -16,12 +16,11 @@
 @import 'users_indentification';
 @import 'users_footer';
 @import 'registration_info';
-// @import 'confirm_tel';
+@import 'register_user_sign_in';
 @import 'register_user_shipping';
-@import 'users_card';
+@import 'cards/show';
+@import 'cards/new';
 @import 'register_complete';
-@import 'add_card_info';
 @import 'edit_user_info';
 @import 'app_banner';
-@import 'users_logout'
-
+@import 'users_logout';
