@@ -18,7 +18,6 @@ private
     devise_parameter_sanitizer.permit(:account_update) do |u|
       u.permit(:first_name, :last_name, :email, :password, :password_confirmation, :payjp_id)
     end
-
   end
 
   def sign_in_required

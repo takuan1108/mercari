@@ -26,7 +26,6 @@
             = f.label :password_confirmation, "パスワード（確認）"
             %span 必須
             %br/
-            - binding.pry
             = f.password_field :password_confirmation, autocomplete: "new-password",placeholder:'6文字以上'
             = f.fields_for :social_profiles do |s|
               =s.text_field :provider
@@ -80,7 +79,6 @@
           .box
             = f.collection_select :birth_day, Day.all, :id, :name, include_blank: '--'
             = f.label :birth_day,"日"
-
       %p.confirm
         ※ 本人情報は正しく入力してください。
         %br/
@@ -95,8 +93,8 @@
         %h3.head 電話番号確認
         .confirm-tel__content
           .form__up
-            %h3 認証番号
-            =text_field :tel,value: '00000000', placeholder: '認証して完了'
+            %h3 電話番号
+            =f.telephone_field :tellphone
             %p SMSで届いた番号を入力してください
             =submit_tag '認証して完了'
           .form-middle

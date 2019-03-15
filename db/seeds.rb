@@ -19,14 +19,17 @@ StreetAddress.all.delete_all
 ItemComment.all.delete_all
 ItemImage.all.delete_all
 Item.all.delete_all
+Size.all.delete_all
 Vendor.all.delete_all
 User.all.delete_all
 Category.delete_all
+SizeType.all.destroy_all
 Brand.destroy_all
 
 puts "ブランドテーブルを入力中・・・"
 CSV.foreach('db/csv/brands.csv') do |row|
   Brand.create(
+    id:row[0],
     name:row[1],
     created_at:row[2],
     updated_at:row[3],
@@ -34,89 +37,54 @@ CSV.foreach('db/csv/brands.csv') do |row|
   )
 end
 
-puts "カテゴリーテーブルを入力中・・・"
-CSV.foreach('db/csv/categories.csv') do |row|
-  Category.create(
+puts "サイズタイプテーブルを入力中・・・"
+CSV.foreach('db/csv/size_type.csv',external_encoding: "Shift_JIS",internal_encoding: "utf-8") do |row|
+  SizeType.create(
+    id:row[0],
     name:row[1],
-    middle:row[2],
-    small:row[3],
-    created_at:row[4],
-    updated_at:row[5],
-    pick_up:row[6]
+    created_at:row[2],
+    updated_at:row[3]
+    )
+end
+
+puts "カテゴリーテーブルを入力中・・・"
+CSV.foreach('db/csv/categories.csv',external_encoding: "Shift_JIS",internal_encoding: "utf-8") do |row|
+  Category.create(
+    id:row[0],
+    name:row[1],
+    ancestry:row[2],
+    size_type_id:1,
+    created_at:row[3],
+    updated_at:row[4],
+    pick_up:row[5]
   )
 end
 
 
 puts "ユーザーテーブルを入力中・・・"
-User.create(
-    # id:1,
-    nickname:"ゴジラ",
-    tellphone:55555555555,
-    family_name:"松井",
-    first_name:"秀喜",
-    family_name_phonetic:"マツイ",
-    first_name_phonetic:"ヒデキ",
-    birth_year:1974,
-    birth_month:6,
-    birth_day:12,
-    icon:nil,
-    profile:nil,
-    invitation_code:nil,
-    email:"aaa@aaa",
+CSV.foreach('db/csv/users.csv',external_encoding: "Shift_JIS",internal_encoding: "utf-8") do |row|
+  User.create(
+    id:row[0],
+    nickname:row[1],
+    tellphone:row[2],
+    family_name:row[3],
+    first_name:row[4],
+    family_name_phonetic:row[5],
+    first_name_phonetic:row[6],
+    birth_year:row[7],
+    birth_month:row[8],
+    birth_day:row[9],
+    icon:row[10],
+    profile:row[11],
+    invitation_code:row[12],
+    email:row[13],
     password:"passw0rd",
-    reset_password_token:nil,
-    reset_password_sent_at:nil,
-    remember_created_at:nil,
-    created_at:201811110000,
-    updated_at:201811110000
-  )
-User.create(
-    # id:2,
-    nickname:"イチロー",
-    tellphone:51515151515,
-    family_name:"鈴木",
-    first_name:"一朗",
-    family_name_phonetic:"スズキ",
-    first_name_phonetic:"イチロー",
-    birth_year:1973,
-    birth_month:10,
-    birth_day:22,
-    icon:nil,
-    profile:nil,
-    invitation_code:nil,
-    email:"bbb@bbb",
-    password:"passw0rd",
-    reset_password_token:nil,
-    reset_password_sent_at:nil,
-    remember_created_at:nil,
-    created_at:201811110000,
-    updated_at:201811110000
-  )
-#====ここのCSVの読み込み、うまく言っていないのでベタ打ち=====
-# User.all.delete_all
-# CSV.foreach('db/csv/users.csv') do |row|
-#   User.create(
-#     nickname:row[1],
-#     tellphone:row[2],
-#     family_name:row[3],
-#     first_name:row[4],
-#     family_name_phonetic:row[5],
-#     first_name_phonetic:row[6],
-#     birth_year:row[7],
-#     birth_month:row[8],
-#     birth_day:row[9],
-#     icon:row[10],
-#     profile:row[11],
-#     invitation_code:row[12],
-#     email:row[13],
-#     reset_password_token:row[15],
-#    reset_password_sent_at:row[16],
-#   remember_created_at:row[17],
-#  created_at:row[18],
-# updated_at:row[19]
-#)
-# end
-### =============================
+    reset_password_sent_at:row[16],
+    remember_created_at:row[17],
+    created_at:row[18],
+    updated_at:row[19]
+)
+end
 
 
 puts "ベンダーテーブルを入力中・・・"
@@ -140,6 +108,17 @@ CSV.foreach('db/csv/vendors.csv') do |row|
   )
 end
 
+puts "サイズテーブルを入力中・・・"
+CSV.foreach('db/csv/size.csv',external_encoding: "Shift_JIS",internal_encoding: "utf-8") do |row|
+  Size.create(
+    id:row[0],
+    name:row[1],
+    size_type_id:row[2],
+    created_at:row[3],
+    updated_at:row[4]
+    )
+end
+
 puts "アイテムテーブルを入力中・・・"
 CSV.foreach('db/csv/items.csv',external_encoding: "Shift_JIS",
     internal_encoding: "utf-8") do |row|
@@ -156,7 +135,7 @@ CSV.foreach('db/csv/items.csv',external_encoding: "Shift_JIS",
     brand:row[9],
     size_id:row[10],
     category_id:row[11],
-    user_id:2,#nullの書き方不明のため直打ち
+    user_id:row[12],
     vendor_id:row[13],
     created_at:row[14],
     updated_at:row[15]
@@ -165,15 +144,14 @@ end
 
 puts "アイテムイメージテーブルを入力中・・・"
 CSV.foreach('db/csv/item_images.csv') do |row|
-  p =ItemImage.create(
+  ItemImage.create(
     id:row[0],
-    image:row[1],
+    image:open('db/sample_image/google.png'),
     item_id:row[2],
     created_at:row[3],
     updated_at:row[4]
   )
 end
-
 
 puts "アイテムコメントテーブルを入力中・・・"
 CSV.foreach('db/csv/item_comments.csv',external_encoding: "Shift_JIS",internal_encoding: "utf-8") do |row|
@@ -189,9 +167,13 @@ end
 
 
 puts "ストリートアドレステーブルを入力中・・・"
-CSV.foreach('db/csv/street_addresses.csv') do |row|
+CSV.foreach('db/csv/street_addresses.csv',external_encoding: "Shift_JIS",internal_encoding: "utf-8") do |row|
   StreetAddress.create(
     id:row[0],
+    family_name:"中田",
+    first_name:"将洋",
+    family_name_phonetic:"ナカタ",
+    first_name_phonetic:"マサヒロ",
     post_number:row[1],
     prefecture_id:row[2],
     city:row[3],
@@ -230,4 +212,3 @@ CSV.foreach('db/csv/valuations.csv') do |row|
     updated_at:row[6]
   )
 end
-
