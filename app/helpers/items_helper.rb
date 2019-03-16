@@ -1,9 +1,9 @@
 module ItemsHelper
   def select_items(selected_category,category)
     if selected_category.include?(category)
+      # @items = Item.includes(:category).merge(Category.descendants_of(category)).limit(4)
       @items = Item.includes(:category).where(categories:{name:category.name}).limit(4)
-      # @items1 = Item.includes(:category).where(categories:Category.where(name:category.name)).limit(4)
-      # @large_category = Category.descendants_of(category)
+      # @large_category = Category.descendant_of(category)
       # @items2 = Item.includes(:category).where(Category.descendants_of(category)).limit(4)
       # binding.pry
     else
