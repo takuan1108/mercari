@@ -16,7 +16,6 @@ module ItemsHelper
   def show_item_images(images)
     images.each_with_index do |image,i|
       image_tag(image.image,class:'bottom-image-little',value:i)
-      binding.pry
     end
   end
 end
