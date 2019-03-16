@@ -1,11 +1,4 @@
-$(function(){
-  $('.next').on('click', function(){
-    $('.no-display').removeClass('no-display');
-    $('.on-display').addClass('no-display');
-    $('.confirm').addClass('no-display');
-    $('#checkmark').addClass('no-display');
-    $('.next-text').addClass('no-display');
-    $('.next').addClass('no-display');
-    $('.register-header').addClass('no-display');
-  });
-});
+$(document).ready(function () {
+if (window.location.href.indexOf('#_=_') > 0) {
+window.location = window.location.href.replace(/#.*/, '');
+}});

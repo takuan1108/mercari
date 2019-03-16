@@ -10,7 +10,7 @@ class User < ApplicationRecord
   validates :birth_month, presence: true
   validates :birth_day, presence: true
 
-  devise :database_authenticatable, :registerable, :recoverable, :rememberable, :validatable, :omniauthable
+  devise :database_authenticatable, :registerable, :recoverable, :rememberable, :validatable, :omniauthable,omniauth_providers: %i[facebook  google_oauth2]
 
   has_one :street_address,dependent: :destroy
   has_one :credit_card,dependent: :destroy
