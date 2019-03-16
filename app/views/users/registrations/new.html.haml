@@ -16,33 +16,32 @@
           %span 必須
           %br/
           = f.email_field :email, autofocus: true, autocomplete: "email", placeholder:'PC・携帯どちらでも可'
-        / - if @user && @social
-        /   .field{style:"display: none"}
-        /     = f.label :password, "パスワード"
-        /     %span 必須
-        /     / あとで使うかもしれない
-        /     / - if @minimum_password_length
-        /     /   %em
-        /     /     (#{@minimum_password_length}文字以上)
-        /     %br/
-        /     = f.password_field :password, autocomplete: "new-password",placeholder:'６文字以上'
-        /   .field{style: "display: none"}
-        /     = f.label :password_confirmation, "パスワード（確認）"
-        /     %span 必須
-        /     %br/
-        /     = f.password_field :password_confirmation, autocomplete: "new-password",placeholder:'6文字以上'
-
-        / -else
-        .field
-          = f.label :password, "パスワード"
-          %span 必須
-          %br/
-          = f.password_field :password, autocomplete: "new-password",placeholder:'６文字以上'
-        .field
-          = f.label :password_confirmation, "パスワード（確認）"
-          %span 必須
-          %br/
-          = f.password_field :password_confirmation, autocomplete: "new-password",placeholder:'6文字以上'
+        - if @user.social_profiles.present?
+          .field{style:"display: none"}
+            = f.label :password, "パスワード"
+            %span 必須
+            %br/
+            = f.password_field :password, autocomplete: "new-password",placeholder:'６文字以上'
+          .field{style: "display: none"}
+            = f.label :password_confirmation, "パスワード（確認）"
+            %span 必須
+            %br/
+            = f.password_field :password_confirmation, autocomplete: "new-password",placeholder:'6文字以上'
+            = f.fields_for :social_profiles do |s|
+              =s.text_field :provider
+              =s.text_field :uid
+          - binding.pry
+        - else
+          .field
+            = f.label :password, "パスワード"
+            %span 必須
+            %br/
+            = f.password_field :password, autocomplete: "new-password",placeholder:'６文字以上'
+          .field
+            = f.label :password_confirmation, "パスワード（確認）"
+            %span 必須
+            %br/
+            = f.password_field :password_confirmation, autocomplete: "new-password",placeholder:'6文字以上'
         %h3 本人確認
         %p
           安心・安全にご利用いただくために、お客さまの本人情報の登録にご協力ください。他のお客さまに公開されることはありません。
@@ -81,9 +80,6 @@
           .box
             = f.collection_select :birth_day, Day.all, :id, :name, include_blank: '--'
             = f.label :birth_day,"日"
-
-
-
       %p.confirm
         ※ 本人情報は正しく入力してください。
         %br/
