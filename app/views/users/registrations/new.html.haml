@@ -30,7 +30,6 @@
             = f.fields_for :social_profiles do |s|
               =s.text_field :provider
               =s.text_field :uid
-          - binding.pry
         - else
           .field
             = f.label :password, "パスワード"
