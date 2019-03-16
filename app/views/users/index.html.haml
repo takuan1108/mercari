@@ -5,7 +5,8 @@
       %a.icon-link{ href: "#"}
         .mypage-user-icon
           %img{ src: "assets/member_photo_noimage.png"}
-          %h2 中田将洋
+          %h2
+            = user_name
           .my-number
             .my-number__review
               評価
@@ -22,24 +23,25 @@
           %ul
             %li
               %span
-                =image_tag("mercari_profile.png")
+                = image_tag("mercari_profile.png")
             %li
               %span
-                =image_tag("mercari_profile.png")
+                = image_tag("mercari_profile.png")
             %li
               %span
-                =image_tag("mercari_profile.png")
+                = image_tag("mercari_profile.png")
             %li.last
-              %a{ href: "#"}一覧を見る
+              = link_to '#' do
+                一覧を見る
         .mypage-user-tab__todo
           %ul
             %li
               %span
-                =image_tag('mercari_profile.png')
+                = image_tag('mercari_profile.png')
               発送しよう
             %li
               %span
-                =image_tag('mercari_profile.png')
+                = image_tag('mercari_profile.png')
               レビューしよう
 
       .mypage-user-banner
@@ -53,14 +55,14 @@
             %ul
               %li
                 %span
-                  =image_tag('mercari_profile.png')
+                  = image_tag('mercari_profile.png')
                 item1
           .trading-past
             %ul
               %li
                 %span
-                  =image_tag('mercari_profile.png')
+                  = image_tag('mercari_profile.png')
                 item2
-    =render partial: 'users/shared/users_sidebar'
+    = render partial: 'users/shared/users_sidebar'
 = render partial: 'users/shared/users_bottom_banner'
 = render partial: 'shared/footer'
