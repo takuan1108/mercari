@@ -20,3 +20,4 @@ config/secrets.yml
 
 app/uploaders/image_uploader.rb
 config/initializers/carrierwave.rb
+/.env

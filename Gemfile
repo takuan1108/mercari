@@ -46,6 +46,9 @@ group :development, :test do
   gem 'capistrano-rails'
   gem 'capistrano3-unicorn'
   gem 'pry-rails'
+  gem 'rspec-rails'
+  gem 'factory_bot_rails'
+  gem 'rails-controller-testing'
 end
 
 group :development do
@@ -72,7 +75,15 @@ gem 'kaminari'
 gem 'mechanize'
 gem 'nokogiri'
 gem "font-awesome-rails"
+gem 'ancestry'
+gem 'gon'
 gem 'rb-readline'
+gem 'payjp'
+gem 'dotenv-rails'
+gem 'jquery-validation-rails'
+gem 'enum_help'
 gem 'active_hash', '~> 1.5.3'
 gem 'omniauth'
 gem 'omniauth-facebook'
+gem 'faker'
+gem 'omniauth-google-oauth2'

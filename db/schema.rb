@@ -10,7 +10,8 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20190310071134) do
+
+ActiveRecord::Schema.define(version: 20190314054813) do
 
   create_table "brands", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "name"
@@ -21,18 +22,18 @@ ActiveRecord::Schema.define(version: 20190310071134) do
 
   create_table "categories", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "name"
-    t.string   "middle"
-    t.string   "small"
-    t.datetime "created_at",                 null: false
-    t.datetime "updated_at",                 null: false
-    t.boolean  "pick_up",    default: false, null: false
+    t.string   "ancestry"
+    t.integer  "size_type_id"
+    t.datetime "created_at",                   null: false
+    t.datetime "updated_at",                   null: false
+    t.boolean  "pick_up",      default: false, null: false
   end
 
   create_table "credit_cards", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "card_number",   null: false
     t.integer  "month",         null: false
     t.integer  "year",          null: false
-    t.integer  "security_code", null: false
+    t.string   "security_code", null: false
     t.integer  "user_id"
     t.datetime "created_at",    null: false
     t.datetime "updated_at",    null: false
@@ -62,21 +63,20 @@ ActiveRecord::Schema.define(version: 20190310071134) do
   end
 
   create_table "item_images", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
-    t.string   "image",      null: false
+    t.string   "image"
     t.integer  "item_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["item_id"], name: "index_item_images_on_item_id", using: :btree
   end
 
   create_table "items", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "name",                          null: false
     t.text     "description",     limit: 65535, null: false
     t.integer  "price",                         null: false
-    t.string   "condition",                     null: false
-    t.string   "shipping_method",               null: false
-    t.string   "shipping_date",                 null: false
-    t.string   "shipping_fee",                  null: false
+    t.integer  "condition",                     null: false
+    t.integer  "shipping_method",               null: false
+    t.integer  "shipping_date",                 null: false
+    t.integer  "shipping_fee",                  null: false
     t.integer  "prefecture_id",                 null: false
     t.string   "brand"
     t.integer  "size_id"
@@ -90,21 +90,45 @@ ActiveRecord::Schema.define(version: 20190310071134) do
     t.index ["vendor_id"], name: "index_items_on_vendor_id", using: :btree
   end
 
+  create_table "size_types", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.string   "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "sizes", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.string   "name"
+    t.integer  "size_type_id"
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
+  end
+
+  create_table "social_profiles", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.string  "provider", null: false
+    t.string  "uid",      null: false
+    t.integer "user_id"
+    t.index ["user_id"], name: "index_social_profiles_on_user_id", using: :btree
+  end
+
   create_table "street_addresses", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
-    t.integer  "post_number"
+    t.string   "post_number"
     t.integer  "prefecture_id"
     t.string   "city"
     t.string   "address"
     t.string   "building_name"
     t.integer  "user_id"
-    t.datetime "created_at",    null: false
-    t.datetime "updated_at",    null: false
+    t.datetime "created_at",           null: false
+    t.datetime "updated_at",           null: false
+    t.string   "family_name",          null: false
+    t.string   "first_name",           null: false
+    t.string   "family_name_phonetic", null: false
+    t.string   "first_name_phonetic",  null: false
     t.index ["user_id"], name: "index_street_addresses_on_user_id", using: :btree
   end
 
   create_table "users", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "nickname",                                          null: false
-    t.string   "tellphone",                                         null: false
+    t.string   "tellphone"
     t.string   "family_name",                                       null: false
     t.string   "first_name",                                        null: false
     t.string   "family_name_phonetic",                              null: false
@@ -122,6 +146,7 @@ ActiveRecord::Schema.define(version: 20190310071134) do
     t.datetime "remember_created_at"
     t.datetime "created_at",                                        null: false
     t.datetime "updated_at",                                        null: false
+    t.string   "payjp_id"
     t.index ["email"], name: "index_users_on_email", unique: true, using: :btree
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
   end
@@ -141,11 +166,11 @@ ActiveRecord::Schema.define(version: 20190310071134) do
     t.integer  "user_id"
     t.string   "bank"
     t.string   "bank_account"
-    t.integer  "branch_code"
-    t.integer  "account_number"
+    t.string   "branch_code"
+    t.string   "account_number"
     t.string   "family_name"
     t.string   "first_name"
-    t.integer  "post_number"
+    t.string   "post_number"
     t.integer  "prefecture_id"
     t.string   "city"
     t.string   "address"
@@ -161,10 +186,10 @@ ActiveRecord::Schema.define(version: 20190310071134) do
   add_foreign_key "deals", "vendors"
   add_foreign_key "item_comments", "items"
   add_foreign_key "item_comments", "users"
-  add_foreign_key "item_images", "items"
   add_foreign_key "items", "categories"
   add_foreign_key "items", "users"
   add_foreign_key "items", "vendors"
+  add_foreign_key "social_profiles", "users"
   add_foreign_key "street_addresses", "users"
   add_foreign_key "valuations", "users"
   add_foreign_key "valuations", "vendors"

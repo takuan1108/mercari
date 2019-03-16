@@ -66,7 +66,7 @@
       .tax (税込)
       .shipping-fee 送料込み
     .item-show-main__buy-btn
-      = link_to "購入画面に進む", "/"
+      = link_to "購入画面に進む","/"
     .item-show-main__description
       =@item.description
     .item-show-main__other
@@ -82,6 +82,23 @@
         = link_to "/" do
           = fa_icon "lock"
           あんしん・あんぜんへの取り組み
+  .item-show-delete
+    %p
+      %a.modal-open{href: "#modal01"}
+        この商品を削除する
+    #modal01.modal
+      .overLay.modalClose
+      .inner
+        %h4 確認
+        %p 削除すると二度と復活できません。
+        %p 削除する代わりに停止することもできます。
+        %p
+        %p 本当に削除しますか？
+        .delete-select
+          .delete-select-cancel
+            = link_to "キャンセル","/",class: "modalClose"
+          .delete-select-decision
+            = link_to "削除する",item_path ,method: :delete
   .item-show-comment
     =render partial:'items/item-negotiation',collection: @comments,as: :comment
     %p 相手のことを考え丁寧なコメントを心がけましょう。不快な言葉遣いなどは利用制限や退会処分となることがあります。
