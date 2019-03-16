@@ -10,7 +10,8 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20190314114308) do
+
+ActiveRecord::Schema.define(version: 20190314054813) do
 
   create_table "brands", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "name"
@@ -102,6 +103,13 @@ ActiveRecord::Schema.define(version: 20190314114308) do
     t.datetime "updated_at",   null: false
   end
 
+  create_table "social_profiles", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.string  "provider", null: false
+    t.string  "uid",      null: false
+    t.integer "user_id"
+    t.index ["user_id"], name: "index_social_profiles_on_user_id", using: :btree
+  end
+
   create_table "street_addresses", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "post_number"
     t.integer  "prefecture_id"
@@ -181,6 +189,7 @@ ActiveRecord::Schema.define(version: 20190314114308) do
   add_foreign_key "items", "categories"
   add_foreign_key "items", "users"
   add_foreign_key "items", "vendors"
+  add_foreign_key "social_profiles", "users"
   add_foreign_key "street_addresses", "users"
   add_foreign_key "valuations", "users"
   add_foreign_key "valuations", "vendors"
