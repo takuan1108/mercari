@@ -90,7 +90,7 @@
         .l-right
           %ul.pc-header-user-nav
             %li
-              =link_to(image_tag("member_photo_noimage.png",class:'user-icon'),"",class:"pc-header-nav-root")
+              =link_to(image_tag("member_photo_noimage.png",class:'user-icon'),"/users",class:"pc-header-nav-root")
               .mypage-title マイページ
               .pc-header-user-box.pc-header-mypage-box.mypage.mypage-detail
                 .pc-header-mypage-state.text-center
@@ -154,6 +154,6 @@
               %ul.pc-header-user-box.pc-header-todo-box.mypage-item-list{"data-id" => "pc-header-user-items"}
       -else
         .l-right_not-login
-          .new-user-button=link_to("新規会員登録",new_user_registration_path)
+          .new-user-button=link_to("新規会員登録",register_user_top_users_path)
           .login-button=link_to("ログイン",new_user_session_path)
       .clearfix
