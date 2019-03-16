@@ -1,11 +1,8 @@
 module ItemsHelper
   def select_items(selected_category,category)
     if selected_category.include?(category)
-      @items = Item.includes(:category).where(categories:{name:category.name}).limit(4)
-      # @items1 = Item.includes(:category).where(categories:Category.where(name:category.name)).limit(4)
-      # @large_category = Category.descendants_of(category)
-      # @items2 = Item.includes(:category).where(Category.descendants_of(category)).limit(4)
-      # binding.pry
+      category = Category.descendants_of(category)
+      @items = Item.includes(:category).where(categories:{id:category.ids}).limit(4)
     else
       @items = Item.where(brand:category.name).limit(4)
       # ちゃんとitemとbrandが紐づいている場合はこれ
