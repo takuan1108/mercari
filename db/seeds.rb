@@ -46,17 +46,18 @@ CSV.foreach('db/csv/size_type.csv',external_encoding: "Shift_JIS",internal_encod
     updated_at:row[3]
     )
 end
+SizeType.create(id:100,name:"サイズ選択ないものは全てこちら",created_at:"2019/3/3 8:19",updated_at:"2019/3/3 8:19")
 
 puts "カテゴリーテーブルを入力中・・・"
 CSV.foreach('db/csv/categories.csv',external_encoding: "Shift_JIS",internal_encoding: "utf-8") do |row|
-  Category.create(
+  category = Category.create(
     id:row[0],
     name:row[1],
     ancestry:row[2],
-    size_type_id:1,
-    created_at:row[3],
-    updated_at:row[4],
-    pick_up:row[5]
+    size_type_id:row[3],
+    created_at:row[4],
+    updated_at:row[5],
+    pick_up:row[6]
   )
 end
 
@@ -88,7 +89,7 @@ end
 
 
 puts "ベンダーテーブルを入力中・・・"
-CSV.foreach('db/csv/vendors.csv') do |row|
+CSV.foreach('db/csv/vendors.csv',external_encoding: "Shift_JIS",internal_encoding: "utf-8") do |row|
   vendor = Vendor.create(
     id:row[0],
     user_id:row[1],
@@ -135,10 +136,9 @@ CSV.foreach('db/csv/items.csv',external_encoding: "Shift_JIS",
     brand:row[9],
     size_id:row[10],
     category_id:row[11],
-    user_id:row[12],
-    vendor_id:row[13],
-    created_at:row[14],
-    updated_at:row[15]
+    vendor_id:row[12],
+    created_at:row[13],
+    updated_at:row[14]
   )
 end
 
