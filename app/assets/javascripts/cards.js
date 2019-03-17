@@ -1,7 +1,7 @@
 $(function(){
 
 // Pay.jpからトークンを取得してusersコントローラーのpayアクションに送る処理
-  $(".add-card-submit").on("click", function(e){
+  $(".card-main__content__add-card--submit").on("click", function(e){
     e.preventDefault();
     var number = $("#number").val().replace(/[^0-9]/g, '');
     var cvc = $("#cvc").val();
@@ -18,8 +18,8 @@ $(function(){
     Payjp.createToken(card, function(status, response) {
       if(status == 200){
         var token = response.id;
-        $(".add-card").append(`<input type="hidden" name="token" value=${token}>`);
-        $(".add-card").submit();
+        $(".card-main__content__add-card").append(`<input type="hidden" name="token" value=${token}>`);
+        $(".card-main__content__add-card").submit();
       }else{
         var error_message = response.error.message;
       }
