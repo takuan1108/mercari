@@ -1,0 +1,9 @@
+.my-container{
+  &-main{
+    &__center{
+      box-sizing: border-box;
+      background-color: white;
+      vertical-align: middle;
+    }
+  }
+}

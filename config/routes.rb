@@ -6,7 +6,7 @@ Rails.application.routes.draw do
 
   resources :users, only: [:index, :edit, :update] do
     collection do
-      resource :card
+      resource :card, except: [:edit, :update], module: "users"
       resource :street_addresses
       resource :vendor
       post 'update_profile'
@@ -18,9 +18,11 @@ Rails.application.routes.draw do
     end
   end
   resources :items do
-    member do
-      get 'buy'
-      post 'pay'
+    resource :deal, only: [:new, :create], module: "items" do
+      resource :card, except: [:edit, :update], module: "deals"
+      collection do
+        get 'done'
+      end
     end
   end
   root 'items#index'
