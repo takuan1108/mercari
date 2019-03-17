@@ -12,22 +12,10 @@ $(function(){
                 </li>`
     upload_image.append(html);
   }
-//   images.slice(0, -1).forEach((item, i) =>{
-//   console.log(`${i}: ${item}`);
-// });
-
   for (let i = 0; i < images.length -1; i++){
     var ima = images[i]
     console.log(ima.image.url)
-    // ima.forEach(function(result){
-    //   console.log(result)
-    // })
-    // console.log(ima)
-    // for (let n = 0; n < images.length -1; n++){
-    //   console.log(ima)
-    //   var url = ima[n]
-      // console.log(url)
-      edit_image(ima.image.url)
+    edit_image(ima.image.url)
     }
   var target = document.getElementById('drop');
   if (target) {
@@ -46,12 +34,12 @@ $(function(){
       e.preventDefault();
       e.stopPropagation();
       //DataTransfer.files - ファイルの一覧
-      document.getElementById('item_image'+ i_count).files = e.dataTransfer.files;
+      document.getElementById('item_image-edit'+ i_count).files = e.dataTransfer.files;
     });
   }
 
 // ドロップ後 表示させとく
-  $('.item_images').on("change",function(e) {
+  $('.item_images-edit').on("change",function(e) {
     for(var i = 0; i < this.files.length; i++){
       // FileReaderを作成
       var fileReader = new FileReader();
@@ -63,7 +51,16 @@ $(function(){
       // 読み込み実行readAsDataURL()は、FileReaderのメソッド
       fileReader.readAsDataURL(this.files[i]);
       i_count += 1;
-      $("label.sell-dropbox-uploader-container").attr('for','item_image'+ i_count);
+      $("label.sell-dropbox-uploader-container").attr('for','item_image-edit'+ i_count);
     }
   });
+  $(".sell-form-text_number").on("load", function() {
+    var price = $(this).val();
+    if( price >= 300 && price <= 9999999 ){
+      var fee = Math.floor(price / 10);
+      var profits = Math.floor(price - fee);
+      $(".right").text('¥ ' + fee);
+      $(".profits-form").text('¥ ' + profits);
+    }
+  })
   })

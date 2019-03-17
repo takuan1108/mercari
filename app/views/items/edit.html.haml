@@ -15,7 +15,7 @@
                 .sell-dropbox-uploader
                   = i.label :image,class: "sell-dropbox-uploader-container" do
                     - 10.times do |timesCount|
-                      = i.file_field :image,class: "item_images hidden",id:"item_image#{timesCount}",multiple: true,name: "[image][]",type: 'file'
+                      = i.file_field :image,class: "item_images-edit hidden",id:"item_image-edit#{timesCount}",multiple: true,name: "[image][]",type: 'file'
         .post-item-body
           .post-item-body-title
             %h3 商品名
@@ -36,15 +36,15 @@
             .select-large
               = f.collection_select :category_id,@large, :id, :name,{prompt: "---"},{class: "large-category"}
             .select-middle-edit
-              = f.select :category_id, {} , {prompt: "---"}, {class: "middle-category"}
+              = f.select :category_id, options_from_collection_for_select(@small.children, :id, :name, @middle.id), {class: "middle-category"}
             .select-small-edit
-              = f.select :category_id, {} , {prompt: "---"}, {class: "small-category"}
-            .select-size
+              = f.select :category_id, options_from_collection_for_select(@middle.children, :id, :name, @category.id), {class: "small-category"}
+            .select-size-edit
               .select
                 %h3.size サイズ
                 %span 必須
-              = f.collection_select :size_id, {}, :id, :name,{prompt: "---"},{class: "size-select"}
-            .select-brand
+              = f.collection_select :size_id, Size.all, :id, :name,{prompt: "---"},{class: "size-select"}
+            .select-brand-edit
               .select
                 %h3.brand ブランド
                 %span.optional 任意
