@@ -4,14 +4,13 @@
     .my-container-main__center
       .my-edit
         %h2 プロフィール
-        %form.my-edit-profile
+        = form_for @user, html: {:class => 'my-edit-profile'}  do |f|
           .my-edit-profile__name
             %span
-              =image_tag("member_photo_noimage.png")
+              = image_tag("member_photo_noimage.png")
             %span
-              %input.text{type:"text", value: '中田将洋'}
+              = f.text_field :nickname
           .my-edit-profile__content
-            %textarea{placeholder: "例）こんにちは☆ ご覧いただきありがとうございます！かわいいものやきれいめオフィスカジュアル中心に出品しています。服のサイズは主に9号です。気持ちよくお取引できるよう心がけていますので、商品や発送方法などご質問がありましたらお気軽にどうぞ♪"}
-            %input.submit{type: "submit" ,value: '変更する'}
-
+            =f.text_area :profile, placeholder: "例）こんにちは☆ ご覧いただきありがとうございます！かわいいものやきれいめオフィスカジュアル中心に出品しています。服のサイズは主に9号です。気持ちよくお取引できるよう心がけていますので、商品や発送方法などご質問がありましたらお気軽にどうぞ♪"
+            = submit_tag '変更する'
     =render partial: 'users/shared/users_sidebar'
