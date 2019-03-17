@@ -183,6 +183,11 @@ ActiveRecord::Schema.define(version: 20190314112909) do
   add_foreign_key "item_comments", "items"
   add_foreign_key "item_comments", "users"
   add_foreign_key "items", "categories"
+<<<<<<< HEAD
+=======
+  add_foreign_key "items", "users"
+  add_foreign_key "items", "vendors"
+>>>>>>> ma-kun92/master
   add_foreign_key "social_profiles", "users"
   add_foreign_key "street_addresses", "users"
   add_foreign_key "valuations", "users"

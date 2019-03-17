@@ -266,10 +266,34 @@
             display:inline-block;
             padding: 0 0 0 16px;
             vertical-align: middle;
-
           }
         }
+      }
+      .l-right_not-login{
+        float:right;
+        .login-button{
+          margin:0px 10px 5px 0;
+          padding:6px 0px;
+          float:right;
+          border-radius:5px;
+          background-color:rgb(234,53,45);
+          a{
+            margin:10px 15px;
+            color:white;
+          }
+        }
+        .new-user-button{
+          margin:0px 0px 5px 0;
+          padding:6px 0px;
+          float:right;
+          border:1px solid rgb(0,153,232);
+          border-radius:5px;
+          a{
+            margin:10px 10px;
+            color:rgb(0,153,232);
+          }
 
+        }
       }
     }
   }
