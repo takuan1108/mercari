@@ -16,6 +16,9 @@ Rails.application.routes.draw do
   resources :items do
     resource :deal, only: [:new, :create], module: "items" do
       resource :card, except: [:edit, :update], module: "deals"
+      collection do
+        get 'done'
+      end
     end
   end
   root 'items#index'
