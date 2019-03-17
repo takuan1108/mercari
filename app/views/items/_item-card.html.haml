@@ -1,7 +1,7 @@
 .card
   =link_to item_path(item.id),class:'item-card' do
     .item-card__image
-      / =image_tag(item.item_images[0].image)
+      =image_tag(item.item_images[0].image)
     .item-card__information
       .item-card__information__name=item.name
       .item-card__information__detail
