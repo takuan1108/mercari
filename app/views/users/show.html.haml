@@ -5,7 +5,8 @@
       .mypage-user-icon
         =link_to '#' ,{class: 'mypage-user-icon-link'} do
           %img{ src: "assets/member_photo_noimage.png"}
-          %h2 中田将洋
+          %h2
+            = user_name
           .mypage-user-icon-link-numbers
             .mypage-user-icon-link-numbers__review
               評価

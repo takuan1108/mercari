@@ -10,7 +10,11 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
+<<<<<<< HEAD
 ActiveRecord::Schema.define(version: 20190315220906) do
+=======
+ActiveRecord::Schema.define(version: 20190314112909) do
+>>>>>>> ma-kun92/master
 
   create_table "brands", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "name"
@@ -80,10 +84,18 @@ ActiveRecord::Schema.define(version: 20190315220906) do
     t.string   "brand"
     t.integer  "size_id"
     t.integer  "category_id"
+<<<<<<< HEAD
+=======
+    t.integer  "vendor_id"
+>>>>>>> ma-kun92/master
     t.datetime "created_at",                    null: false
     t.datetime "updated_at",                    null: false
     t.integer  "vendor_id"
     t.index ["category_id"], name: "index_items_on_category_id", using: :btree
+<<<<<<< HEAD
+=======
+    t.index ["vendor_id"], name: "index_items_on_vendor_id", using: :btree
+>>>>>>> ma-kun92/master
   end
 
   create_table "size_types", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
@@ -184,8 +196,11 @@ ActiveRecord::Schema.define(version: 20190315220906) do
   add_foreign_key "item_comments", "users"
   add_foreign_key "items", "categories"
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
   add_foreign_key "items", "users"
+=======
+>>>>>>> ma-kun92/master
   add_foreign_key "items", "vendors"
 >>>>>>> ma-kun92/master
   add_foreign_key "social_profiles", "users"
