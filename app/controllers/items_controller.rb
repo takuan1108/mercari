@@ -32,6 +32,12 @@ class ItemsController < ApplicationController
   def image
   end
 
+  def destroy
+    item = Item.find(params[:id])
+    item.destroy if item.vendor_id == current_user.id
+    redirect_to users_path
+  end
+
   private
   def item_params
     params.require(:item).permit(:name,:description,:price,:condition,:shipping_fee,:shipping_date,:shipping_method,:prefecture_id,:size_id,:category_id,:brand,

@@ -48,6 +48,7 @@ group :development, :test do
   gem 'pry-rails'
   gem 'rspec-rails'
   gem 'factory_bot_rails'
+  gem 'rails-controller-testing'
 end
 
 group :development do
@@ -65,7 +66,6 @@ gem 'carrierwave'
 gem 'fog-aws'
 gem 'devise'
 gem 'mini_magick'
-gem 'jquery-rails'
 gem 'haml-rails'
 gem 'erb2haml'
 gem 'sprockets', '3.7.2'
@@ -84,3 +84,5 @@ gem 'enum_help'
 gem 'active_hash', '~> 1.5.3'
 gem 'omniauth'
 gem 'omniauth-facebook'
+gem 'faker'
+gem 'omniauth-google-oauth2'

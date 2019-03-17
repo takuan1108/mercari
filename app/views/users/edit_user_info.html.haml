@@ -14,32 +14,38 @@
             = link_to '本人確認書類のアップロードについて＞','#'
             %form
               = label :family_name, 'お名前'
-              %p 中田将洋
+              %p
+                = user_name
               = label :family_name, 'お名前（カナ）'
-              %p ナカタ マサヒロ
+              %p
+                = user_name_phonetic
               = label :family_name, '生年月日'
-              %p 1542/3/22
-              = label :family_name, '郵便番号'
-              %span 任意
+              %p
+                = user_birth
+              =f.label :post_number, '郵便番号( \' - \'は不要です )'
+              %span 必須
               %br
-              = text_field :user, :family_name,placeholder: ''
+              =f.text_field :post_number,placeholder: ''
               %br
-              = label :family_name, '都道府県'
-              %span 任意
+              =f.label :prefecture_id, '都道府県'
+              %span 必須
               %br
-              = select_tag :user, :family_name
+              = f.collection_select :prefecture_id, Prefecture.all, :id, :name, include_blank: '--'
               %br
-              = label :family_name, '市町村'
-              %span 任意
+              =f.label :city, '市町村'
+              %span 必須
               %br
-              = text_field :user, :family_name,placeholder: ''
+              =f.text_field :city,placeholder: ''
               %br
-              = label :family_name, '番地'
-              %span 任意
+              =f.label :address, '番地'
+              %span 必須
               %br
-              = text_field :user, :family_name,placeholder: ''
+              =f.text_field :address,placeholder: ''
               %br
-              = label :family_name, '建物'
+              =f.label :building_name, '建物'
+              %span.gray 任意
+              %br
+              =f.text_field :building_name, placeholder: ''
               %span 任意
               %br
               = text_field :user, :family_name,placeholder: ''
