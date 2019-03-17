@@ -1,6 +1,6 @@
 @import 'config/reset';
-@import 'mixin/variable';
 @import 'font-awesome';
+@import 'mixin/variable';
 
 // modules--共通化処理
 @import 'modules/cards_new';
@@ -25,6 +25,7 @@
 @import 'items_index';
 @import 'item-card';
 @import 'items/deals/new';
+@import 'items/deals/done';
 @import 'items/deals/cards/show';
 @import 'item_show';
 @import 'item_new';
