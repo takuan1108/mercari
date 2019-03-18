@@ -24,5 +24,9 @@ private
     redirect_to new_user_session_url unless user_signed_in?
   end
 
+  def header_menu
+    @pick_up_categories = Category.where(pick_up:1)
+    @pick_up_brands = Brand.where(pick_up:1)
+  end
 
 end

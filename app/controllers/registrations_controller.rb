@@ -1,4 +1,8 @@
 class RegistrationsController < Devise::RegistrationsController
+<<<<<<< HEAD
+  before_action :header_menu,only: [:edit,:new]
+=======
+>>>>>>> ma-kun92/master
 
   def new
     super
