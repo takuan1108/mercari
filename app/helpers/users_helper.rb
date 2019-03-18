@@ -6,6 +6,6 @@ module UsersHelper
     current_user.family_name_phonetic + current_user.first_name_phonetic
   end
   def user_birth
-    current_user.birth_year + "/" + current_user.birth_month + "/" + current_user.birth_day
+    current_user.birth_year.to_s + '/ ' + current_user.birth_month.to_s + '/ ' + current_user.birth_day.to_s
   end
 end

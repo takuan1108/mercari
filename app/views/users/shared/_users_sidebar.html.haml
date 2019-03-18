@@ -86,12 +86,12 @@
     %h3 設定
     %ul.mypage-setting-lists
       %li
-        = link_to edit_user_registration_path do
+        = link_to edit_user_path(current_user) do
           プロフィール
           %span
             >
       %li
-        = link_to '#' do
+        = link_to  edit_vendor_path do
           発送元・お届け先住所変更
           %span
             >
@@ -106,7 +106,7 @@
           %span
             >
       %li
-        = link_to '#' do
+        = link_to edit_street_addresses_path do
           本人情報
           %span
             >

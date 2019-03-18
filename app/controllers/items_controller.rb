@@ -18,7 +18,7 @@ class ItemsController < ApplicationController
       if @item.save
         params[:image].each do |image|
           @item.item_images.create(image: image)
-        end
+      end
         redirect_to root_path
       else
         render 'new'
@@ -28,10 +28,13 @@ class ItemsController < ApplicationController
   def show
   end
 
-  def buy
+  def image
   end
 
-  def image
+  def destroy
+    item = Item.find(params[:id])
+    item.destroy if item.vendor_id == current_user.id
+    redirect_to users_path
   end
 
   def destroy
