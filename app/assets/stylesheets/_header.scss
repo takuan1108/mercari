@@ -63,29 +63,27 @@
       margin:8px 0 0;
       .l-left{
         float:left;
+        height: 40px;
         .pc-header-nav{
-          // font-size: :0;
+          position:relative;
           li{
-            position:relative;
             display:inline-block;
-            padding-right: 16px;
-            h2{
-              .pc-header-nav-root{
-                position:relative;     //??いる？？
-                height:38px;
-                line-height:32px;
-              }
+            .pc-header-nav-root{
+              line-height:40px;
+              padding-right:16px;
             }
             .large-category-wrap{   //カテゴリ大
               position:absolute;
-              height:calc(44px * 10); //カテゴリ数をRubyからcountする
-              top:38px;
+              width:224px;
+              height:calc(44px * 14);
+              top:40px;
               z-index:1000;
               background:#fff;
               display:none;
+              box-shadow:1px 1px 0px 0px #eee;
+              border-left:1px solid #eee;
               .large-category{
                 width:224px;
-                padding:0;
                 a{
                   font-weight: 400;
                   font-size:14px;
@@ -94,33 +92,32 @@
                 }
                 .middle-category-wrap{  //カテゴリ中
                   position:absolute;
-                  height:calc(44px * 10); //カテゴリ数をRubyからcountする
+                  height:calc(44px * 14);
                   top:0;
                   left:224px;
-                  bottom: 0;
                   background:#fff;
-                  box-shadow:1px 0 0 0 #eee;
+                  box-shadow:1px 1px 0 0 #eee;
+                  border-left:1px solid #eee;
                   display:none;
                   .middle-category{
                     width:224px;
-                    padding:8px 16px 8px 16px;
+                    padding:8px 0px;
                     a{
-                      margin:0 0;
                       line-height: 0px;
-
                     }
                     .small-category-wrap{    //カテゴリ小
                       position:absolute;
-                      height:calc(44px * 10); //カテゴリ数をRubyからcountする
+                      height:calc(44px * 14);
                       top:0;
                       left:224px;
                       bottom:0;
                       background: #fff;
-                      box-shadow: 1px 0 0 0 #eee;
+                      box-shadow: 1px 1px 0 0 #eee;
+                      border-left:1px solid #eee;
                       display:none;
                       .small-category{
                         width: 320px;
-                        padding:8px 16px;
+                        padding:8px 0px;
                       }
                     }
                   }
@@ -155,7 +152,7 @@
               float:right;
               padding:0 0 0 10px;
             }
-            .pc-header-user-box.pc-header-mypage-box{
+            .mypage-box{
               position:absolute;
               left:0;
               top:38px;
@@ -173,7 +170,6 @@
                   background-image:url(/assets/user-bg.jpg);
                   background-repeat: no-repeat;
                   background-size:320px 80px;
-
                   .user-icon{
                     img{
                       border-radius:30px;
