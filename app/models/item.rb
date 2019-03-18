@@ -50,5 +50,4 @@ class Item < ApplicationRecord
     within_3days: 1,
     within_7days: 2
   }
-
 end

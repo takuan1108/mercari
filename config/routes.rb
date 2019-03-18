@@ -19,6 +19,9 @@ Rails.application.routes.draw do
       get 'buy'
       post 'pay'
     end
+    collection do
+      get 'search'
+    end
   end
   root 'items#index'
 end
