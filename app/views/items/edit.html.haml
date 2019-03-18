@@ -8,14 +8,14 @@
           %h3 出品画像
           %span 必須
           %p 最大10枚までアップロードできます
-          .post-image-body-field{id: "drop"}
+          .post-image-body-field{id: "drop-edit"}
             .post-image-body-field-zone
               = f.fields_for :item_images do |i|
                 %ul.sell-dropbox-items-edit
                 .sell-dropbox-uploader
                   = i.label :image,class: "sell-dropbox-uploader-container" do
                     - 10.times do |timesCount|
-                      = i.file_field :image,class: "item_images-edit hidden",id:"item_image-edit#{timesCount}",multiple: true,name: "[image][]",type: 'file'
+                      = i.file_field :image,class: "item-images-edit hidden",id:"item-image-edit#{timesCount}",multiple: true,name: "[image][]",type: 'file'
         .post-item-body
           .post-item-body-title
             %h3 商品名

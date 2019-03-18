@@ -1,8 +1,8 @@
 $(function(){
   var images = gon.image
-  var upload_image = $(".sell-dropbox-items-edit");
-  var i_count = 0;
-  function edit_image(image) {
+  var edit_image = $(".sell-dropbox-items-edit");
+  var i_count = 1;
+  function edit_images(image) {
     var html = `<li class="sell-upload-item">
                   <img src="${image}" alt="画像">
                   <div class="sell-upload-button">
@@ -10,14 +10,14 @@ $(function(){
                     <a href="" class="sell-upload-delete">削除</a>
                   </div>
                 </li>`
-    upload_image.append(html);
+    edit_image.append(html);
   }
   for (let i = 0; i < images.length -1; i++){
     var ima = images[i]
-    console.log(ima.image.url)
-    edit_image(ima.image.url)
+    // console.log(ima.image.url)
+    edit_images(ima.image.url)
     }
-  var target = document.getElementById('drop');
+  var target = document.getElementById('drop-edit');
   if (target) {
     // ドラッグ
     target.addEventListener('dragover', function (e) {
@@ -34,12 +34,12 @@ $(function(){
       e.preventDefault();
       e.stopPropagation();
       //DataTransfer.files - ファイルの一覧
-      document.getElementById('item_image-edit'+ i_count).files = e.dataTransfer.files;
+      document.getElementById('item-image-edit'+ i_count).files = e.dataTransfer.files;
     });
   }
 
 // ドロップ後 表示させとく
-  $('.item_images-edit').on("change",function(e) {
+  $('.item-images-edit').on("change",function(e) {
     for(var i = 0; i < this.files.length; i++){
       // FileReaderを作成
       var fileReader = new FileReader();
@@ -51,7 +51,7 @@ $(function(){
       // 読み込み実行readAsDataURL()は、FileReaderのメソッド
       fileReader.readAsDataURL(this.files[i]);
       i_count += 1;
-      $("label.sell-dropbox-uploader-container").attr('for','item_image-edit'+ i_count);
+      $("label.sell-dropbox-uploader-container").attr('for','item-image-edit'+ i_count);
     }
   });
   $(".sell-form-text_number").on("load", function() {
