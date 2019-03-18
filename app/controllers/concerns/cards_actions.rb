@@ -23,10 +23,7 @@ module CardsActions
   def prepare_payjp
     gon.payjp_pk_key = ENV["PAYJP_PK_TEST"]
     Payjp.api_key = ENV["PAYJP_SK_TEST"]
-    unless current_user.payjp_id
-      current_user.payjp_id = Payjp::Customer.create(description: 'test').id
-      current_user.save
-    end
+    current_user.update(payjp_id: Payjp::Customer.create(description: 'test').id) unless current_user.payjp_id
     @customer = Payjp::Customer.retrieve(current_user.payjp_id)
     @card = @customer.cards.retrieve(@customer.default_card) if @customer.cards.count > 0
   end
