@@ -1,8 +1,7 @@
 class ItemsController < ApplicationController
+  before_action :header_menu,only: [:index,:show]
 
   def index
-    @pick_up_categories = Category.where(pick_up:1)
-    @pick_up_blands = Brand.where(pick_up:1)
   end
 
   def new
