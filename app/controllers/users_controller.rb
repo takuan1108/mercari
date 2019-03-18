@@ -1,4 +1,5 @@
 class UsersController < ApplicationController
+  before_action :header_menu,only: [:index,:edit,:index]
 
   def index
   end

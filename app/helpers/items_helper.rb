@@ -9,4 +9,16 @@ module ItemsHelper
       # @items = Item.includes(:brand).where(brands:{name:category.name}).limit(4)
     end
   end
+
+  def l_category_define
+    @l_categories = Category.roots
+  end
+  def m_category_define(l)
+    @m_categories = Category.children_of(l)
+  end
+  def s_category_define(m)
+    @s_categories = Category.children_of(m)
+  end
+
+
 end
