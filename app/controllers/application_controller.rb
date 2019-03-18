@@ -4,7 +4,7 @@ class ApplicationController < ActionController::Base
 
 private
   def after_sign_in_path_for(resource)
-    root_path
+    users_path
   end
 
   def after_sign_out_path_for(resource)
@@ -24,5 +24,9 @@ private
     redirect_to new_user_session_url unless user_signed_in?
   end
 
+  def header_menu
+    @pick_up_categories = Category.where(pick_up:1)
+    @pick_up_brands = Brand.where(pick_up:1)
+  end
 
 end

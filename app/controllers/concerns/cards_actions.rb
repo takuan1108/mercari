@@ -1,6 +1,12 @@
+<<<<<<< HEAD:app/controllers/cards_controller.rb
 class CardsController < ApplicationController
   before_action :authenticate_user!, only: [:show, :new, :create, :destroy]
   before_action :prepare_payjp, only: [:show, :new, :create, :destroy]
+  before_action :header_menu,only: [:new,:show]
+=======
+module CardsActions
+  extend ActiveSupport::Concern
+>>>>>>> ma-kun92/master:app/controllers/concerns/cards_actions.rb
 
   def show
   end

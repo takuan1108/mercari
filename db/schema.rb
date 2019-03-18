@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20190314112909) do
+ActiveRecord::Schema.define(version: 20190316144204) do
 
   create_table "brands", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "name"
@@ -40,15 +40,13 @@ ActiveRecord::Schema.define(version: 20190314112909) do
   end
 
   create_table "deals", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
-    t.string   "string",     null: false
+    t.integer  "status",     null: false
     t.integer  "user_id"
     t.integer  "item_id"
-    t.integer  "vendor_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["item_id"], name: "index_deals_on_item_id", using: :btree
     t.index ["user_id"], name: "index_deals_on_user_id", using: :btree
-    t.index ["vendor_id"], name: "index_deals_on_vendor_id", using: :btree
   end
 
   create_table "item_comments", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
@@ -114,12 +112,8 @@ ActiveRecord::Schema.define(version: 20190314112909) do
     t.string   "address"
     t.string   "building_name"
     t.integer  "user_id"
-    t.datetime "created_at",           null: false
-    t.datetime "updated_at",           null: false
-    t.string   "family_name",          null: false
-    t.string   "first_name",           null: false
-    t.string   "family_name_phonetic", null: false
-    t.string   "first_name_phonetic",  null: false
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
     t.index ["user_id"], name: "index_street_addresses_on_user_id", using: :btree
   end
 
@@ -172,15 +166,16 @@ ActiveRecord::Schema.define(version: 20190314112909) do
     t.string   "city"
     t.string   "address"
     t.string   "building_name"
-    t.datetime "created_at",     null: false
-    t.datetime "updated_at",     null: false
+    t.datetime "created_at",           null: false
+    t.datetime "updated_at",           null: false
+    t.string   "first_name_phonetic"
+    t.string   "family_name_phonetic"
     t.index ["user_id"], name: "index_vendors_on_user_id", using: :btree
   end
 
   add_foreign_key "credit_cards", "users"
   add_foreign_key "deals", "items"
   add_foreign_key "deals", "users"
-  add_foreign_key "deals", "vendors"
   add_foreign_key "item_comments", "items"
   add_foreign_key "item_comments", "users"
   add_foreign_key "items", "categories"
