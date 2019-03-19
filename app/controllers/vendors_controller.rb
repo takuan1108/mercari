@@ -1,4 +1,6 @@
 class VendorsController < ApplicationController
+  before_action :header_menu,only: [:edit]
+
   def new
     @vendor = Vendor.new
   end
