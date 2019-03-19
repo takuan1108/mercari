@@ -7,7 +7,7 @@ Rails.application.routes.draw do
   resources :users, only: [:index, :edit, :update] do
     collection do
       resource :card, except: [:edit, :update], module: "users"
-      resource :street_addresses, only: [ :new, :create, :edit, :update]
+      resource :street_address, only: [ :new, :create, :edit, :update]
       resource :vendor, only: [ :new, :create, :edit, :update]
       get 'register_user_top'
       get 'logout'
