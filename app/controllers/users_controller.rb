@@ -16,6 +16,10 @@ class UsersController < ApplicationController
     end
   end
 
+  def logout
+
+  end
+
   private
   def update_params
     params.require(:user).permit(:nickname, :profile, :icon)
