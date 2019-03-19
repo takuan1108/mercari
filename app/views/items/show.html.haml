@@ -66,24 +66,25 @@
       .shipping-fee 送料込み
     .item-show-main__btn
       -if user_signed_in?
-        = link_to "購入画面に進む",new_item_deal(params[:id])
+        = link_to "購入画面に進む",new_item_deal_path(params[:id])
       -else
         = link_to "購入画面に進む",new_user_session_path
     .item-show-main__description
       =@item.description
-    .item-show-main__other
-      .left-btn
-        = link_to "/" do
-          = fa_icon "heart-o"
-          いいね
-      .center-btn
-        = link_to "/" do
-          = fa_icon "flag-o"
-          不適切な商品の報告
-      .right-btn
-        = link_to "/" do
-          = fa_icon "lock"
-          あんしん・あんぜんへの取り組み
+    -unless @item.vendor_id == current_user.id
+      .item-show-main__other
+        .left-btn
+          = link_to "/" do
+            = fa_icon "heart-o"
+            いいね
+        .center-btn
+          = link_to "/" do
+            = fa_icon "flag-o"
+            不適切な商品の報告
+        .right-btn
+          = link_to "/" do
+            = fa_icon "lock"
+            あんしん・あんぜんへの取り組み
   -if @item.vendor_id == current_user.id
     .item-show__vendor-menu
       .item-show__vendor-menu__edit.btn
