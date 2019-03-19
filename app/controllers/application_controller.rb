@@ -4,10 +4,12 @@ class ApplicationController < ActionController::Base
 
 private
   def after_sign_in_path_for(resource)
+    flash.delete(:notice)
     users_path
   end
 
   def after_sign_out_path_for(resource)
+    flash.delete(:notice)
     root_path
   end
 

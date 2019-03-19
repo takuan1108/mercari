@@ -1,8 +1,10 @@
 class StreetAddressesController < ApplicationController
+  before_action :header_menu,only: [:new,:edit]
+
   def new
     @street_address = StreetAddress.new
-
   end
+
   def create
     street_address = StreetAddress.new(street_address_params)
     if street_address.save
