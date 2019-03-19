@@ -1,6 +1,6 @@
-class CardsController < ApplicationController
-  before_action :authenticate_user!, only: [:show, :new, :create, :destroy]
-  before_action :prepare_payjp, only: [:show, :new, :create, :destroy]
+
+module CardsActions
+  extend ActiveSupport::Concern
 
   def show
   end

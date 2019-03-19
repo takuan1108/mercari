@@ -1,8 +1,7 @@
 class ItemsController < ApplicationController
+  before_action :header_menu,only: [:index,:show]
 
   def index
-    @pick_up_categories = Category.where(pick_up:1)
-    @pick_up_blands = Brand.where(pick_up:1)
   end
 
   def new
@@ -19,7 +18,7 @@ class ItemsController < ApplicationController
       if @item.save
         params[:image].each do |image|
           @item.item_images.create(image: image)
-        end
+      end
         redirect_to root_path
       else
         render 'new'
@@ -36,10 +35,13 @@ class ItemsController < ApplicationController
     @brand_items = Item.where.not('id=? or id=?',params[:id],sold_item).where(brand:@item.brand).order(id: :DESC).limit(6)
   end
 
-  def buy
+  def image
   end
 
-  def image
+  def destroy
+    item = Item.find(params[:id])
+    item.destroy if item.vendor_id == current_user.id
+    redirect_to users_path
   end
 
   def destroy

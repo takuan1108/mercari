@@ -4,9 +4,12 @@ Rails.application.routes.draw do
     post 'registration' => 'devise/registrations#create', as: :create_registration
   end
 
-  resources :users, only: [:index] do
+  resources :users, only: [:index, :edit, :update] do
     collection do
-      resource :card
+      resource :card, except: [:edit, :update], module: "users"
+      resource :street_addresses
+      resource :vendor
+      post 'update_profile'
       get 'register_user_top'
       post 'register_user_tel'
       get 'register_user_address'
@@ -16,9 +19,11 @@ Rails.application.routes.draw do
   end
   resources :items do
     resources :item_comments,only: [:create]
-    member do
-      get 'buy'
-      post 'pay'
+    resource :deal, only: [:new, :create], module: "items" do
+      resource :card, except: [:edit, :update], module: "deals"
+      collection do
+        get 'done'
+      end
     end
   end
   root 'items#index'

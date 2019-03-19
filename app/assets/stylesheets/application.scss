@@ -1,26 +1,40 @@
-@import 'variable';
-@import 'font-awesome';
 @import 'config/reset';
+@import 'font-awesome';
+@import 'mixin/variable';
+
+// modules--共通化処理
+@import 'modules/cards_new';
+@import 'modules/cards_show';
 @import 'header';
 @import 'footer';
 @import 'subHeader';
 @import 'subFooter';
-@import 'users_show';
-@import 'items_index';
-@import 'item-card';
-@import 'item_buy';
-@import 'item-negotiation';
-@import 'item_show';
-@import 'item_new';
+
+// users
 @import 'users_edit';
 @import 'users-sign_up';
 @import 'users_indentification';
 @import 'users_footer';
+@import 'users_logout';
+@import 'users_show';
+@import 'users/my-container';
+@import 'users/cards/show';
+@import 'users/cards/new';
+
+// items
+@import 'items_index';
+@import 'item-card';
+@import 'item-negotiation';
+@import 'items/deals/new';
+@import 'items/deals/done';
+@import 'items/deals/cards/show';
+@import 'item_show';
+@import 'item_new';
+
 @import 'registration_info';
 @import 'register_user_sign_in';
 @import 'register_user_shipping';
-@import 'cards/show';
-@import 'cards/new';
+
 @import 'register_complete';
 @import 'edit_user_info';
 @import 'app_banner';

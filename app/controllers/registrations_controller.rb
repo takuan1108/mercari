@@ -1,5 +1,7 @@
 class RegistrationsController < Devise::RegistrationsController
 
+  before_action :header_menu,only: [:edit,:new]
+
 
   def new
     super
@@ -11,18 +13,18 @@ class RegistrationsController < Devise::RegistrationsController
     super
   end
 
+  def edit
+    @user = current_user
+    super
+  end
+
   def update
     super
   end
 
   private
-
   def after_sign_up_path_for(resource)
-    register_user_address_users_path
-  end
-
-  def after_sign_up_path_for(resource)
-    register_user_address_users_path
+    new_vendor_path
   end
 
   def prevent_password_nil
