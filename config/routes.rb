@@ -14,6 +14,7 @@ Rails.application.routes.draw do
     end
   end
   resources :items do
+    resources :item_comments,only: [:create]
     resource :deal, only: [:new, :create], module: "items" do
       resource :card, except: [:edit, :update], module: "deals"
       collection do
