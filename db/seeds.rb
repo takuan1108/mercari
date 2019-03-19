@@ -146,7 +146,7 @@ puts "アイテムイメージテーブルを入力中・・・"
 CSV.foreach('db/csv/item_images.csv') do |row|
   ItemImage.create(
     id:row[0],
-    image:open('db/sample_image/google.png'),
+    image:open(row[1]),
     item_id:row[2],
     created_at:row[3],
     updated_at:row[4]
@@ -170,10 +170,6 @@ puts "ストリートアドレステーブルを入力中・・・"
 CSV.foreach('db/csv/street_addresses.csv',external_encoding: "Shift_JIS",internal_encoding: "utf-8") do |row|
   StreetAddress.create(
     id:row[0],
-    family_name:"中田",
-    first_name:"将洋",
-    family_name_phonetic:"ナカタ",
-    first_name_phonetic:"マサヒロ",
     post_number:row[1],
     prefecture_id:row[2],
     city:row[3],
@@ -190,12 +186,11 @@ puts "ディールズテーブルを入力中・・・"
 CSV.foreach('db/csv/deals.csv',external_encoding: "Shift_JIS",internal_encoding: "utf-8") do |row|
   Deal.create(
     id:row[0],
-    string:row[1],
+    status:4,
     user_id:row[2],
     item_id:row[3],
-    vendor_id:row[4],
-    created_at:row[5],
-    updated_at:row[6]
+    created_at:row[4],
+    updated_at:row[5]
   )
 end
 
