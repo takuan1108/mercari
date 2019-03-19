@@ -2,7 +2,6 @@ class RegistrationsController < Devise::RegistrationsController
 
   before_action :header_menu,only: [:edit,:new]
 
-
   def new
     super
   end
