@@ -31,8 +31,9 @@ class ItemsController < ApplicationController
     @images = @item.item_images
     @comment = ItemComment.new
     @comments = @item.item_comments
-    @vendor_items = Item.where.not(id:params[:id]).where(vendor_id:@item.vendor_id).order(id: :DESC).limit(6)
-    @brand_items = Item.where.not(id:params[:id]).where(brand:@item.brand).order(id: :DESC).limit(6)
+    sold_item = Deal.pluck('item_id')
+    @vendor_items = Item.where.not('id=? or id=?',params[:id],sold_item).where(vendor_id:@item.vendor_id).order(id: :DESC).limit(6)
+    @brand_items = Item.where.not('id=? or id=?',params[:id],sold_item).where(brand:@item.brand).order(id: :DESC).limit(6)
   end
 
   def buy

@@ -9,10 +9,4 @@ module ItemsHelper
       # @items = Item.includes(:brand).where(brands:{name:category.name}).limit(4)
     end
   end
-
-  def show_item_images(images)
-    images.each_with_index do |image,i|
-      image_tag(image.image,class:'bottom-image-little',value:i)
-    end
-  end
 end
