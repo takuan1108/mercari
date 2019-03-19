@@ -1,7 +1,7 @@
 $(function(){
   // onメソッドで使用する関数を定義
   function validate_email(ele){
-      var error; // エラー用の変数を定義
+      let error; // エラー用の変数を定義
       if( ele.val() === '' || !ele.val().match(/^([a-zA-Z0-9])+([a-zA-Z0-9\._-])*@([a-zA-Z0-9_-])+([a-zA-Z0-9\._-]+)+$/)) {
         error = true;
         // 思ったような入力値が得られなかった場合にerror変数にtrueを代入し、値の有無によって下記の条件式を発動させるか決めている
@@ -19,7 +19,7 @@ $(function(){
   }
 
   function validate_name(ele){
-      var error;
+      let error;
       if( ele.val() === '' || !ele.val().match(/^[ぁ-んァ-ヶー一-龠 \r\n\t]+$/)) {
         error = true;
         }
@@ -33,7 +33,7 @@ $(function(){
   }
 
   function validate_name_phonetic(ele){
-      var error;
+      let error;
       if( ele.val() === '' || !ele.val().match(/^[ァ-ロワヲンー \r\n\t]*$/)) {
         error = true;
         }
@@ -47,7 +47,7 @@ $(function(){
   }
 
   function validate_password(ele){
-      var error;
+      let error;
       if( ele.val() === '' || ele.val().length < 6 ) {
         error = true;
         }
@@ -61,7 +61,7 @@ $(function(){
   }
 
   function validate_date(ele){
-    var error;
+    let error;
     if( ele.val() === '') {
       error = true;
       }
@@ -75,7 +75,7 @@ $(function(){
   }
 
   function validate_tel(ele){
-    var error;
+    let error;
     if( ele.val() === '' || !ele.val().match(/^0\d{1,4}-\d{1,4}-\d{3,4}$/)) {
       error = true;
       }
@@ -134,17 +134,17 @@ $(function(){
       }
     }
 
-    var email = $('#user_email').val();
-    var nickname = $('#user_nickname').val();
-    var password = $('#user_password').val();
-    var password_confirmation = $('#user_password_confirmation').val();
-    var first_name = $('#user_first_name').val();
-    var family_name = $('#user_family_name').val();
-    var first_name_phonetic = $('#user_first_name_phonetic').val();
-    var family_name_phonetic = $('#user_family_name_phonetic').val();
-    var birth_year = $('#user_birth_year').val();
-    var birth_month = $('#user_birth_month').val();
-    var birth_day = $('#user_birth_day').val();
+    let email = $('#user_email').val();
+    let nickname = $('#user_nickname').val();
+    let password = $('#user_password').val();
+    let password_confirmation = $('#user_password_confirmation').val();
+    let first_name = $('#user_first_name').val();
+    let family_name = $('#user_family_name').val();
+    let first_name_phonetic = $('#user_first_name_phonetic').val();
+    let family_name_phonetic = $('#user_family_name_phonetic').val();
+    let birth_year = $('#user_birth_year').val();
+    let birth_month = $('#user_birth_month').val();
+    let birth_day = $('#user_birth_day').val();
 
     validate_email($('#user_email'))
     validate_name($('#user_family_name'));
@@ -157,7 +157,7 @@ $(function(){
     validate_date($('#user_birth_year'));
     validate_date($('#user_birth_month'));
     validate_date($('#user_birth_day'));
-    var check = $(".error").length
+    let check = $(".error").length
 
     if(check >= 1 || check_parameter_presence(email, nickname, password, password_confirmation, first_name, family_name, first_name_phonetic, family_name_phonetic, birth_year, birth_month, birth_day)){
       $(this).after('<span class="error" style="color: red">入力ミスがあります。<br/> 修正後に再度ボタンを押してください</span>');
@@ -172,8 +172,8 @@ $(function(){
       $('.next-text').addClass('no-display');
       $('.second_header').text('電話番号確認');
       $(this).addClass('no-display');
-      var process = $('.progressbar').children('.active');
-      var next_process = process.next();
+      let process = $('.progressbar').children('.active');
+      let next_process = process.next();
       next_process.addClass('active');
       process.css(':after {background-color: #55b776;}')
     }
