@@ -1,9 +1,6 @@
 class Item < ApplicationRecord
   extend ActiveHash::Associations::ActiveRecordExtensions
-<<<<<<< HEAD
   # # belongs_to :user
-=======
->>>>>>> ma-kun92/master
   belongs_to :vendor
   belongs_to_active_hash :prefecture
   # belongs_to :brand

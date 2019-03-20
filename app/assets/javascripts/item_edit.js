@@ -12,9 +12,8 @@ $(function(){
                 </li>`
     edit_image.append(html);
   }
-  for (let i = 0; i < images.length -1; i++){
+  for (var i = 0; i < images.length -1; i++){
     var ima = images[i]
-    // console.log(ima.image.url)
     edit_images(ima.image.url)
     }
   var target = document.getElementById('drop-edit');
