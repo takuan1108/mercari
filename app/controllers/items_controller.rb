@@ -1,5 +1,6 @@
 class ItemsController < ApplicationController
   before_action :header_menu,only: [:index,:show]
+  add_breadcrumb 'メルカリ', :root_path, except: [:index]
 
   def index
   end
@@ -33,6 +34,7 @@ class ItemsController < ApplicationController
     sold_item = Deal.pluck('item_id')
     @vendor_items = Item.where.not('id=? or id=?',params[:id],sold_item).where(vendor_id:@item.vendor_id).order(id: :DESC).limit(6)
     @brand_items = Item.where.not('id=? or id=?',params[:id],sold_item).where(brand:@item.brand).order(id: :DESC).limit(6)
+    add_breadcrumb @item.name, :item_path
   end
 
   def image
@@ -44,16 +46,10 @@ class ItemsController < ApplicationController
     redirect_to users_path
   end
 
-  def destroy
-    item = Item.find(params[:id])
-    item.destroy if item.vendor_id == current_user.id
-    redirect_to users_path
-  end
 
   private
   def item_params
     params.require(:item).permit(:name,:description,:price,:condition,:shipping_fee,:shipping_date,:shipping_method,:prefecture_id,:size_id,:category_id,:brand,
       item_images_attributes: [:image])
-
   end
 end

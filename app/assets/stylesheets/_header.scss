@@ -17,7 +17,7 @@
   }
   .text-center{
     text-align:center;
-}
+  }
   .clearfix{
     clear:both;
   }
@@ -288,9 +288,30 @@
             margin:10px 10px;
             color:rgb(0,153,232);
           }
-
         }
       }
+    }
+  }
+}
+.bread-crumbs{
+  border-top:$border;
+  background-color: white;
+  position: relative;
+  z-index: 1000;
+  @include box-shadow;
+  &__main{
+    width: 1020px;
+    height: 48px;
+    line-height: 50px;
+    margin: 0 auto;
+    font-size: 14px;
+    color:#333;
+    a{
+      color:#333;
+      text-decoration: none;
+    }
+    a:hover{
+      text-decoration: underline;
     }
   }
 }
