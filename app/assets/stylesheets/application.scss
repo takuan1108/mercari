@@ -22,14 +22,16 @@
 @import 'users/cards/new';
 
 // items
-@import 'items_index';
+@import 'items/items_index';
 @import 'item-card';
 @import 'item-negotiation';
 @import 'items/deals/new';
 @import 'items/deals/done';
 @import 'items/deals/cards/show';
-@import 'item_show';
+@import 'items/item_show';
 @import 'item_new';
+@import 'slick';
+@import 'slick-theme';
 
 @import 'registration_info';
 @import 'register_user_sign_in';

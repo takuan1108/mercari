@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  before_action :header_menu,only: [:index,:edit,:index]
+  before_action :header_menu,only: [:index,:edit,:index,:logout]
 
   def index
   end
