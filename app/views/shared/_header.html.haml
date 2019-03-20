@@ -11,94 +11,44 @@
     .pc-header-nav-box
       %nav.l-left
         %ul.pc-header-nav
-          %li
-            %h2
-              =link_to("カテゴリーから探す","",class:'pc-header-nav-root switch')
-            -# ここからプルダウンメニュー＝＝全てEach文で表現。その際にaタグをlink_toに書き換え＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝
+          %li.switch
+            =link_to("カテゴリーから探す","",class:'pc-header-nav-root')
             %ul.large-category-wrap
-              %li.large-category
-                %a{href: "https://www.mercari.com/jp/category/1/"} レディース
-                %ul.middle-category-wrap
-                  %li.middle-category
-                    %a{href: "https://www.mercari.com/jp/category/11/"} トップス
-                    %ul.small-category-wrap
-                      %li.small-category
-                        %a{href: "https://www.mercari.com/jp/category/119/"} Tシャツ/カットソー(半袖/袖なし)
-                      %li.small-category
-                        %a{href: "https://www.mercari.com/jp/category/119/"} Tシャツ/カットソー(半袖/袖なし)
-                      %li.small-category
-                        %a{href: "https://www.mercari.com/jp/category/119/"} Tシャツ/カットソー(半袖/袖なし)
-                      %li.small-category
-                        %a{href: "https://www.mercari.com/jp/category/119/"} Tシャツ/カットソー(半袖/袖なし)
-                      %li.small-category
-                        %a{href: "https://www.mercari.com/jp/category/119/"} Tシャツ/カットソー(半袖/袖なし)
-                      %li.small-category
-                        %a{href: "https://www.mercari.com/jp/category/119/"} Tシャツ/カットソー(半袖/袖なし)
-                      %li.small-category
-                        %a{href: "https://www.mercari.com/jp/category/119/"} Tシャツ/カットソー(半袖/袖なし)
-                      %li.small-category
-                        %a{href: "https://www.mercari.com/jp/category/119/"} Tシャツ/カットソー(半袖/袖なし)
-                      %li.small-category
-                        %a{href: "https://www.mercari.com/jp/category/132/"} パーカー
-                      .clearfix
-                  %li.middle-category
-                    %a{href: "https://www.mercari.com/jp/category/11/"} トップス
-                    %ul.small-category-wrap
-                  %li.middle-category
-                    %a{href: "https://www.mercari.com/jp/category/11/"} トップス
-                    %ul.small-category-wrap
-                  %li.middle-category
-                    %a{href: "https://www.mercari.com/jp/category/11/"} トップス
-                    %ul.small-category-wrap
-                  %li.middle-category
-                    %a{href: "https://www.mercari.com/jp/category/11/"} トップス
-                    %ul.small-category-wrap
-                  %li.middle-category
-                    %a{href: "https://www.mercari.com/jp/category/24/"} 時計
-                    %ul.small-category-wrap
-              %li.large-category
-                %h3
-                  %a{href: "https://www.mercari.com/jp/category/1/"} レディース
-                %ul.middle-category-wrap
-              %li.large-category
-                %h3
-                  %a{href: "https://www.mercari.com/jp/category/1/"} レディース
-                %ul.middle-category-wrap
-              %li.large-category
-                %h3
-                  %a{href: "https://www.mercari.com/jp/category/1/"} レディース
-                %ul.middle-category-wrap
-              %li.large-category
-                %h3
-                  %a{href: "https://www.mercari.com/jp/category/1/"} レディース
-                %ul.middle-category-wrap
-              %li.large-category
-                %h3
-                  %a{href: "https://www.mercari.com/jp/category/1/"} カテゴリ一覧
-                %ul.middle-category-wrap
+              -l_category_define
+              -@l_categories.each do |l_category|
+                %li.large-category.hover_red
+                  =link_to(l_category.name,"/")
+                  %ul.middle-category-wrap
+                    -m_category_define(l_category)
+                    -@m_categories.each do |m_category|
+                      %li.middle-category.hover_grey
+                        =link_to(m_category.name,"/")
+                        %ul.small-category-wrap
+                          -s_category_define(m_category)
+                          -@s_categories.each do |s_category|
+                            %li.small-category.hover_grey
+                              =link_to(s_category.name,"/")
 
-            -# -----------------------------------------------------------------------------------
-          %li
-            %h2
-              =link_to("ブランドから探す","",class:"pc-header-nav-root switch")
-              -# --------プルダウンメニュー----------------------------------------------------------------------------
-              %ul.large-category-wrap
-                %li.large-category
-                  %h3
-                    %a{href: "https://www.mercari.com/jp/brand/658/"} シャネル
-              -# -----------------------------------------------------------------------------------
+          %li.switch
+            =link_to("ブランドから探す","",class:"pc-header-nav-root")
+            %ul.large-category-wrap
+              -@pick_up_brands.each do |brand|
+                %li.large-category.hover_red
+                  =link_to(brand.name,"/")
+              %li.large-category.hover_red
+                =link_to("ブランド一覧","/")
       -if user_signed_in?
         .l-right
           %ul.pc-header-user-nav
-            %li
-              =link_to(image_tag("member_photo_noimage.png",class:'user-icon'),"/users",class:"pc-header-nav-root")
+            %li.switch
+              =link_to(image_tag(current_user.icon,class:'user-icon'),users_path,class:"pc-header-nav-root")
               .mypage-title マイページ
-              .pc-header-user-box.pc-header-mypage-box.mypage.mypage-detail
+              .mypage-box
                 .pc-header-mypage-state.text-center
                   .user-background
                     .user-icon
-                      =image_tag("member_photo_noimage.png")
-                    %figcaption しろ
+                      =image_tag(current_user.icon)
+                    %figcaption=current_user.nickname
                   %ul.pc-header-mypage-review-listing
                     %li
                       =link_to("評価: #{0}","#")
@@ -106,50 +56,50 @@
                       =link_to("出品数: #{0}","#")
                   %ul.pc-header-mypage-sales-point
                     %li
-                      %a{href: "https://www.mercari.com/jp/mypage/sales/"}
+                      %a{href: "#"}
                         .l-left 売上金
                         .l-right
                           ¥ 0
                           =fa_icon('angle-right')
                     .clearfix
                     %li
-                      %a{href: "https://www.mercari.com/jp/mypage/point/"}
+                      %a{href: "#"}
                         .l-left ポイント
                         .l-right
                           P 0
                           =fa_icon('angle-right')
                 %ul.mypage-nav-list
                   %li
-                    %a.mypage-nav-list-item{href: "https://www.mercari.com/jp/mypage/like/history/"}
+                    %a.mypage-nav-list-item{href: "#"}
                       いいね！一覧
                       =fa_icon('angle-right')
                   %li
-                    %a.mypage-nav-list-item{href: "https://www.mercari.com/jp/mypage/listings/listing/"}
+                    %a.mypage-nav-list-item{href: "#"}
                       出品した商品 - 出品中
                       =fa_icon('angle-right')
                   %li
-                    %a.mypage-nav-list-item{href: "https://www.mercari.com/jp/mypage/listings/in_progress/"}
+                    %a.mypage-nav-list-item{href: "#"}
                       出品した商品 - 取引中
                       =fa_icon('angle-right')
                   %li
-                    %a.mypage-nav-list-item{href: "https://www.mercari.com/jp/mypage/listings/completed/"}
+                    %a.mypage-nav-list-item{href: "#"}
                       出品した商品 - 売却済み
                       =fa_icon('angle-right')
                   %li
-                    %a.mypage-nav-list-item{href: "https://www.mercari.com/jp/mypage/purchase/"}
+                    %a.mypage-nav-list-item{href: "#"}
                       購入した商品 - 取引中
                       =fa_icon('angle-right')
                   %li
-                    %a.mypage-nav-list-item{href: "https://www.mercari.com/jp/mypage/purchased/"}
+                    %a.mypage-nav-list-item{href: "#"}
                       購入した商品 - 過去の取引
                       =fa_icon('angle-right')
-            %li{"data-id" => "pc-header-user-nav", "data-key" => "notification_list", "data-url" => "https://www.mercari.com/jp/mypage/notification_and_todo_json/"}
-              %a.pc-header-nav-root{"data-url" => "https://www.mercari.com/jp/mypage/notification_and_todo_json/", href: "https://www.mercari.com/jp/mypage/notification/"}
-                =fa_icon("bell",class:'icon-bell')
+            %li{"data-id" => "pc-header-user-nav", "data-key" => "notification_list", "data-url" => "#"}
+              %a.pc-header-nav-root{"data-url" => "#", href: "#"}
+                =fa_icon("bell-o",class:'icon-bell')
                 %span お知らせ
               %ul.pc-header-user-box.pc-header-notification-box.mypage-item-list{"data-id" => "pc-header-user-items"}
-            %li{"data-id" => "pc-header-user-nav", "data-key" => "todo_list", "data-url" => "https://www.mercari.com/jp/mypage/notification_and_todo_json/"}
-              %a.pc-header-nav-root{"data-url" => "https://www.mercari.com/jp/mypage/notification_and_todo_json/", href: "https://www.mercari.com/jp/mypage/todo/"}
+            %li{"data-id" => "pc-header-user-nav", "data-key" => "todo_list", "data-url" => "#"}
+              %a.pc-header-nav-root{"data-url" => "#", href: "#"}
                 =fa_icon("check",class:'icon-check')
                 %span やることリスト
               %ul.pc-header-user-box.pc-header-todo-box.mypage-item-list{"data-id" => "pc-header-user-items"}

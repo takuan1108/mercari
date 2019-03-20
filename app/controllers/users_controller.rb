@@ -1,4 +1,5 @@
 class UsersController < ApplicationController
+  before_action :header_menu,only: [:index,:edit,:index,:logout]
 
   def index
   end
@@ -13,6 +14,10 @@ class UsersController < ApplicationController
     else
       renderb:edit
     end
+  end
+
+  def logout
+
   end
 
   private

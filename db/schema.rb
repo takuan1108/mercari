@@ -10,17 +10,9 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-<<<<<<< HEAD
-<<<<<<< HEAD
-ActiveRecord::Schema.define(version: 20190315220906) do
-=======
-ActiveRecord::Schema.define(version: 20190314112909) do
->>>>>>> ma-kun92/master
-=======
->>>>>>> ma-kun92/master
 
-ActiveRecord::Schema.define(version: 20190316074524) do
-  
+ActiveRecord::Schema.define(version: 20190318060113) do
+
   create_table "brands", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "name"
     t.datetime "created_at",                 null: false
@@ -128,12 +120,8 @@ ActiveRecord::Schema.define(version: 20190316074524) do
     t.string   "address"
     t.string   "building_name"
     t.integer  "user_id"
-    t.datetime "created_at",           null: false
-    t.datetime "updated_at",           null: false
-    t.string   "family_name",          null: false
-    t.string   "first_name",           null: false
-    t.string   "family_name_phonetic", null: false
-    t.string   "first_name_phonetic",  null: false
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
     t.index ["user_id"], name: "index_street_addresses_on_user_id", using: :btree
   end
 
@@ -186,8 +174,10 @@ ActiveRecord::Schema.define(version: 20190316074524) do
     t.string   "city"
     t.string   "address"
     t.string   "building_name"
-    t.datetime "created_at",     null: false
-    t.datetime "updated_at",     null: false
+    t.datetime "created_at",           null: false
+    t.datetime "updated_at",           null: false
+    t.string   "first_name_phonetic"
+    t.string   "family_name_phonetic"
     t.index ["user_id"], name: "index_vendors_on_user_id", using: :btree
   end
 
