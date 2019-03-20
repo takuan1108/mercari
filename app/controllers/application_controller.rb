@@ -1,6 +1,7 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
   before_action :configure_permitted_parameters, if: :devise_controller?
+  before_action :clear_flash_notice , if: :devise_controller?
 
 private
   def after_sign_in_path_for(resource)
@@ -20,6 +21,10 @@ private
     devise_parameter_sanitizer.permit(:account_update) do |u|
       u.permit(:first_name, :last_name, :email, :password, :password_confirmation, :payjp_id)
     end
+  end
+
+  def clear_flash_notice
+    flash.delete(:alert)
   end
 
   def sign_in_required
