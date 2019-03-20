@@ -2,6 +2,7 @@ class ItemsController < ApplicationController
   before_action :header_menu,only: [:index,:show,:search]
   before_action :set_item,only: [:show,:update]
   before_action :set_js_params,only: [:new,:edit]
+  before_action :move_to_index,only: [:new,:edit]
 
   def index
   end
@@ -87,4 +88,9 @@ class ItemsController < ApplicationController
     gon.small  = Category.where(id:[154..1212])
     gon.size = Size.all
   end
+
+  def move_to_index
+    redirect_to action: :index unless user_signed_in?
+  end
+
 end
