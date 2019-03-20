@@ -38,6 +38,10 @@ class ItemsController < ApplicationController
     redirect_to users_path
   end
 
+  def search
+    @items = Item.where('name LIKE(?)',"%#{params[:keyword]}%")
+  end
+
   def destroy
     item = Item.find(params[:id])
     item.destroy if item.vendor_id == current_user.id

@@ -24,6 +24,9 @@ Rails.application.routes.draw do
         get 'done'
       end
     end
+    collection do
+      get 'search'
+    end
   end
   root 'items#index'
 end
