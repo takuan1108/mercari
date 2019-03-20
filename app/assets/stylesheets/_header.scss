@@ -17,17 +17,14 @@
   }
   .text-center{
     text-align:center;
+    @include clearfix;
   }
-  .clearfix{
-    clear:both;
-  }
-
-
   .inner{
     width:1020px;
     margin: 0 auto;
     padding: 8px 0 0;
-    .clearfix{
+    .pc-header-search-box{
+      @include clearfix;
       .l-left{
         float:left;
         a{
@@ -61,6 +58,7 @@
     }
     .pc-header-nav-box{
       margin:8px 0 0;
+      @include clearfix;
       .l-left{
         float:left;
         height: 40px;
