@@ -10,8 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-
-ActiveRecord::Schema.define(version: 20190318060113) do
+ActiveRecord::Schema.define(version: 20190320070241) do
 
   create_table "brands", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "name"
@@ -27,17 +26,6 @@ ActiveRecord::Schema.define(version: 20190318060113) do
     t.datetime "created_at",                   null: false
     t.datetime "updated_at",                   null: false
     t.boolean  "pick_up",      default: false, null: false
-  end
-
-  create_table "credit_cards", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
-    t.string   "card_number",   null: false
-    t.integer  "month",         null: false
-    t.integer  "year",          null: false
-    t.string   "security_code", null: false
-    t.integer  "user_id"
-    t.datetime "created_at",    null: false
-    t.datetime "updated_at",    null: false
-    t.index ["user_id"], name: "index_credit_cards_on_user_id", using: :btree
   end
 
   create_table "deals", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
@@ -79,18 +67,11 @@ ActiveRecord::Schema.define(version: 20190318060113) do
     t.string   "brand"
     t.integer  "size_id"
     t.integer  "category_id"
-<<<<<<< HEAD
-=======
     t.integer  "vendor_id"
->>>>>>> ma-kun92/master
     t.datetime "created_at",                    null: false
     t.datetime "updated_at",                    null: false
-    t.integer  "vendor_id"
     t.index ["category_id"], name: "index_items_on_category_id", using: :btree
-<<<<<<< HEAD
-=======
     t.index ["vendor_id"], name: "index_items_on_vendor_id", using: :btree
->>>>>>> ma-kun92/master
   end
 
   create_table "size_types", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
@@ -181,20 +162,12 @@ ActiveRecord::Schema.define(version: 20190318060113) do
     t.index ["user_id"], name: "index_vendors_on_user_id", using: :btree
   end
 
-  add_foreign_key "credit_cards", "users"
   add_foreign_key "deals", "items"
   add_foreign_key "deals", "users"
   add_foreign_key "item_comments", "items"
   add_foreign_key "item_comments", "users"
   add_foreign_key "items", "categories"
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
-  add_foreign_key "items", "users"
-=======
->>>>>>> ma-kun92/master
   add_foreign_key "items", "vendors"
->>>>>>> ma-kun92/master
   add_foreign_key "social_profiles", "users"
   add_foreign_key "street_addresses", "users"
   add_foreign_key "valuations", "users"

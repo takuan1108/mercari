@@ -1,5 +1,6 @@
 class UsersController < ApplicationController
   before_action :header_menu,only: [:index,:edit,:index,:logout]
+  before_action :authenticate_user!, only: :index
 
   def index
   end

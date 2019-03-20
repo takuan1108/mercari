@@ -1,5 +1,8 @@
 class ItemsController < ApplicationController
-  before_action :header_menu,only: [:index,:show]
+  before_action :header_menu,only: [:index,:show,:search]
+  before_action :set_item,only: [:show,:update]
+  before_action :set_js_params,only: [:new,:edit]
+  before_action :move_to_index,only: [:new,:edit]
 
   def index
   end
@@ -7,10 +10,7 @@ class ItemsController < ApplicationController
   def new
     @item = Item.new
     @item.item_images.build
-    @brands = Brand.all
-    gon.middle = Category.where(id:[15..153])
-    gon.small  = Category.where(id:[154..1212])
-    gon.size = Size.all
+    gon.image = @item.item_images
   end
 
   def create
@@ -26,22 +26,15 @@ class ItemsController < ApplicationController
   end
 
   def show
-    @item = Item.find(params[:id])
     @images = @item.item_images
     @comment = ItemComment.new
-    @comments = @item.item_comments
+    # @comments = @item.item_comments
     sold_item = Deal.pluck('item_id')
     @vendor_items = Item.where.not('id=? or id=?',params[:id],sold_item).where(vendor_id:@item.vendor_id).order(id: :DESC).limit(6)
     @brand_items = Item.where.not('id=? or id=?',params[:id],sold_item).where(brand:@item.brand).order(id: :DESC).limit(6)
   end
 
   def image
-  end
-
-  def destroy
-    item = Item.find(params[:id])
-    item.destroy if item.vendor_id == current_user.id
-    redirect_to users_path
   end
 
   def search
@@ -57,21 +50,14 @@ class ItemsController < ApplicationController
   def edit
     @item = Item.find(params[:id])
     @item.item_images.build
-    @large = Category.roots
     @category = @item.category
-    gon.category = @category
-    gon.middle_category = @category.parent
+    @large = Category.roots
     @middle = @category.parent
     @small = @category.root
-    @image = ItemImage.where(params[:item_id])
-    gon.middle = Category.where(id:[15..153])
-    gon.small  = Category.where(id:[154..1212])
-    gon.size = Size.all
     gon.image = @item.item_images
   end
 
   def update
-    @item = Item.find(params[:id])
     if @item.vendor_id == current_user.id
       @item.update(edit_item_params)
       if params[:image]
@@ -84,11 +70,27 @@ class ItemsController < ApplicationController
   end
 
   private
+
   def item_params
     params.require(:item).permit(:name,:description,:price,:condition,:shipping_fee,:shipping_date,:shipping_method,:prefecture_id,:size_id,:category_id,:brand,item_images_attributes: [:image]).merge(vendor_id: current_user.id)
-
   end
+
   def edit_item_params
     params.require(:item).permit(:name,:description,:price,:condition,:shipping_fee,:shipping_date,:shipping_method,:prefecture_id,:size_id,:category_id,:brand)
   end
+
+  def set_item
+    @item = Item.find(params[:id])
+  end
+
+  def set_js_params
+    gon.middle = Category.where(id:[15..153])
+    gon.small  = Category.where(id:[154..1212])
+    gon.size = Size.all
+  end
+
+  def move_to_index
+    redirect_to action: :index unless user_signed_in?
+  end
+
 end
