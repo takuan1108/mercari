@@ -1,5 +1,7 @@
 $(function(){
   var images = gon.image
+  // var images = gon_images[0]
+  console.log(images)
   var edit_image = $(".sell-dropbox-items-edit");
   var i_count = 1;
   function edit_images(image) {
@@ -12,7 +14,7 @@ $(function(){
                 </li>`
     edit_image.append(html);
   }
-  for (var i = 0; i < images.length -1; i++){
+  for (var i = 0; i < images.length - 1; i++){
     var ima = images[i]
     edit_images(ima.image.url)
     }

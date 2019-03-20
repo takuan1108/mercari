@@ -1,7 +1,8 @@
 class ItemsController < ApplicationController
-  before_action :header_menu,only: [:index,:show]
-  before_action :set_item,only: [:show,:edit,:update]
+  before_action :header_menu,only: [:index,:show,:search]
+  before_action :set_item,only: [:show,:update]
   before_action :set_js_params,only: [:new,:edit]
+
   def index
   end
 
@@ -46,6 +47,7 @@ class ItemsController < ApplicationController
   end
 
   def edit
+    @item = Item.find(params[:id])
     @item.item_images.build
     @category = @item.category
     @large = Category.roots
