@@ -11,11 +11,16 @@
 # It's strongly recommended that you check this file into your version control system.
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 ActiveRecord::Schema.define(version: 20190315220906) do
 =======
 ActiveRecord::Schema.define(version: 20190314112909) do
 >>>>>>> ma-kun92/master
+=======
+>>>>>>> ma-kun92/master
 
+ActiveRecord::Schema.define(version: 20190316074524) do
+  
   create_table "brands", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "name"
     t.datetime "created_at",                 null: false
@@ -44,15 +49,13 @@ ActiveRecord::Schema.define(version: 20190314112909) do
   end
 
   create_table "deals", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
-    t.string   "string",     null: false
+    t.integer  "status",     null: false
     t.integer  "user_id"
     t.integer  "item_id"
-    t.integer  "vendor_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["item_id"], name: "index_deals_on_item_id", using: :btree
     t.index ["user_id"], name: "index_deals_on_user_id", using: :btree
-    t.index ["vendor_id"], name: "index_deals_on_vendor_id", using: :btree
   end
 
   create_table "item_comments", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
@@ -191,7 +194,6 @@ ActiveRecord::Schema.define(version: 20190314112909) do
   add_foreign_key "credit_cards", "users"
   add_foreign_key "deals", "items"
   add_foreign_key "deals", "users"
-  add_foreign_key "deals", "vendors"
   add_foreign_key "item_comments", "items"
   add_foreign_key "item_comments", "users"
   add_foreign_key "items", "categories"
