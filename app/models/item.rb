@@ -3,7 +3,7 @@ class Item < ApplicationRecord
   belongs_to :user
   belongs_to :vendor
   belongs_to_active_hash :prefecture
-  belongs_to :brand
+  # belongs_to :brand
   belongs_to :size
   belongs_to :category
   has_many :item_images,dependent: :destroy
