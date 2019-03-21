@@ -14,6 +14,7 @@ set :default_env, {
 }
 
 set :linked_files, %w{ config/secrets.yml }
+set :linked_files, %w{ .env }
 
 set :rbenv_type, :user
 set :rbenv_ruby, '2.3.1'
